@@ -1,0 +1,32 @@
+/*返回信息提示*/
+.prompt {
+	padding: 50px 100px 50px 50px;
+	background: #fafafa;
+}
+.prompt-inner {
+	font-size: 34px;
+	font-family: 'Microsoft YaHei UI', 'Microsoft YaHei', SimSun, 'Segoe UI', Tahoma, Helvetica, Sans-Serif;
+	text-align: center;
+	color: #666;
+}
+.prompt-inner .ico-success,
+.prompt-inner .ico-error {
+	position: relative;
+	top: -4px;
+	display: inline-block;
+	margin: 0 10px;
+	width: 40px;
+	height: 40px;
+	vertical-align: middle;
+	background: url("../image/sprite.png") no-repeat;
+}
+.prompt-inner .ico-success {
+	background-position: 0 0;
+}
+.prompt-inner .ico-error {
+	background-position: 0 -50px;
+}
+
+
+
+
