@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Flateam - 轻量项目管理</title>
+	<meta content="" name="keywords">
+	<meta content="....." name="description">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link type="image/x-icon" href="/img/favicon.ico" rel="shortcut icon">
+	<link rel="stylesheet" href="<?php echo base_url('public/css/reset.css'); ?>">
+	<link rel="stylesheet" href="<?php echo base_url('public/css/flatter.css'); ?>">
+	<link rel="stylesheet" href="<?php echo base_url('public/css/bootstrap-responsive.min.css'); ?>">
+
+
+	<link rel="stylesheet" href="<?php echo base_url('public/css/animation.css'); ?>">
+	<link rel="stylesheet" href="<?php echo base_url('public/css/module.css'); ?>">
+
+	<script type="text/javascript">
+		var BASE_URL = '<?php echo base_url()?>';
+		var SITE_URL = '<?php echo site_url()?>';
+	</script>
+	<script type="text/javascript" src="<?php echo base_url('public/js/jquery.1.9.0.min.js'); ?>"></script>
+	<script type="text/javascript" src="<?php echo base_url('public/js/bootstrap.min.js'); ?>"></script>
+	<script type="text/javascript" src="<?php echo base_url('public/js/core.js'); ?>"></script>
+	<script type="text/javascript" src="<?php echo base_url('public/js/module.js'); ?>"></script>
+</head>
+<body>
+
+<div class="navbar navbar-static-top navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+			<a class="btn btn-navbar collapsed" data-target=".nav-collapse" data-toggle="collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a href="http://www.flatsns.com/" class="brand">Flat<span class="green">SNS</span></a>
+			<div class="nav-collapse collapse">
+				<ul class="nav pull-left">
+					<li <?php if($this->router->class == 'home'){ ?>class="active"<?php } ?>><a href="<?php echo site_url()?>">首页</a></li>
+					<li <?php if($this->router->class == 'ask'){ ?>class="active"<?php } ?>><a href="<?php echo site_url('ask')?>">问答</a></li>
+					<li <?php if($this->router->class == 'setting'){ ?>class="active"<?php } ?>><a href="<?php echo site_url('setting')?>">设置</a></li>
+				</ul>
+
+				<ul class="nav pull-right">
+					<li class=""><a href="<?php echo site_url('user/register')?>"><i class="icon-user"></i>注册</a></li>
+					<li class=""><a href="<?php echo site_url('user/login')?>"><i class="icon-user"></i>登录</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- <header class="navbar navbar-static-top navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+			<a class="brand" href="<?php echo site_url()?>" title="">FlatSNS</a>
+			<div class="nav-collapse collapse">
+				<ul class="nav">
+					<li <?php if($this->router->class == 'home'){ ?>class="active"<?php } ?>><a href="<?php echo site_url()?>">首页</a></li>
+					<li <?php if($this->router->class == 'ask'){ ?>class="active"<?php } ?>><a href="<?php echo site_url('ask')?>">问答</a></li>
+					<li <?php if($this->router->class == 'setting'){ ?>class="active"<?php } ?>><a href="<?php echo site_url('setting')?>">设置</a></li>
+
+					<li><a href="<?php echo site_url('user/register')?>">注册</a></li>
+					<li><a href="<?php echo site_url('user/login')?>">登录</a></li>
+				</ul>
+			</div>
+				
+		</div>
+	</div>
+</header> -->

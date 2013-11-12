@@ -1,3 +1,13 @@
+/*common*/
+.container {
+	margin: 0 auto;
+	max-width: 980px;
+}
+.main {
+	min-height: 1200px;
+	padding: 70px 0 0 0;
+}
+
 /*返回信息提示*/
 .prompt {
 	padding: 50px 100px 50px 50px;

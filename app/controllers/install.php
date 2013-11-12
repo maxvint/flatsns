@@ -1,0 +1,14 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+class Install extends Main_Controller {
+
+	/**
+	 * Home页控制器
+	 *
+	 */
+	public function index() {
+		$data['name'] = 'yuwenhui';
+		echo 'Install';
+		$this->load->view('install.html', $data);
+	}
+}

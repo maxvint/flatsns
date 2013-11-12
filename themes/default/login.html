@@ -1,0 +1,27 @@
+<?php $this->load->view('header.html');?>
+<div class="container main">
+	<div class="a-fadein">
+		<div class="well">
+			<form action="<?php echo site_url('user/login?referer='.$referer); ?>" method="post" class="form-horizontal">
+				<fieldset>
+					<legend>用户登录</legend>
+					<div class="control-group">
+						<label for="title" class="span2 control-label"><strong class="require">*</strong>邮箱：</label>
+						<div class="span8">
+							<input type="text" name="email" class="input-xxlarge" id="email" placeholder="请输入您的邮箱">
+						</div>
+					</div>
+					<div class="control-group">
+						<label for="title" class="span2 control-label"><strong class="require">*</strong>密码：</label>
+						<div class="span8">
+							<input type="password" name="password" class="input-xxlarge" id="title" placeholder="请输入密码">
+						</div>
+					</div>
+					<div class="form-actions">
+						<button type="submit" class="btn btn-large btn-primary">登录</button>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</div>
