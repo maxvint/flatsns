@@ -1,0 +1,55 @@
+<?php $this->load->view('header.html');?>
+<secrion class="passport">
+	<div class="inner">
+		<div id="" class="container main">
+			<div class="row-fluid">
+				<div class="container span7">
+					<div class="intro">
+						<h1>为移动社区而生</h1>
+						<h4>轻量级、移动化社区系统</h4>
+						<h4>采用PHP + Mysql开发</h4>
+						<h4>iOS、iPad、Android，随心所欲</h4>
+						<a href="<?php echo site_url('user/register')?>" class="btn btn-large btn-primary btn-register"><i class="icon-user icon-white"></i>开始体验</a>
+						<a href="https://github.com/yuwenhui/flateam" class="btn btn-large btn-warning btn-download" target="_blank"><i class="icon-circle-arrow-down icon-white"></i>下载源码</a>
+					</div>
+				</div>
+				<div class="container span5 pull-right">
+					<div class="login" model-node="loginInput">
+						<form action="/ajaxLogin" method="post" id="doLogin" class="form-horizontal">
+							<div class="control-group">
+								<div class="span4">
+									<input type="text" name="email" id="email" class="input-xlarge" placeholder="邮箱" autocomplete="off" />
+									<div class="email-list on-changes" style="z-index:999">
+										<p>请选择或继续输入...</p>
+										<ul>
+											<li email="" rel="show"></li>
+	                                    	<li email="@163.com" rel="show"></li>
+	                                    	<li email="@126.com" rel="show"></li>
+	                                    	<li email="@qq.com" rel="show"></li>
+                                    	</ul>
+                                  	</div>
+								</div>
+							</div>
+							<div class="control-group">
+								<div class="span4">
+									<input type="password" name="password" id="password" class="input-xlarge" placeholder="密码" />
+								</div>
+							</div>
+							<div class="control-group">
+								<div class="span8">
+									<label class="checkbox">
+										<input type="checkbox" name="remember" id="remember" class="pull-left" value="1" />记住我，下次自动登录
+									</label>
+								</div>
+							</div>
+							<div class="form-login">
+								<button type="submit" class="btn btn-large btn-primary">登录</button>
+							</div>
+						</form>
+						<div id="message" class="error-box a-fadein"><i class="icon-error"></i></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</secrion>

@@ -5,6 +5,11 @@
  */
 class User extends Main_Controller {
 
+	public function __construct() {
+		parent::__construct();
+		$this->load->model('user_model');
+	}
+
 	/**
 	 * 首页
 	 *
@@ -20,8 +25,41 @@ class User extends Main_Controller {
 	 *
 	 */
 	public function register() {
-		
-		$this->load->view('register.html');
+		// 加载form类
+		$this->load->helper('form');
+
+		$data['title'] = '新用户注册';
+
+		if($_POST) {
+
+			$data = array(
+				'email' => $this->input->post('email' ,true),
+				'password' => md5($this->input->post('password', true)),
+				'username' => strip_tags($this->input->post('username', true)),
+				'group_type' => 2,
+				'gid' => 3,
+				'regtime' => time(),
+				'is_active' => 1
+			);
+
+			if($this->user_model->register($data)) {
+				$uid = $this->db->insert_id();
+				$session_data = array(
+					'uid' => $uid,
+					'email' => $data['email'],
+					'password' => $data['password'],
+					'username' => $data['username'],
+					'group_type' => $data['group_type'],
+					'gid' => $data['gid']
+				);
+				$this->session->set_userdata($session_data);
+
+				$this->session->unset_userdata('yzm');
+			}
+			redirect();
+
+		}
+		$this->load->view('register.html', $data);
 	}
 
 	/**

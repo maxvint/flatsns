@@ -1065,12 +1065,12 @@ input[type="tel"],
 input[type="color"],
 .uneditable-input {
   display: inline-block;
-  height: 20px;
-  padding: 6px 6px 8px;
+  height: 24px;
+  padding: 8px;
   margin-bottom: 10px;
   font-size: 14px;
   font-family: 'Microsoft YaHei UI', 'Microsoft YaHei', SimSun, 'Segoe UI', Tahoma, Helvetica, Sans-Serif;
-  line-height: 20px;
+  line-height: 24px;
   color: #555555;
   vertical-align: middle;
 }
@@ -1830,7 +1830,7 @@ legend + .control-group {
 .form-horizontal .control-label {
   float: left;
   width: 160px;
-  padding-top: 7px;
+  padding-top: 9px;
   text-align: right;
 }
 
@@ -1869,7 +1869,7 @@ legend + .control-group {
 }
 
 .form-horizontal .form-actions {
-  padding-left: 180px;
+  padding-left: 160px;
 }
 
 table {
@@ -2065,7 +2065,7 @@ table th[class*="span"],
   display: inline-block;
   width: 14px;
   height: 14px;
-  margin-top: 1px;
+  margin-top: 3px;
   *margin-right: .3em;
   line-height: 14px;
   vertical-align: text-top;

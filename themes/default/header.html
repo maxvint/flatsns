@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8" />
-	<title>Flateam - 轻量项目管理</title>
+	<title>FlatSNS - 为移动社区而生</title>
 	<meta content="" name="keywords">
 	<meta content="....." name="description">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -33,35 +33,17 @@
 			<div class="nav-collapse collapse">
 				<ul class="nav pull-left">
 					<li <?php if($this->router->class == 'home'){ ?>class="active"<?php } ?>><a href="<?php echo site_url()?>">首页</a></li>
-					<li <?php if($this->router->class == 'ask'){ ?>class="active"<?php } ?>><a href="<?php echo site_url('ask')?>">问答</a></li>
-					<li <?php if($this->router->class == 'setting'){ ?>class="active"<?php } ?>><a href="<?php echo site_url('setting')?>">设置</a></li>
+					<li <?php if($this->router->class == 'app'){ ?>class="active"<?php } ?>><a href="<?php echo site_url()?>">应用</a></li>
+					<li <?php if($this->router->class == 'mobile'){ ?>class="active"<?php } ?>><a href="<?php echo site_url()?>">客户端</a></li>
+					<!-- <li <?php if($this->router->class == 'ask'){ ?>class="active"<?php } ?>><a href="<?php echo site_url('ask')?>">问答</a></li>
+					<li <?php if($this->router->class == 'setting'){ ?>class="active"<?php } ?>><a href="<?php echo site_url('setting')?>">设置</a></li> -->
 				</ul>
 
 				<ul class="nav pull-right">
-					<li class=""><a href="<?php echo site_url('user/register')?>"><i class="icon-user"></i>注册</a></li>
+					<li class=""><a href="<?php echo site_url('user/register')?>"><i class="icon-edit"></i>注册</a></li>
 					<li class=""><a href="<?php echo site_url('user/login')?>"><i class="icon-user"></i>登录</a></li>
 				</ul>
 			</div>
 		</div>
 	</div>
 </div>
-
-
-<!-- <header class="navbar navbar-static-top navbar-fixed-top">
-	<div class="navbar-inner">
-		<div class="container">
-			<a class="brand" href="<?php echo site_url()?>" title="">FlatSNS</a>
-			<div class="nav-collapse collapse">
-				<ul class="nav">
-					<li <?php if($this->router->class == 'home'){ ?>class="active"<?php } ?>><a href="<?php echo site_url()?>">首页</a></li>
-					<li <?php if($this->router->class == 'ask'){ ?>class="active"<?php } ?>><a href="<?php echo site_url('ask')?>">问答</a></li>
-					<li <?php if($this->router->class == 'setting'){ ?>class="active"<?php } ?>><a href="<?php echo site_url('setting')?>">设置</a></li>
-
-					<li><a href="<?php echo site_url('user/register')?>">注册</a></li>
-					<li><a href="<?php echo site_url('user/login')?>">登录</a></li>
-				</ul>
-			</div>
-				
-		</div>
-	</div>
-</header> -->

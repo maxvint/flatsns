@@ -39,4 +39,144 @@
 
 
 
+/*passport*/
+.passport {
+  position: absolute;
+  margin: 0 auto;
+  width: 100%;
+  height: 1200px;
+}
+.passport .inner {
+  margin: 0 auto;
+  width: 100%;
+  height: 500px;
+  background: url("../img/bg.jpg") top center no-repeat;
+  background-size: cover;
+}
+.passport .intro {
+  padding: 30px 0 0 0;
+}
+.passport .intro h1 {
+  margin: 20px 0;
+  font-size: 50px;
+  color: #fff;
+  text-shadow: 0 0 1px #999;
+}
+.passport .intro h4 {
+  margin: 10px 0 0 0;
+  color: #999;
+  line-height: 30px;
+  text-shadow: 0 0 1px #333;
+}
+.passport .intro .btn-register,
+.passport .intro .btn-download {
+  margin: 50px 30px 0 0;
+  padding: 15px 40px;
+  font-size: 28px;
+  line-height: 28px;
+}
+.passport .intro i {
+  margin: 0;
+  padding: 0;
+  width: 20px;
+  height: 16px;
+  vertical-align: middle;
+}
+.passport .intro .btn-register {
+  text-shadow: 0 1px 0 #007543;
+}
+.passport .intro .btn-download {
+  text-shadow: 0 1px 0 #777;
+}
+.passport .login {
+  position: relative;
+  float: right;
+  margin: 20px 0;
+  padding: 40px 20px;
+  width: auto;
+  height: 280px;
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+}
+.passport .login .input-xlarge {
+  margin: 0;
+  padding: 5px;
+  width: 268px;
+  height: 32px;
+  line-height: 32px;
+  font-size: 18px;
+}
+.passport .login .form-login {
+  position: absolute;
+}
+.passport .login .form-login .btn {
+  width: 280px;
+  text-shadow: 0 1px 0 #007543;
+}
+.passport .login .on-changes {
+  display: none;
+}
+.passport .login .control-group {
+  position: relative;
+}
+.passport .login .email-list {
+  position: absolute;
+  width: 280px;
+  background: #333;
+}
+.passport .login .email-list p {
+  margin: 0;
+  padding: 0 10px;
+  line-height: 32px;
+}
+.passport .login .email-list ul {
+  margin: 0;
+}
+.passport .login .email-list li {
+  display: block;
+  padding: 0 10px;
+  width: 260px;
+  height: 32px;
+  line-height: 32px;
+  list-style: none;
+  cursor: pointer;
+}
+.passport .login .email-list li.current {
+  background: #555;
+}
+.passport .login .error-box {
+  position: absolute;
+  left: 30px;
+  bottom: 30px;
+  display: none;
+  padding: 0 0 0 20px;
+  width: 260px;
+  height: 50px;
+  background: #da4f49;
+}
+.passport .login .error-box .icon-error {
+  display: inline-block;
+  float: left;
+  margin: 17px 8px;
+  width: 16px;
+  height: 16px;
+  background: url("../img/ico.png") -230px 0;
+}
+.passport .login .error-box p {
+  float: left;
+  margin: 0;
+  padding: 17px 0 19px;
+  line-height: 14px;
+  vertical-align: middle;
+}
 
+.passport .copyright {
+  display: inline-block;
+  margin: 40px auto;
+  width: 960px;
+  text-align: center;
+  color: #777;
+}
+.passport .copyright span {
+  padding: 0 5px;
+}

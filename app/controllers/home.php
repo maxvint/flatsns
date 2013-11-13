@@ -9,6 +9,6 @@ class Home extends Main_Controller {
 	public function index() {
 		$data['name'] = 'yuwenhui';
 
-		$this->load->view('home.html', $data);
+		$this->load->view('index.html', $data);
 	}
 }
