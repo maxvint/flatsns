@@ -1,33 +1,38 @@
 <?php $this->load->view('header.html');?>
 <div class="container main">
 	<div class="row-fluid">
-		<div class="span12 well">
+		<div class="span12 well" model-node="login_input">
 			<form action="<?php echo site_url('user/register'); ?>" method="post" class="form-horizontal">
 				<fieldset>
 					<legend>用户登录</legend>
-					<div class="control-group">
+					<div class="control-group <?php if(form_error('email')){ ?>error<?php } ?>">
 						<label for="email" class="control-label"><strong class="require">*</strong>邮箱：</label>
-						<div class="">
-							<input type="text" name="email" class="input-xxlarge" id="email" placeholder="您的邮箱">
-						</div>
+						<input type="text" name="email" class="input-xxlarge" id="email" value="<?php echo set_value('email'); ?>" placeholder="您的邮箱" autocomplete="off">
+						<div class="email-list login-reg on-changes">
+							<p>请选择或继续输入...</p>
+							<ul>
+								<li email="" rel="show"></li>
+								<?php foreach ($email_suffix as $v) { ?>
+                            	<li email="<?php echo $v; ?>" rel="show"><?php echo $v; ?></li>
+                            	<?php } ?>
+                        	</ul>
+                      	</div>
+						<span class="help-inline"><?php echo form_error('email'); ?></span>
 					</div>
-					<div class="control-group">
+					<div class="control-group <?php if(form_error('password')){ ?>error<?php } ?>">
 						<label for="password" class="control-label"><strong class="require">*</strong>密码：</label>
-						<div class="">
-							<input type="password" name="password" class="input-xxlarge" id="password" placeholder="您的密码">
-						</div>
+						<input type="password" name="password" class="input-xxlarge" id="password" value="<?php echo set_value('password'); ?>" placeholder="您的密码">
+						<span class="help-inline"><?php echo form_error('password'); ?></span>
 					</div>
-					<div class="control-group">
+					<div class="control-group <?php if(form_error('repassword')){ ?>error<?php } ?>">
 						<label for="repassword" class="control-label"><strong class="require">*</strong>确认密码：</label>
-						<div class="">
-							<input type="password" name="repassword" class="input-xxlarge" id="repassword" placeholder="请再次输入您的密码">
-						</div>
+						<input type="password" name="repassword" class="input-xxlarge" id="repassword" value="<?php echo set_value('repassword'); ?>" placeholder="请再次输入您的密码">
+						<span class="help-inline"><?php echo form_error('repassword'); ?></span>
 					</div>
 					<div class="control-group">
-						<label for="username" class="control-label">姓名：</label>
-						<div class="">
-							<input type="text" name="username" class="input-xxlarge" id="username" placeholder="您的姓名">
-						</div>
+						<label for="username" class="control-label">用户名：</label>
+						<input type="text" name="username" class="input-xxlarge" id="username" value="<?php echo set_value('username'); ?>" placeholder="取个名字吧">
+						<span class="help-inline"><?php echo form_error('username'); ?></span>
 					</div>
 					<div class="form-actions">
 						<button type="submit" class="btn btn-large btn-primary">注册</button>
@@ -37,3 +42,4 @@
 		</div>
 	</div>
 </div>
+<script type="text/javascript" src="<?php echo base_url('public/js/home.js'); ?>"></script>

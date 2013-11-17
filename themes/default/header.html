@@ -23,6 +23,7 @@
 	<script type="text/javascript" src="<?php echo base_url('public/js/bootstrap.min.js'); ?>"></script>
 	<script type="text/javascript" src="<?php echo base_url('public/js/core.js'); ?>"></script>
 	<script type="text/javascript" src="<?php echo base_url('public/js/module.js'); ?>"></script>
+	<script type="text/javascript"></script>
 </head>
 <body>
 
@@ -33,15 +34,19 @@
 			<div class="nav-collapse collapse">
 				<ul class="nav pull-left">
 					<li <?php if($this->router->class == 'home'){ ?>class="active"<?php } ?>><a href="<?php echo site_url()?>">首页</a></li>
-					<li <?php if($this->router->class == 'app'){ ?>class="active"<?php } ?>><a href="<?php echo site_url()?>">应用</a></li>
-					<li <?php if($this->router->class == 'mobile'){ ?>class="active"<?php } ?>><a href="<?php echo site_url()?>">客户端</a></li>
+					<li <?php if($this->router->class == 'topic'){ ?>class="active"<?php } ?>><a href="<?php echo site_url('topic')?>">话题</a></li>
 					<!-- <li <?php if($this->router->class == 'ask'){ ?>class="active"<?php } ?>><a href="<?php echo site_url('ask')?>">问答</a></li>
 					<li <?php if($this->router->class == 'setting'){ ?>class="active"<?php } ?>><a href="<?php echo site_url('setting')?>">设置</a></li> -->
 				</ul>
 
 				<ul class="nav pull-right">
+					<?php if($this->session->userdata('uid')){ ?>
+					<li class=""><a href="<?php echo site_url('user/register')?>"><i class="icon-user"></i><?php echo $this->session->userdata('username'); ?></a></li>
+					<li class=""><a href="<?php echo site_url('user/logout')?>"><i class="icon-off"></i>退出</a></li>
+					<?php }else{ ?>
 					<li class=""><a href="<?php echo site_url('user/register')?>"><i class="icon-edit"></i>注册</a></li>
 					<li class=""><a href="<?php echo site_url('user/login')?>"><i class="icon-user"></i>登录</a></li>
+					<?php } ?>
 				</ul>
 			</div>
 		</div>

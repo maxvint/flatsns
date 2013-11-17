@@ -31,8 +31,9 @@ class CI_Form_validation {
 	protected $_config_rules		= array();
 	protected $_error_array			= array();
 	protected $_error_messages		= array();
-	protected $_error_prefix		= '<p>';
-	protected $_error_suffix		= '</p>';
+	// 去掉错误提示自带标签 2013-11-17 09:39:40 yuwenhui
+	protected $_error_prefix		= '';
+	protected $_error_suffix		= '';
 	protected $error_string			= '';
 	protected $_safe_form_data		= FALSE;
 

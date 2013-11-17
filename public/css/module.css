@@ -180,3 +180,38 @@
 .passport .copyright span {
   padding: 0 5px;
 }
+
+/*register*/
+.on-changes {
+	display: none;
+}
+.email-list {
+	position: absolute;
+	z-index: 999;
+	width: 280px;
+	background: #333;
+	color: #fff;
+}
+.email-list p {
+	margin: 0;
+	padding: 0 10px;
+	line-height: 36px;
+}
+.email-list ul {
+	margin: 0;
+}
+.email-list li {
+	display: block;
+	padding: 0 10px;
+	width: 260px;
+	height: 36px;
+	line-height: 36px;
+	list-style: none;
+	cursor: pointer;
+}
+.email-list li.current {
+  	background: #555;
+}
+.login-reg {
+  	left: 256px;
+}

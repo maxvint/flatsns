@@ -14,20 +14,20 @@
 					</div>
 				</div>
 				<div class="container span5 pull-right">
-					<div class="login" model-node="loginInput">
-						<form action="/ajaxLogin" method="post" id="doLogin" class="form-horizontal">
+					<div class="login" model-node="login_input">
+						<form action="<?php echo site_url('user/login'); ?>" method="post" class="form-horizontal">
 							<div class="control-group">
 								<div class="span4">
-									<input type="text" name="email" id="email" class="input-xlarge" placeholder="邮箱" autocomplete="off" />
-									<div class="email-list on-changes" style="z-index:999">
+									<input type="text" name="email" id="email" class="input-xlarge" placeholder="邮箱"  autocomplete="off" />
+									<div class="email-list on-changes">
 										<p>请选择或继续输入...</p>
 										<ul>
 											<li email="" rel="show"></li>
-	                                    	<li email="@163.com" rel="show"></li>
-	                                    	<li email="@126.com" rel="show"></li>
-	                                    	<li email="@qq.com" rel="show"></li>
-                                    	</ul>
-                                  	</div>
+											<?php foreach ($email_suffix as $v) { ?>
+											<li email="<?php echo $v; ?>" rel="show"><?php echo $v; ?></li>
+											<?php } ?>
+										</ul>
+									</div>
 								</div>
 							</div>
 							<div class="control-group">
@@ -53,3 +53,4 @@
 		</div>
 	</div>
 </secrion>
+<script type="text/javascript" src="<?php echo base_url('public/js/home.js'); ?>"></script>

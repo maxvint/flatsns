@@ -34,6 +34,12 @@ body {
 .affix {
 	position: fixed;
 }
+.relative {
+	position: relative;
+}
+.absolute {
+	position: absolute;
+}
 .center {
 	text-align: center;
 }
