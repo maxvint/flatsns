@@ -7,3 +7,5 @@ app/cache/*
 app/logs/*
 !app/logs/index.html
 !app/logs/.htaccess
+
+node_modules/*
