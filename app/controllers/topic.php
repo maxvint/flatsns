@@ -7,8 +7,7 @@ class Topic extends Main_Controller {
 	 *
 	 */
 	public function index() {
-		$data['name'] = 'yuwenhui';
-		echo 'Topic';
-		$this->load->view('ask.html', $data);
+		$data['name'] = 'topic';
+		$this->load->view('topic/index.html', $data);
 	}
 }

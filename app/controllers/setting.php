@@ -7,8 +7,7 @@ class Setting extends Main_Controller {
 	 *
 	 */
 	public function index() {
-		$data['name'] = 'yuwenhui';
-		echo 'Setting';
-		$this->load->view('setting.html', $data);
+		$data['name'] = 'setting';
+		$this->load->view('user/setting.html', $data);
 	}
 }

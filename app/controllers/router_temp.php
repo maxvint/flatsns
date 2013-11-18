@@ -7,8 +7,7 @@ class Home extends Main_Controller {
 	 *
 	 */
 	public function index() {
-		$data['name'] = 'yuwenhui';
-		echo 'home';
+		$data['name'] = 'temp';
 		$this->load->view('home.html', $data);
 	}
 }

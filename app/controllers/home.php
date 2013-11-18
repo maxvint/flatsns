@@ -5,8 +5,6 @@ class Home extends Main_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		// $this->load->model('user_model');
-		// $this->load->library('myclass');
 	}
 
 	/**
@@ -14,7 +12,6 @@ class Home extends Main_Controller {
 	 *
 	 */
 	public function index() {
-		// $data['name'] = 'yuwenhui';
 		if($this->auth->is_login())
 		{
 			$this->load->view('home/index.html');

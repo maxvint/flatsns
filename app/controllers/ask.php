@@ -7,8 +7,7 @@ class Ask extends Main_Controller {
 	 *
 	 */
 	public function index() {
-		$data['name'] = 'yuwenhui';
-		echo 'ask';
-		$this->load->view('ask.html', $data);
+		$data['name'] = 'ask';
+		$this->load->view('ask/ask.html', $data);
 	}
 }

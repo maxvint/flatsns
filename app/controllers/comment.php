@@ -7,8 +7,7 @@ class Comment extends Main_Controller {
 	 *
 	 */
 	public function index() {
-		$data['name'] = 'yuwenhui';
-		echo 'Comment';
-		$this->load->view('comment.html', $data);
+		$data['name'] = 'comment';
+		$this->load->view('topic/comment.html', $data);
 	}
 }

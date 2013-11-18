@@ -7,8 +7,7 @@ class Install extends Main_Controller {
 	 *
 	 */
 	public function index() {
-		$data['name'] = 'yuwenhui';
-		echo 'Install';
-		$this->load->view('install.html', $data);
+		$data['name'] = 'install';
+		$this->load->view('install/install.html', $data);
 	}
 }

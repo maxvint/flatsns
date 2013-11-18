@@ -18,11 +18,8 @@ class User extends Main_Controller {
 	 */
 	public function index()
 	{
-		$data['name'] = 'yuwenhui';
-		echo 'user';
-
-
-		$this->load->view('user.html', $data);
+		$data['name'] = 'user';
+		$this->load->view('user/user.html', $data);
 	}
 
 	/**
@@ -69,8 +66,6 @@ class User extends Main_Controller {
 					'gid' => $data['gid']
 				);
 				$this->session->set_userdata($session_data);
-				// 去除session ？？？
-				// $this->session->unset_userdata('yzm');
 			}
 			redirect();
 		}
