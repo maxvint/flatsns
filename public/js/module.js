@@ -49,11 +49,11 @@ var document = window.document;
  *     }
  * }
  */
-var module = function( node, fns ) {
+var module = function(node, fns) {
     module.addFns(fns);
-	if ( node ) {
+	if(node) {
 		// 预清除，防止重复模型化引起的双重缓存
-		module.nodes.init( node );
+		module.nodes.init(node);
 	}
 };
 
@@ -62,13 +62,13 @@ var module = function( node, fns ) {
  * 
  * @param fns  挂载到标签上的事件方法，格式说明同module 函数的fns 参数
  */
-module.addFns = function( fns ) {
-	if ( !fns ) return module;
-	if ( fns.model ) {
-		module.addModelFns( fns.model );
+module.addFns = function(fns) {
+	if(!fns) return module;
+	if(fns.model) {
+		module.addModelFns(fns.model);
 	}
-	if ( fns.event ) {
-		module.addEventFns( fns.event );
+	if(fns.event) {
+		module.addEventFns(fns.event);
 	}
 	return module;
 };
@@ -91,10 +91,10 @@ module.addFns = function( fns ) {
  *     }
  * } 
  */
-module.addModelFns = function( fns ) {
-	if ( "object" != typeof fns ) return module;
+module.addModelFns = function(fns) {
+	if("object" != typeof fns) return module;
 	var name;
-	for ( name in fns ) {
+	for(name in fns) {
 		module.nodes.models.fns[name] = fns[name];
 	}
 	return module;
@@ -105,10 +105,10 @@ module.addModelFns = function( fns ) {
  * 
  * @param fns  挂载到模型上的事件方法，属性说明同module.addModelFns 的fns 参数
  */
-module.addEventFns = function( fns ) {
-	if ( "object" != typeof fns ) return module;
+module.addEventFns = function(fns) {
+	if("object" != typeof fns) return module;
 	var name;
-	for ( name in fns ) {
+	for(name in fns) {
 		module.nodes.events.fns[name] = fns[name];
 	}
 	return module;
@@ -119,8 +119,8 @@ module.addEventFns = function( fns ) {
  *
  * @param node 模型/事件节点
  */
-module.getArgs = function( node ) {
-	return node.getAttribute( "model-node" ) ? module.getModelArgs( node ) : module.getEventArgs( node );
+module.getArgs = function(node) {
+	return node.getAttribute("model-node") ? module.getModelArgs(node) : module.getEventArgs(node);
 };
 
 /**
@@ -129,8 +129,8 @@ module.getArgs = function( node ) {
  * @param node 模型/事件节点
  * @param uri URI 格式的参数
  */
-module.setArgs = function( node, uri ) {
-	return node.getAttribute( "model-node" ) ? module.setModelArgs( node, uri ) : module.setEventArgs( node, uri );
+module.setArgs = function(node, uri) {
+	return node.getAttribute("model-node") ? module.setModelArgs(node, uri) : module.setEventArgs(node, uri);
 };
 
 /**
@@ -138,8 +138,8 @@ module.setArgs = function( node, uri ) {
  *
  * @param node 模型节点
  */
-module.getModelArgs = function( node, uri ) {
-    node.args || ( node.args = module.URI2Obj( node.getAttribute( "model-args" ) ) );
+module.getModelArgs = function(node, uri) {
+    node.args ||(node.args = module.URI2Obj(node.getAttribute("model-args")));
     return node.args;
 };
 
@@ -148,9 +148,9 @@ module.getModelArgs = function( node, uri ) {
  *
  * @param node 模型节点
  */
-module.setModelArgs = function( node, uri ) {
+module.setModelArgs = function(node, uri) {
     node.args = undefined;
-    node.setAttribute( "model-args", uri );
+    node.setAttribute("model-args", uri);
     return module;
 };
 
@@ -159,8 +159,8 @@ module.setModelArgs = function( node, uri ) {
  *
  * @param node 事件节点
  */
-module.getEventArgs = function( node ) {
-    node.args || ( node.args = module.URI2Obj( node.getAttribute( "event-args" ) ) );
+module.getEventArgs = function(node) {
+    node.args ||(node.args = module.URI2Obj(node.getAttribute("event-args")));
     return node.args;
 };
 
@@ -169,9 +169,9 @@ module.getEventArgs = function( node ) {
  *
  * @param node 事件节点
  */
-module.setEventArgs = function( node, uri ) {
+module.setEventArgs = function(node, uri) {
     node.args = undefined;
-    node.setAttribute( "event-args", uri );
+    node.setAttribute("event-args", uri);
     return module;
 };
 
@@ -180,18 +180,18 @@ module.setEventArgs = function( node, uri ) {
  *
  * @param uri URI 格式的数据
  */
-module.URI2Obj = function( uri ) {
-	if ( ! uri ) return {};
+module.URI2Obj = function(uri) {
+	if(! uri) return {};
     var obj = {},
-    	args = uri.split( "&" ),
+    	args = uri.split("&"),
     	l, arg;
     l = args.length;
-    while ( l -- > 0 ) {
+    while(l -- > 0) {
         arg = args[l];
-        if ( ! arg ) {
+        if(! arg) {
             continue;
         }
-        arg = arg.split( "=" );
+        arg = arg.split("=");
         obj[arg[0]] = arg[1];
     }
     return obj;
@@ -202,7 +202,7 @@ module.URI2Obj = function( uri ) {
  *
  * @param name 模型节点的命名
  */
-module.getModels = function( name ) {
+module.getModels = function(name) {
 	return module.nodes.models[name];
 };
 
@@ -211,7 +211,7 @@ module.getModels = function( name ) {
  *
  * @param name 事件节点的命名
  */
-module.getEvents = function( name ) {
+module.getEvents = function(name) {
 	return module.nodes.events[name];
 }
 
@@ -220,8 +220,8 @@ module.getEvents = function( name ) {
  *
  * @param object node 节点对象
  */
-module.removeListener = function( node ) {
-	module.nodes.removeListener( node );
+module.removeListener = function(node) {
+	module.nodes.removeListener(node);
 	return module;
 };
 
@@ -236,25 +236,25 @@ module.removeListener = function( node ) {
  *     mouseout  : function(){}
  * }
  */
-module.addListener = function( node, events ) {
-	module.nodes.addListener( node, events );
+module.addListener = function(node, events) {
+	module.nodes.addListener(node, events);
 	return module;
 };
 
-module.getPreviousModel = function( node, siblingName ) {
-	return module.nodes.getPreviousModel( node, siblingName );
+module.getPreviousModel = function(node, siblingName) {
+	return module.nodes.getPreviousModel(node, siblingName);
 };
 
-module.getNextModel = function( node, siblingName ) {
-	return module.nodes.getNextModel( node, siblingName );
+module.getNextModel = function(node, siblingName) {
+	return module.nodes.getNextModel(node, siblingName);
 };
 
-module.getPreviousEvent = function( node, siblingName ) {
-	return module.nodes.getPreviousEvent( node, siblingName );
+module.getPreviousEvent = function(node, siblingName) {
+	return module.nodes.getPreviousEvent(node, siblingName);
 };
 
-module.getNextEvent = function( node, siblingName ) {
-	return module.nodes.getNextEvent( node, siblingName );
+module.getNextEvent = function(node, siblingName) {
+	return module.nodes.getNextEvent(node, siblingName);
 };
 
 /**
@@ -274,37 +274,37 @@ module.getNextEvent = function( node, siblingName ) {
  * @property object events.fns 存放事件节点的事件方法
  */
 module.nodes = {
-	init: function( node ) {
+	init: function(node) {
 		// 初始化模型
-		this._init( node );
+		this._init(node);
 		// 执行onload 事件
 		this._onload.execute();
 		return this;
 	},
-	_init: function( node, parentModel ) {
+	_init: function(node, parentModel) {
 		var childNode = node.firstChild,
 			childParentModel,
 		    model_name,
 		    event_name;
 
-		! parentModel && ( parentModel = this.getParentModel( node ) );
+		! parentModel &&(parentModel = this.getParentModel(node));
 
-		switch ( node.nodeName ) {
+		switch(node.nodeName) {
 			case "DIV": case "UL":case "DL": 
 			case "FORM":case "LI":case "DD": 
-				model_name = node.getAttribute( "model-node" );
-				if ( model_name ) {
-					this._clearModel( node );
+				model_name = node.getAttribute("model-node");
+				if(model_name) {
+					this._clearModel(node);
 
 					node.modelName = model_name;
 
-					this.addListener( node, this.models.fns[model_name] );
+					this.addListener(node, this.models.fns[model_name]);
 
 					node.parentModel = parentModel;
 
-					( parentModel.childModels[model_name] = parentModel.childModels[model_name] || [] ).push( node );
+					(parentModel.childModels[model_name] = parentModel.childModels[model_name] || []).push(node);
 
-					( this.models[model_name] = this.models[model_name] || [] ).push( node );
+					(this.models[model_name] = this.models[model_name] || []).push(node);
 
 					childParentModel = node;
 				}
@@ -313,18 +313,18 @@ module.nodes = {
 			case "STRONG": case "INPUT": case "SELECT":
 			case "BUTTON": case "IMG": case "TEXTAREA": 
 			case "H1": case "H2": case "H3": case "H4":case "I":			
-				event_name = node.getAttribute( "event-node" );
-				if ( event_name ) {
+				event_name = node.getAttribute("event-node");
+				if(event_name) {
 					this._clearEvent(node);
 
 					node.eventName = event_name;
 
-					this.addListener( node, this.events.fns[event_name] );
+					this.addListener(node, this.events.fns[event_name]);
 
 					node.parentModel = parentModel;
-					( parentModel.childEvents[event_name] = parentModel.childEvents[event_name] || [] ).push( node );
+					(parentModel.childEvents[event_name] = parentModel.childEvents[event_name] || []).push(node);
 
-					( this.events[event_name] = this.events[event_name] || [] ).push( node );
+					(this.events[event_name] = this.events[event_name] || []).push(node);
 				}
 				break;
 			case "HEAD": case "BODY":
@@ -335,13 +335,13 @@ module.nodes = {
 				break;
 		}
 
-		! childParentModel && ( childParentModel = parentModel );
-		while ( childNode ) {
-			(1 == childNode.nodeType ) && this._init( childNode, childParentModel );
+		! childParentModel &&(childParentModel = parentModel);
+		while(childNode) {
+			(1 == childNode.nodeType) && this._init(childNode, childParentModel);
 			childNode = childNode.nextSibling;
 		}
 	},
-	_clearModel: function( node ) {
+	_clearModel: function(node) {
 		node.modelName   = undefined;
 		node.parentModel = undefined;
 		node.childModels = {};
@@ -349,77 +349,77 @@ module.nodes = {
 		node.args = undefined;
 		return this;
 	},
-	_clearEvent: function( node ) {
+	_clearEvent: function(node) {
 		node.eventName   = undefined;
 		node.parentModel = undefined;
 		node.args = undefined;
 		return this;
 	},
-	getParentModel: function( node ) {
+	getParentModel: function(node) {
 		var parentNode = node.parentNode,
 			parentModel;
-		if ( parentNode && 1 === parentNode.nodeType ) {
-			parentModel = parentNode.getAttribute('model-node') ? parentNode : this.getParentModel( parentNode );
+		if(parentNode && 1 === parentNode.nodeType) {
+			parentModel = parentNode.getAttribute('model-node') ? parentNode : this.getParentModel(parentNode);
 		}
 		return parentModel || document;
 	},
-	getPreviousModel: function( node, siblingName ) {
-		return this._getSiblingNode( node, { siblingType: "model", siblingName: siblingName }, "previous" );
+	getPreviousModel: function(node, siblingName) {
+		return this._getSiblingNode(node, { siblingType: "model", siblingName: siblingName }, "previous");
 	},
-	getNextModel: function( node, siblingName ) {
-		return this._getSiblingNode( node, { siblingType: "model", siblingName: siblingName }, "next" );
+	getNextModel: function(node, siblingName) {
+		return this._getSiblingNode(node, { siblingType: "model", siblingName: siblingName }, "next");
 	},
-	getPreviousEvent: function( node, siblingName ) {
-		return this._getSiblingNode( node, { siblingType: "event", siblingName: siblingName }, "previous" );
+	getPreviousEvent: function(node, siblingName) {
+		return this._getSiblingNode(node, { siblingType: "event", siblingName: siblingName }, "previous");
 	},
-	getNextEvent: function( node, siblingName ) {
-		return this._getSiblingNode( node, { siblingType: "event", siblingName: siblingName }, "next" );
+	getNextEvent: function(node, siblingName) {
+		return this._getSiblingNode(node, { siblingType: "event", siblingName: siblingName }, "next");
 	},
-	_getSiblingNode: function( node, siblingArgs, direction ) {
+	_getSiblingNode: function(node, siblingArgs, direction) {
 		var sibling;
-		if ( !node ) return null;
+		if(!node) return null;
 		sibling = node[ [ direction, "Sibling" ].join("") ];
-		return ( sibling && ( siblingArgs.siblingName === sibling[ [ siblingArgs.siblingType, "Name" ].join("") ] ) ) ? sibling : this._getSiblingNode( sibling, siblingArgs, direction );
+		return(sibling &&(siblingArgs.siblingName === sibling[ [ siblingArgs.siblingType, "Name" ].join("") ])) ? sibling : this._getSiblingNode(sibling, siblingArgs, direction);
 	},
-	addListener: function( node, events ) {
-        if ( "object" == typeof events ) {
+	addListener: function(node, events) {
+        if("object" == typeof events) {
         	var event;
-            for ( event in events ) {
-            	switch ( event ) {
+            for(event in events) {
+            	switch(event) {
             		case "load":
             			node[event] = events[event];
                         // 添加到队列
-                        this._onload.queue.push( node );
+                        this._onload.queue.push(node);
            			    break;
             		case "callback":
             			node[event] = events[event];
             			break;
            			case "mouseenter": case "mouseleave":
            				// 兼容非IE
-           				if ( document.addEventListener ) {
+           				if(document.addEventListener) {
            					var refer = {mouseenter: "mouseover", mouseleave: "mouseout"};
-           					node["on" + refer[event]] = (function( event, fn ){
-           						return function( e ) {
+           					node["on" + refer[event]] =(function(event, fn){
+           						return function(e) {
 	           						// 上一响应mouseover/mouseout 事件的元素
 	           						var parent = e.relatedTarget;
 	           						// 假如存在这个元素并且这个元素不等于目标元素
-									while( parent && parent != this ){
+									while(parent && parent != this){
 										try {
 											//上一响应的元素开始往上寻找目标元素
 											parent = parent.parentNode;
-										} catch( e ) {
+										} catch(e) {
 											break;
 										}
 							 
 									}
 									// 假如找不到，表明当前事件触发点不在目标元素内
-									if ( parent != this ) {
+									if(parent != this) {
 										//运行目标方法，否则不运行
 										node[event] = fn;
 										node[event]();
 									}
 								};
-           					})( event, events[event] );
+           					})(event, events[event]);
            				} else {
                         	node["on" + event] = events[event];
            				}
@@ -430,7 +430,7 @@ module.nodes = {
             }
         }
 	},
-	removeListener: function( node ) {
+	removeListener: function(node) {
 		node.onclick = node.onfocus = node.onblur = node.onmouseout
 		= node.onmouseover = node.onmouseenter = node.onmouserleave
 		= node.onchange = null;
@@ -440,7 +440,7 @@ module.nodes = {
 		execute: function() {
 			var l = this.queue.length,
 				i;
-			for ( i = 0; i < l; i ++ ) {
+			for(i = 0; i < l; i ++) {
 				
 				this.queue[i]["load"]();
 				this.queue[i]["load"] = undefined;	
@@ -461,11 +461,11 @@ module.nodes = {
 		}
 	},
 	getHead: function() {
-		this.head || (this.head = document.getElementsByTagName("head")[0]);
+		this.head ||(this.head = document.getElementsByTagName("head")[0]);
 		return this.head;
 	},
 	getBody: function() {
-		this.body || (this.body = document.getElementsByTagName("body")[0]);
+		this.body ||(this.body = document.getElementsByTagName("body")[0]);
 		return this.body;
 	}
 };
@@ -475,27 +475,26 @@ module.nodes = {
  *
  * @param string url CSS 文件URL
  */
-module.getCSS = (function() {
+module.getCSS =(function() {
 	var temp = [];
 	//返回内部包函数,供外部调用并可以更改temp的值
-	return function( url ){
+	return function(url){
 		var	head = module.nodes.getHead(),
 			flag = 0,
 			link,
 			i = temp.length - 1;
 		// 第二次调用的时候就不=0了
-		for ( ; i >= 0; i -- ) {
-			flag = ( temp[i] == url ) ? 1 : 0;
+		for(; i >= 0; i --) {
+			flag =(temp[i] == url) ? 1 : 0;
 		}
-
-		if ( flag == 0 ) {
+		if(flag == 0) {
 			// 未载入过
-		    link  = document.createElement( "link" );
-			link.setAttribute( "rel", "stylesheet" );
-			link.setAttribute( "type", "text/css" );
-			link.setAttribute( "href", url );
-			head.appendChild( link );
-			temp.push( url );
+		    link  = document.createElement("link");
+			link.setAttribute("rel", "stylesheet");
+			link.setAttribute("type", "text/css");
+			link.setAttribute("href", url);
+			head.appendChild(link);
+			temp.push(url);
 		}
 	};
 })();
@@ -506,10 +505,10 @@ module.getCSS = (function() {
  * @param string url js 文件URL
  * @param function fn 执行函数
  */
-module.getJS = (function() {
+module.getJS =(function() {
 	var temp = [];
 	//返回内部包函数,供外部调用并可以更改temp的值
-	return function( url, fn ){
+	return function(url, fn){
 		// 第二次调用的时候就不=0了
 		var	head,
 			script,
@@ -517,35 +516,30 @@ module.getJS = (function() {
 			flag = 0,
 			i = temp.length - 1;
 		// 第二次调用的时候就不=0了
-		for ( ; i >= 0; i -- ) {
-			flag = ( temp[i] == url ) ? 1 : 0;
+		for(; i >= 0; i --) {
+			flag =(temp[i] == url) ? 1 : 0;
 		}
-
-		if ( flag == 0 ) {
+		if(flag == 0) {
 			// 未载入过
 			// 记录url
-			temp.push( url );
+			temp.push(url);
 			// 载入
 			head = module.nodes.getHead();
-			script = document.createElement( "script" );
-			script.setAttribute( "src", url );
+			script = document.createElement("script");
+			script.setAttribute("src", url);
 
-			if ( "function" == typeof fn ) {
+			if("function" == typeof fn) {
 				script.onload = script.onreadystatechange = function() {
 					// FF 下没有readyState 值，IE 有readyState 值，需加以判断
-					if( ! this.readyState || "loaded" == this.readyState || "complete" == this.readyState ) {
+					if(! this.readyState || "loaded" == this.readyState || "complete" == this.readyState) {
 						this.onload = this.onreadystatechange = null;
-
 						fn();
-
 						fn = undefined;
-
 						script = undefined;
 					}
 				};
 			}
-
-			head.appendChild( script );
+			head.appendChild(script);
 		} else {
 			if("function" == typeof fn){
 				fn();
@@ -560,18 +554,17 @@ module.getJS = (function() {
  *
  * @param function fn 格式的数据
  */
-module.ready = function( fn ) {
-	if ( "function" !== typeof fn ) {
+module.ready = function(fn) {
+	if("function" !== typeof fn) {
 		return;
 	}
-
-	if ( document.addEventListener ) {
+	if(document.addEventListener) {
 		// Use the handy event callback
-		document.addEventListener( "DOMContentLoaded", fn, false );
+		document.addEventListener("DOMContentLoaded", fn, false);
 	// If IE event model is used
-	} else if ( document.attachEvent ) {
+	} else if(document.attachEvent) {
 		// maybe late but safe also for iframes
-		document.attachEvent( "onreadystatechange", fn );
+		document.attachEvent("onreadystatechange", fn);
 	}
 };
 

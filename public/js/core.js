@@ -5,32 +5,6 @@
  */
 
 
-/**
- * 模拟TP的U函数，需要预先定义JS全局变量SITE_URL和APPNAME
- * @param string url 链接地址
- * @param array params 链接参数
- * @return string 组装后的链接地址
- */
-var U = function(url, params) {
-	var website = SITE_URL+'/index.php';
-	url = url.split('/');
-	if(url[0]=='' || url[0]=='@'){
-		url[0] = APPNAME;
-	}
-	if (!url[1]){
-		url[1] = 'Index';
-	}
-	if (!url[2]){
-		url[2] = 'index';
-	}
-	website = website+'?app='+url[0]+'&mod='+url[1]+'&act='+url[2];
-	if(params) {
-		params = params.join('&');
-		website = website + '&' + params;
-	}
-	return website;
-};
-
 // 弹窗组件
 var ui = {
 	/**
@@ -63,16 +37,14 @@ var ui = {
 
 		// 先清除历史加载的modal
 		$('#uiBox, #uiConfirm, #uiLoad').remove();
-		console.log();
-		// $(document.body).html('');
 		$(html).appendTo(document.body);
 		$('#uiBox').modal();
 
 		setTimeout(function() {
 			$('#uiBox').modal('hide');
-			if(error == '1') {
+			// if(error == '1') {
 				// history.back();
-			}
+			// }
 		}, lazytime*1000);
 
 		setInterval(function() {
