@@ -1,23 +1,11 @@
-/* =========================================================
- * bootstrap-modal.js v2.2.2
- * http://twitter.github.com/bootstrap/javascript.html#modals
- * =========================================================
- * Copyright 2012 Twitter, Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ========================================================= */
+/**
+ * FlatSNS核心Js对象
+ * @author yuwenhui <yuwenhui1986@gmail.com>
+ * @version FS3.0
+ */
 
 
+// 弹窗组件
 var ui = {
 	/**
 	 * 浮屏显示消息，提示信息框
@@ -29,8 +17,8 @@ var ui = {
 	showMessage: function(title, message, error, lazytime) {
 		// 判断弹窗是否存在
 		document.getElementById('uiBox') !== null && $('#uiBox').remove();
-		var style = (error == "1") ? "html_clew_box clew_error" : "html_clew_box";
-		var ico = (error == "1") ? 'ico-error' : 'ico-success';
+		var style = (error == '1') ? "html_clew_box clew_error" : "html_clew_box";
+		var ico = (error == '1') ? 'ico-error' : 'ico-success';
 		if(title == '') {
 			title = '提示信息';
 		}
@@ -49,12 +37,14 @@ var ui = {
 
 		// 先清除历史加载的modal
 		$('#uiBox, #uiConfirm, #uiLoad').remove();
-
 		$(html).appendTo(document.body);
 		$('#uiBox').modal();
 
 		setTimeout(function() {
 			$('#uiBox').modal('hide');
+			// if(error == '1') {
+				// history.back();
+			// }
 		}, lazytime*1000);
 
 		setInterval(function() {
@@ -153,32 +143,31 @@ var ui = {
 	 * @param string type Ajax请求协议，默认为GET
 	 * @return void
 	 */
-	box: {
-		load: function(requestUrl, title, callback, requestData, type) {
-			var html = '<div class="modal hide fade" id="uiLoad">\
-					<div class="modal-header">\
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>\
-					<h4 id="myModalLabel">'+ title +'</h4>\
-					</div>\
-					<div class="modal-body"></div>\
-					<div class="modal-footer">\
-					<button class="btn btn-primary btn-ok">提交</button>\
-					<button class="btn btn-cancel" data-dismiss="modal" aria-hidden="true">取消</button>\
-					</div></div>';
-			// 先清除历史加载的modal
-			$('#uiBox, #uiConfirm, #uiLoad').remove();
+	load: function(requestUrl, title, callback, requestData, type) {
+		var html = '<div class="modal hide fade" id="uiLoad">\
+				<div class="modal-header">\
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>\
+				<h4 id="myModalLabel">'+ title +'</h4>\
+				</div>\
+				<div class="modal-body"></div>\
+				<div class="modal-footer">\
+				<button class="btn btn-primary btn-ok">提交</button>\
+				<button class="btn btn-cancel" data-dismiss="modal" aria-hidden="true">取消</button>\
+				</div></div>';
+		// 先清除历史加载的modal
+		$('#uiBox, #uiConfirm, #uiLoad').remove();
 
-			$(html).appendTo(document.body);
-			$('#uiLoad').modal();
-			$('#uiLoad').find('.modal-body').load(requestUrl);
-			$("#uiLoad .btn-cancel").one('click',function() {
-				$('#uiLoad').modal('hide');
-				return false;
-			});
-			$("#uiLoad .btn-ok").one('click',function() {
-				$('#uiLoad .modal-body').find('form').submit();
-			});
-		}
-
+		$(html).appendTo(document.body);
+		$('#uiLoad').modal();
+		$('#uiLoad').find('.modal-body').load(requestUrl);
+		$("#uiLoad .btn-cancel").one('click',function() {
+			$('#uiLoad').modal('hide');
+			return false;
+		});
+		$("#uiLoad .btn-ok").one('click',function() {
+			$('#uiLoad .modal-body').find('form').submit();
+		});
 	}
 }
+
+

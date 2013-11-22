@@ -1,17 +1,18 @@
 M.addModelFns({
-  login_input: {
-    load: function() {
-    	var focus = $('#email');
-    	var next = $('#password');
-      // 联想框
-      $('#email').changeTips({
-        divTip: '.on-changes',
-        focusInput: focus,
-        nextFocus: next
-      });
-    }
-  }
+	login_input: {
+		load: function() {
+			var focus = $('#email');
+			var next = $('#password');
+			// 联想框
+			$('#email').changeTips({
+				divTip: '.on-changes',
+				focusInput: focus,
+				nextFocus: next
+			});
+		}
+	}
 });
+
 
 /**
  * 登录流程，JQuery插件，用于显示感知框
