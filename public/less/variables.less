@@ -55,7 +55,7 @@
 @font-size-h5:            @font-size-base;
 @font-size-h6:            ceil(@font-size-base * 0.85); // ~12px
 
-@line-height-base:        1.428571429; // 20/14
+@line-height-base:        1.6; // 20/14
 @line-height-computed:    floor(@font-size-base * @line-height-base); // ~20px
 
 @headings-font-family:    @font-family-base;
@@ -314,7 +314,7 @@
 // Navs
 // -------------------------
 
-@nav-link-padding:                          10px 15px;
+@nav-link-padding:                          10px 30px;
 @nav-link-hover-bg:                         @gray-lighter;
 
 @nav-disabled-link-color:                   @gray-light;
@@ -501,14 +501,13 @@
 
 // Panels
 // -------------------------
-@panel-bg:                    #eee;
+@panel-bg:                    #f5f5f5;
 @panel-inner-border:          #ddd;
-@panel-border-radius:         @border-radius-base;
 @panel-footer-bg:             #f5f5f5;
 
 @panel-default-text:          @gray-dark;
 @panel-default-border:        #ddd;
-@panel-default-heading-bg:    #f5f5f5;
+@panel-default-heading-bg:    #eee;
 
 @panel-primary-text:          #fff;
 @panel-primary-border:        @brand-primary;
@@ -559,6 +558,13 @@
 @badge-font-weight:           bold;
 @badge-line-height:           1;
 @badge-border-radius:         10px;
+
+@badge-default-bg:            @gray-light;
+@badge-primary-bg:            @brand-primary;
+@badge-success-bg:            @brand-success;
+@badge-info-bg:               @brand-info;
+@badge-warning-bg:            @brand-warning;
+@badge-danger-bg:             @brand-danger;
 
 
 // Breadcrumbs

@@ -7,7 +7,7 @@
 .badge {
   display: inline-block;
   min-width: 10px;
-  padding: 3px 8px 2px;
+  padding: 1px 8px 3px;
   font-size: @font-size-small;
   font-weight: @badge-font-weight;
   color: @badge-color;
@@ -48,4 +48,23 @@ a.list-group-item.active > .badge,
 }
 .nav-pills > li > a > .badge {
   margin-left: 3px;
+}
+
+.badge-default {
+  .badge-variant(@label-default-bg);
+}
+.badge-primary {
+  .badge-variant(@label-primary-bg);
+}
+.badge-success {
+  .badge-variant(@label-success-bg);
+}
+.badge-warning {
+  .badge-variant(@label-warning-bg);
+}
+.badge-danger {
+  .badge-variant(@label-danger-bg);
+}
+.badge-info {
+  .badge-variant(@label-info-bg);
 }

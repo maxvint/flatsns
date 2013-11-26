@@ -1,44 +1,50 @@
 <?php $this->load->view('header.html');?>
-<div class="container main">
-	<div class="row-fluid">
-		<div class="span12 well" model-node="login_input">
-			<form action="<?php echo site_url('user/register'); ?>" method="post" class="form-horizontal">
-				<fieldset>
-					<legend>用户登录</legend>
-					<div class="control-group <?php if(form_error('email')){ ?>error<?php } ?>">
-						<label for="email" class="control-label"><strong class="require">*</strong>邮箱：</label>
-						<input type="text" name="email" class="input-xxlarge" id="email" value="<?php echo set_value('email'); ?>" placeholder="您的邮箱" autocomplete="off">
-						<div class="email-list login-reg on-changes">
-							<p>请选择或继续输入...</p>
-							<ul>
-								<li email="" rel="show"></li>
-								<?php foreach ($email_suffix as $v) { ?>
-                            	<li email="<?php echo $v; ?>" rel="show"><?php echo $v; ?></li>
-                            	<?php } ?>
-                        	</ul>
-                      	</div>
-						<span class="help-inline"><?php echo form_error('email'); ?></span>
-					</div>
-					<div class="control-group <?php if(form_error('password')){ ?>error<?php } ?>">
-						<label for="password" class="control-label"><strong class="require">*</strong>密码：</label>
-						<input type="password" name="password" class="input-xxlarge" id="password" value="<?php echo set_value('password'); ?>" placeholder="您的密码">
-						<span class="help-inline"><?php echo form_error('password'); ?></span>
-					</div>
-					<div class="control-group <?php if(form_error('repassword')){ ?>error<?php } ?>">
-						<label for="repassword" class="control-label"><strong class="require">*</strong>确认密码：</label>
-						<input type="password" name="repassword" class="input-xxlarge" id="repassword" value="<?php echo set_value('repassword'); ?>" placeholder="请再次输入您的密码">
-						<span class="help-inline"><?php echo form_error('repassword'); ?></span>
-					</div>
-					<div class="control-group">
-						<label for="username" class="control-label">用户名：</label>
-						<input type="text" name="username" class="input-xxlarge" id="username" value="<?php echo set_value('username'); ?>" placeholder="取个名字吧">
-						<span class="help-inline"><?php echo form_error('username'); ?></span>
-					</div>
-					<div class="form-actions">
-						<button type="submit" class="btn btn-large btn-primary">注册</button>
-					</div>
-				</fieldset>
-			</form>
-		</div>
+<div class="container">
+	<div class="col-sm-12 well" model-node="login_input">
+		<form action="<?php echo site_url('user/register'); ?>" method="post" class="form-horizontal" role="form">
+			<legend>用户注册</legend>
+			<div class="form-group <?php if(form_error('email')){ ?>has-error<?php } ?>">
+				<label for="email" class="col-sm-2 control-label">邮箱：</label>
+				<div class="col-sm-10">
+					<input type="email" class="form-control col-lg-6" id="email" value="<?php echo set_value('email'); ?>" placeholder="您的邮箱" autocomplete="off">
+					<div class="email-list login-reg on-changes">
+						<p>请选择或继续输入...</p>
+						<ul>
+							<li email="" rel="show"></li>
+							<?php foreach ($email_suffix as $v) { ?>
+                        	<li email="<?php echo $v; ?>" rel="show"><?php echo $v; ?></li>
+                        	<?php } ?>
+                    	</ul>
+                  	</div>
+                  	<span class="help-inline"><?php echo form_error('email'); ?></span>
+				</div>
+			</div>
+			<div class="form-group <?php if(form_error('password')){ ?>has-error<?php } ?>">
+				<label for="password" class="col-sm-2 control-label">密码：</label>
+				<div class="col-sm-10">
+					<input type="password" class="form-control col-lg-6" id="password" placeholder="密码">
+					<span class="help-inline"><?php echo form_error('password'); ?></span>
+				</div>
+			</div>
+			<div class="form-group <?php if(form_error('repassword')){ ?>has-error<?php } ?>">
+				<label for="repassword" class="col-sm-2 control-label">确认密码：</label>
+				<div class="col-sm-10">
+					<input type="password" class="form-control col-lg-6" id="repassword" placeholder="请再次输入您的密码">
+					<span class="help-inline"><?php echo form_error('repassword'); ?></span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="username" class="col-sm-2 control-label">用户名：</label>
+				<div class="col-sm-10">
+					<input type="username" class="form-control col-lg-6" id="username" value="<?php echo set_value('username'); ?>" placeholder="取个名字吧" autocomplete="off">
+					<span class="help-inline"><?php echo form_error('username'); ?></span>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-primary">登录</button>
+				</div>
+			</div>
+		</form>
 	</div>
 </div>
