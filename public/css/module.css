@@ -1,11 +1,18 @@
 /*common*/
+html {
+  overflow-x: hidden; /* Prevent scroll on narrow devices */
+}
+body {
+  padding-top: 70px;
+  min-height: 1200px;
+  font-family: 'Microsoft YaHei UI', 'Microsoft YaHei', SimSun, 'Segoe UI', Tahoma, Helvetica, Sans-Serif;
+}
+footer {
+  padding: 30px 0;
+}
 .container {
 	margin: 0 auto;
 	max-width: 980px;
-}
-.main {
-	min-height: 1200px;
-	padding: 70px 0 0 0;
 }
 
 /*返回信息提示*/
@@ -214,4 +221,30 @@
 }
 .login-reg {
   	left: 256px;
+}
+
+
+/*topic*/
+.topic {
+  padding-bottom: 12px;
+  border-bottom: 1px solid #eee;
+}
+.topic-item {
+  padding-left: 58px;
+}
+.topic-item .title {
+  margin-bottom: 15px;
+}
+.topic-item .title .badge {
+  vertical-align: top;
+}
+.topic .topic-item .meta {
+  font-size: 12px;
+}
+.topic-item .meta a,
+.topic-item .meta span {
+  margin-right: 5px;
+}
+.topic-item .meta span {
+  color: #999;
 }

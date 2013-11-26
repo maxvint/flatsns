@@ -1,20 +1,20 @@
 require.config({
 	paths: {
-		jquery: 'common/jquery.1.9.0.min',
+		jquery: 'lib/jquery.1.9.0.min',
 	},
 
 	shim: {
 		'bootstrap': {
 			deps: ['jquery'],
-			exports: 'common/bootstrap.min'
+			exports: 'lib/bootstrap'
 		},
 		'core': {
 			deps: ['jquery'],
-			exports: 'public/core'
+			exports: 'app/core'
 		}
 	}
 });
 
-require(['jquery', 'public/core'], function($, core) {
+require(['jquery', 'app/core'], function($, core) {
 	
 });
