@@ -1,2 +1,20 @@
 <?php $this->load->view('header.html');?>
-<script>ui.success("<?php echo $info; ?>");</script>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 col-sm-12">
+			<div class="prompt">
+				<div class="prompt-inner">
+					<p><i class="ico-success"></i><?php echo $info; ?></p>
+			  	</div>
+		  	</div>
+		</div>
+	</div>
+</div>
+<script>
+var jump = function() {
+	// window.location.href = '{$jumpUrl}';
+	window.location.href = window.history.go(1);
+
+}
+document.onload = setTimeout("jump()" , 3000);
+</script>

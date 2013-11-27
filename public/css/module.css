@@ -14,6 +14,10 @@ footer {
 	margin: 0 auto;
 	max-width: 980px;
 }
+.nav-post {
+  display: inline-block;
+  margin: 6px 0 0 40px;
+}
 
 /*返回信息提示*/
 .prompt {
@@ -35,7 +39,7 @@ footer {
 	width: 40px;
 	height: 40px;
 	vertical-align: middle;
-	background: url("../image/sprite.png") no-repeat;
+	background: url(../img/sprite.png) no-repeat;
 }
 .prompt-inner .ico-success {
 	background-position: 0 0;
@@ -226,25 +230,33 @@ footer {
 
 /*topic*/
 .topic {
-  padding-bottom: 12px;
+  padding: 15px 0;
   border-bottom: 1px solid #eee;
 }
 .topic-item {
-  padding-left: 58px;
+  padding-left: 68px;
 }
 .topic-item .title {
+  margin-top: 0;
   margin-bottom: 15px;
+  font-size: 16px;
+}
+.topic-item .title a,
+.topic-item .title a:active {
+  color: #333;
+}
+.topic-item .title a:hover {
+  color: #148f77;
+  text-decoration: none;
 }
 .topic-item .title .badge {
   vertical-align: top;
 }
-.topic .topic-item .meta {
+.topic-item .meta {
   font-size: 12px;
+  color: #999;
 }
 .topic-item .meta a,
 .topic-item .meta span {
   margin-right: 5px;
-}
-.topic-item .meta span {
-  color: #999;
 }

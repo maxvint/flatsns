@@ -16,5 +16,9 @@ require.config({
 });
 
 require(['jquery', 'app/core'], function($, core) {
-	
+	$(document).ready(function() {
+	  $('[data-toggle=offcanvas]').click(function() {
+	    $('.row-offcanvas').toggleClass('active');
+	  });
+	});
 });

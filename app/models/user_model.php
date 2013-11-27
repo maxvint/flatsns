@@ -13,22 +13,22 @@ class User_model extends MY_Model
 
 	function register($data)
 	{
-		return $this->db->insert('users', $data);
+		return $this->db->insert('user', $data);
 	}
 
 	function chk_reg($email)
 	{
-		$query = $this->db->get_where('users', array('email' => $email));
+		$query = $this->db->get_where('user', array('email' => $email));
         return $query->row_array();
 	}
 
 	function chk_login($email, $password)
 	{
-		$query = $this->db->get_where('users', array('email'=>$email, 'password'=>md5($password)));
+		$query = $this->db->get_where('user', array('email'=>$email, 'password'=>md5($password)));
 		$result = $query->row_array();
 		if(@$result['uid'])
 		{
-			$this->db->where('uid', @$result['uid'])->update('users', array('lastlogin'=>time()));
+			$this->db->where('uid', @$result['uid'])->update('user', array('lastlogin'=>time()));
 		}
 		return $result;
 	}
@@ -36,7 +36,7 @@ class User_model extends MY_Model
 	function update_user($uid, $data)
 	{
 		$this->db->where('uid', $uid);
-  		$this->db->update('users', $data); 
+  		$this->db->update('user', $data); 
 		return ($this->db->affected_rows() > 0) ? TRUE : FALSE;
 	}
 
@@ -44,7 +44,7 @@ class User_model extends MY_Model
 	{
 		$this->db->where('uid', $data['uid']);
 		$this->db->where('password', $data['password']);
-		$this->db->update('users', array('password'=>$data['newpassword']));
+		$this->db->update('user', array('password'=>$data['newpassword']));
 		return $this->db->affected_rows();
 	}
 }

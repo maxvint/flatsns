@@ -14,117 +14,36 @@
 
 	<div class="row">
 		<div class="col-xs-12 col-sm-9">
-
-			<div class="topic">
-				<div class="avatar pull-left">
-					<a href="" class="img-rounded" title="admin"><img src="<?php echo base_url('public/img/avatar.jpg'); ?>" width="50" height="50" /></a>
-				</div>
-				<div class="topic-item">
-					<div class="pull-right">
-						<a class="badge">0</a>
+		<?php if($list): ?>
+			<?php foreach ($list as $k => $v): ?>
+				<div class="topic">
+					<div class="avatar pull-left">
+						<a href="" title="admin"><img src="<?php echo base_url('public/img/avatar.jpg'); ?>" class="img-rounded" width="50" height="50" /></a>
 					</div>
-					<h5 class="title">
-						<a href="" class=""><b>56ID国外免费云主机</b></a>
-						<span class="badge badge-danger">置顶</span>
-					</h5>
-					<div class="meta">
-						<a href="" class="label label-default">网站展示</a>
-						<a href="" class="label label-default">primary</a>
-						<a href="" class="label label-default">success</a>
-						<span>5分钟前</span>
-						<span>暂无回复</span>
-					</div>
-				</div>
-			</div>
-
-			<div class="topic">
-				<div class="avatar pull-left">
-					<a href="" class="img-rounded" title="admin"><img src="<?php echo base_url('public/img/avatar-1.jpg'); ?>" width="50" height="50" /></a>
-				</div>
-				<div class="topic-item">
-					<div class="pull-right">
-						<a class="badge">14</a>
-					</div>
-					<h5 class="title">
-						<a href="" class=""><b>56ID国外免费云主机</b></a>
-						<span class="badge badge-success">置顶</span>
-					</h5>
-					<div class="meta">
-						<a href="" class="label label-default">info</a>
-						<a href="" class="label label-default">warning</a>
-						<a href="" class="label label-default">danger</a>
-						<span>2小时前</span>
-						<span>最后回复来自</span>
-						<a href="">张三丰</a>
+					<div class="topic-item">
+						<div class="pull-right">
+							<a class="badge badge-info"><?php echo $v['replys'] ?></a>
+						</div>
+						<h5 class="title">
+							<a href="<?php echo site_url('topic/view/'.$v['tid']); ?>" class=""><?php echo $v['title'] ?></a>
+							<?php if ($v['is_top'] == 1): ?>
+								<span class="badge badge-danger">置顶</span>
+							<?php endif ?>
+						</h5>
+						<div class="meta">
+							<a href="" class="label label-default">测试版块</a> • 
+							<span>5分钟前</span> • 
+							<a href="">张三丰</a>
+							<span>暂无回复</span>
+						</div>
 					</div>
 				</div>
-			</div>
-
-			<div class="topic">
-				<div class="avatar pull-left">
-					<a href="" class="img-rounded" title="admin"><img src="<?php echo base_url('public/img/avatar.jpg'); ?>" width="50" height="50" /></a>
-				</div>
-				<div class="topic-item">
-					<div class="pull-right">
-						<a class="badge">14</a>
-					</div>
-					<h5 class="title">
-						<a href="" class="">房间浪费时间副驾驶的了方式的减肥</a>
-					</h5>
-					<div class="meta">
-						<a href="" class="label label-default">info</a>
-						<a href="" class="label label-default">warning</a>
-						<a href="" class="label label-default">danger</a>
-						<span>2小时前</span>
-						<span>最后回复来自</span>
-						<a href="">张三丰</a>
-					</div>
-				</div>
-			</div>
-
-			<div class="topic">
-				<div class="avatar pull-left">
-					<a href="" class="img-rounded" title="admin"><img src="<?php echo base_url('public/img/avatar.jpg'); ?>" width="50" height="50" /></a>
-				</div>
-				<div class="topic-item">
-					<div class="pull-right">
-						<a class="badge">14</a>
-					</div>
-					<h5 class="title">
-						<a href="" class="">房间浪费时间副驾驶的了方式的减肥</a>
-					</h5>
-					<div class="meta">
-						<a href="" class="label label-default">warning</a>
-						<a href="" class="label label-default">danger</a>
-						<span>2小时前</span>
-						<span>最后回复来自</span>
-						<a href="">张三丰</a>
-					</div>
-				</div>
-			</div>
-
-			<div class="topic">
-				<div class="avatar pull-left">
-					<a href="" class="img-rounded" title="admin"><img src="<?php echo base_url('public/img/avatar.jpg'); ?>" width="50" height="50" /></a>
-				</div>
-				<div class="topic-item">
-					<div class="pull-right">
-						<a class="badge">14</a>
-					</div>
-					<h5 class="title">
-						<a href="" class="">房间浪费时间副驾驶的了方式的减肥</a>
-					</h5>
-					<div class="meta">
-						<span>2小时前</span>
-						<span>最后回复来自</span>
-						<a href="">张三丰</a>
-					</div>
-				</div>
-			</div>
+			<?php endforeach ?>
+		<?php endif ?>
 
 			<ul class="pagination">
-			  <li><a href="#">&laquo;</a></li>
-			  <li><a href="#">1</a></li>
+			  <li class="disabled"><a href="#">&laquo;</a></li>
+			  <li class="active"><a href="#">1</a></li>
 			  <li><a href="#">2</a></li>
 			  <li><a href="#">3</a></li>
 			  <li><a href="#">4</a></li>
@@ -158,6 +77,20 @@
 					<a href="" class="label label-default">info</a>
 					<a href="" class="label label-default">warning</a>
 					<a href="" class="label label-default">fdf</a>
+		  		</div>
+			</div>
+
+			<div class="panel panel-default">
+  				<div class="panel-heading">
+    				<h3 class="panel-title">统计信息</h3>
+  				</div>
+		  		<div class="panel-body">
+		  			<ul class="list-unstyled">
+		  				<li><a href="">FlatSNS</a></li>
+		  				<li><a href="">Google</a></li>
+		  				<li><a href="">Codeigniter</a></li>
+		  				<li><a href="">Laravel</a></li>
+		  			</ul>
 		  		</div>
 			</div>
 

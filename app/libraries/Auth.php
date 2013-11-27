@@ -69,11 +69,11 @@ class Auth
 		$password = $this->_CI->session->userdata('password');
 		if(empty($password))
 		{
-			$query = $this->_CI->db->get_where('users', array('uid' => $uid));
+			$query = $this->_CI->db->get_where('user', array('uid' => $uid));
 		}
 		else
 		{
-			$query = $this->_CI->db->get_where('users', array('uid' => $uid, 'password' => $password));
+			$query = $this->_CI->db->get_where('user', array('uid' => $uid, 'password' => $password));
 		}
 		if(!count($query->row()))
 		{
