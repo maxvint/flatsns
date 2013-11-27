@@ -34,12 +34,7 @@ class Topic_model extends MY_Model
 
 	function get_topic_count()
 	{
-		$this->db->select('tid');
-		$query = $this->db->get_where('topic');
-		foreach($query->result() as $row)
-		{
-		    return $row->tid;
-		}
+		return $this->db->count_all_results('topic');
 	}
 
 

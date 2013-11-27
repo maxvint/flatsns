@@ -6,37 +6,29 @@ class Topic extends Main_Controller {
 	{
 		parent::__construct();
 		$this->load->model('topic_model');
-		$this->load->library('myclass');
 		$this->load->library('pagination');
+
 	}
 
 	/**
 	 * 首页控制器
 	 *
 	 */
-	public function index($page = 1)
+	public function index()
 	{
 
-		// 分页
-		$limit = 10;
-		$config['uri_segment'] = 4;
-		$config['use_page_numbers'] = TRUE;
+
+		$page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
 		$config['base_url'] = site_url('topic/index/');
-		$config['total_rows'] = $this->topic_model->get_topic_count();
-		$config['per_page'] = $limit;
-		$config['first_link'] ='首页';
-		$config['last_link'] ='尾页';
-		$config['num_links'] = 10;
+		$config['total_rows'] = $this->topic_model->get_topic_count(); 
+		$config['per_page'] = 10;
 
-		$this->load->library('pagination');
 		$this->pagination->initialize($config);
-		
-		$start = ($page-1)*$limit;
-		$data['pagination'] = $this->pagination->create_links();
+		$data = array(
+			'pagination' => $this->pagination->create_links(),
+			'list' => $this->topic_model->get_topic_list($page, $config['per_page'])
+		);
 
-		$data['list'] = $this->topic_model->get_topic_list($start, $limit);
-
-		// print_r($data);
 		$this->load->view('topic/index.html', $data);
 	}
 

@@ -14,42 +14,34 @@
 
 	<div class="row">
 		<div class="col-xs-12 col-sm-9">
-		<?php if($list): ?>
-			<?php foreach ($list as $k => $v): ?>
-				<div class="topic">
-					<div class="avatar pull-left">
-						<a href="" title="admin"><img src="<?php echo base_url('public/img/avatar.jpg'); ?>" class="img-rounded" width="50" height="50" /></a>
-					</div>
-					<div class="topic-item">
-						<div class="pull-right">
-							<a class="badge badge-info"><?php echo $v['replys'] ?></a>
+			<?php if($list): ?>
+				<?php foreach ($list as $k => $v): ?>
+					<div class="topic">
+						<div class="avatar pull-left">
+							<a href="" title="admin"><img src="<?php echo base_url('public/img/avatar.jpg'); ?>" class="img-rounded" width="50" height="50" /></a>
 						</div>
-						<h5 class="title">
-							<a href="<?php echo site_url('topic/view/'.$v['tid']); ?>" class=""><?php echo $v['title'] ?></a>
-							<?php if ($v['is_top'] == 1): ?>
-								<span class="badge badge-danger">置顶</span>
-							<?php endif ?>
-						</h5>
-						<div class="meta">
-							<a href="" class="label label-default">测试版块</a> • 
-							<span>5分钟前</span> • 
-							<a href="">张三丰</a>
-							<span>暂无回复</span>
+						<div class="topic-item">
+							<div class="pull-right">
+								<a class="badge badge-info"><?php echo $v['replys'] ?></a>
+							</div>
+							<h5 class="title">
+								<a href="<?php echo site_url('topic/view/'.$v['tid']); ?>" class=""><?php echo $v['title'] ?></a>
+								<?php if ($v['is_top'] == 1): ?>
+									<span class="badge badge-danger">置顶</span>
+								<?php endif ?>
+							</h5>
+							<div class="meta">
+								<a href="" class="label label-default">测试版块</a> • 
+								<span>5分钟前</span> • 
+								<a href="">张三丰</a>
+								<span>暂无回复</span>
+							</div>
 						</div>
 					</div>
-				</div>
-			<?php endforeach ?>
-		<?php endif ?>
+				<?php endforeach ?>
+			<?php endif ?>
 
-			<ul class="pagination">
-			  <li class="disabled"><a href="#">&laquo;</a></li>
-			  <li class="active"><a href="#">1</a></li>
-			  <li><a href="#">2</a></li>
-			  <li><a href="#">3</a></li>
-			  <li><a href="#">4</a></li>
-			  <li><a href="#">5</a></li>
-			  <li><a href="#">&raquo;</a></li>
-			</ul>
+			<?php echo $pagination; ?>
 		</div>
 
 
