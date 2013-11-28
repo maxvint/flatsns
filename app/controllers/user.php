@@ -145,7 +145,7 @@ class User extends Main_Controller {
 			}
 			else
 			{
-				$this->error('用户名或密码错误!');
+				$this->error('用户名或密码错误!', site_url('user/login'));
 			}
 		}
 		else

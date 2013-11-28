@@ -47,7 +47,9 @@ footer {
 .prompt-inner .ico-error {
 	background-position: 0 -50px;
 }
-
+.prompt-time {
+  text-align: center;
+}
 
 
 /*passport*/

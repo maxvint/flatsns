@@ -16,26 +16,34 @@
 					<?php echo $topic['content']; ?>
 				</div>
 
-				<div class="share">
-					<a class="btn btn-primary">编辑</a>
-					<a class="btn btn-warning">置顶</a>
-					<a class="btn btn-danger">删除</a>
-				</div>
+				<?php if($this->auth->is_login()){ ?>
+					<div class="share">
+						<a class="btn btn-primary">编辑</a>
+						<a class="btn btn-warning">置顶</a>
+						<a class="btn btn-danger">删除</a>
+					</div>
+				<?php } ?>
 
 				<div class="reply">
 					<ul class="list">
 						
 					</ul>
 					<div class="well post">
-						<form action="<?php echo site_url('topic/post'); ?>" method="post" role="form">
-							<legend>发布评论</legend>
-							<div class="form-group">
-								<textarea name="content" class="form-control" rows="3" spellcheck="false" placeholder="请您输入内容"></textarea>
-							</div>
-								<a href="javascript:void(0);" class="btn btn-primary">提交发布</a>
-						</form>
+						<?php echo $user['username']; ?>
+						<?php if($this->auth->is_login()){ ?>
+							<form action="<?php echo site_url('topic/post'); ?>" method="post" role="form">
+								<legend>发布评论</legend>
+								<div class="form-group">
+									<textarea name="content" class="form-control" rows="3" spellcheck="false" placeholder="请您输入内容"></textarea>
+								</div>
+									<a href="javascript:void(0);" class="btn btn-primary">提交发布</a>
+							</form>
+						<?php }else{ ?>
+							登录后评论
+							<a href="<?php echo site_url('user/login'); ?>" class="btn btn-primary">登录</a>
+							<a href="<?php echo site_url('user/register'); ?>" class="btn btn-default">注册</a>
+						<?php } ?>
 					</div>
-						
 				</div>
 			</article>
 		</div>

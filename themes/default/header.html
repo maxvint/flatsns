@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="<?php echo base_url('public/css/bootstrap.css'); ?>">
 	<link rel="stylesheet" href="<?php echo base_url('public/css/module.css'); ?>">
 
-	<script data-main="<?php echo base_url('public/js/main'); ?>" src="<?php echo base_url('public/js/require.js'); ?>"></script>
+	<script data-main="<?php echo base_url('public/js/main'); ?>" src="<?php echo base_url('public/js/lib/require.js'); ?>"></script>
 </head>
 <body>
 
@@ -37,6 +37,7 @@
 	      	<ul class="nav navbar-nav navbar-right">
 	      		<?php if($this->session->userdata('uid')){ ?>
 				<li class=""><a href="<?php echo site_url('user/register')?>"><i class="icon-user"></i><?php echo $this->session->userdata('username'); ?></a></li>
+				<li class=""><a href="<?php echo site_url('user/setting')?>"><i class="icon-off"></i>设置</a></li>
 				<li class=""><a href="<?php echo site_url('user/logout')?>"><i class="icon-off"></i>退出</a></li>
 				<?php }else{ ?>
 				<li class=""><a href="<?php echo site_url('user/register')?>"><i class="icon-edit"></i>注册</a></li>

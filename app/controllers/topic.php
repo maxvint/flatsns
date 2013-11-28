@@ -41,8 +41,7 @@ class Topic extends Main_Controller {
 
 		if(!$this->auth->is_login())
 		{
-			$this->error('请先登录');
-			redirect('user/login/');
+			$this->error('请先登录', site_url('user/login'));
 		}
 		else
 		{

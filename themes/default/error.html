@@ -6,15 +6,23 @@
 				<div class="prompt-inner">
 					<p><i class="ico-error"></i><?php echo $info; ?></p>
 			  	</div>
+			  	<div class="prompt-time">3 秒后自动跳转</div>
 		  	</div>
 		</div>
 	</div>
 </div>
 <script>
+var jumptime = 3;
 var jump = function() {
-	// window.location.href = '{$jumpUrl}';
-	window.location.href = window.history.go(1);
-
+	var jumpurl = '<?php echo $jumpurl; ?>';
+	(!jumpurl) ? history.go(-1) : window.location.href = jumpurl;
 }
-document.onload = setTimeout("jump()" , 3000);
+setInterval(function() {
+	if(jumptime > 0) {
+		msg = jumptime-1 + ' 秒后自动跳转';
+		$('.prompt-time').html(msg);
+		--jumptime;
+	}
+}, 1000);
+document.onload = setTimeout("jump()" , jumptime*1000);
 </script>

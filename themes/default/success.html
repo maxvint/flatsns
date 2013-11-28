@@ -12,9 +12,7 @@
 </div>
 <script>
 var jump = function() {
-	// window.location.href = '{$jumpUrl}';
-	window.location.href = window.history.go(1);
-
+	window.location.href = '<?php echo $jumpurl; ?>';
 }
 document.onload = setTimeout("jump()" , 3000);
 </script>
