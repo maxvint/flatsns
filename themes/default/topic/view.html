@@ -29,8 +29,9 @@
 						
 					</ul>
 					<div class="well post">
-						<?php echo $user['username']; ?>
+						
 						<?php if($this->auth->is_login()){ ?>
+							<?php echo $user['username']; ?>
 							<form action="<?php echo site_url('topic/post'); ?>" method="post" role="form">
 								<legend>发布评论</legend>
 								<div class="form-group">

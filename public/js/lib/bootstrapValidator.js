@@ -8,7 +8,7 @@
  * @license     MIT
  */
 
-(function($) {
++(function($) {
     var BootstrapValidator = function(form, options) {
         this.$form   = $(form);
         this.options = $.extend({}, BootstrapValidator.DEFAULT_OPTIONS, options);
@@ -155,7 +155,7 @@
                 helpBlock = $parent.find('.help-block');
 
             if (helpBlock.length == 0) {
-                var $small = $('<small/>').addClass('help-block').css('display', 'none').appendTo($parent);
+                var $small = $('<span/>').addClass('help-block').css('display', 'none').appendTo($parent);
                 $field.data('bootstrapValidator.error', $small);
 
                 // Calculate the number of columns of the label/field element

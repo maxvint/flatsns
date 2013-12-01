@@ -1960,39 +1960,89 @@
  * ======================================================================== */
 
 
+
+
+
+
+
 +function ($) { "use strict";
 
-  // CSS TRANSITION SUPPORT (Shoutout: http://www.modernizr.com/)
-  // ============================================================
+  // TOOLTIP PUBLIC CLASS DEFINITION
+  // ===============================
 
-  function transitionEnd() {
-    var el = document.createElement('bootstrap')
-
-    var transEndEventNames = {
-      'WebkitTransition' : 'webkitTransitionEnd'
-    , 'MozTransition'    : 'transitionend'
-    , 'OTransition'      : 'oTransitionEnd otransitionend'
-    , 'transition'       : 'transitionend'
-    }
-
-    for (var name in transEndEventNames) {
-      if (el.style[name] !== undefined) {
-        return { end: transEndEventNames[name] }
-      }
+  var Module = function (element, fns) {
+    if (element) {
+      // 预清除，防止重复模型化引起的双重缓存
+      this.init(element)
     }
   }
 
-  // http://blog.alexmaccaw.com/css-transitions
-  $.fn.emulateTransitionEnd = function (duration) {
-    var called = false, $el = this
-    $(this).one($.support.transition.end, function () { called = true })
-    var callback = function () { if (!called) $($el).trigger($.support.transition.end) }
-    setTimeout(callback, duration)
+  Module.prototype.getEventArgs = function (element) {
+    this.$element = $(element)
+    return 'get';
+    // return this.URI2Obj(this.$element.attr("event-args"))
+    // element.args = this.URI2Obj(element.getAttribute("event-args"))
+    // return this.URI2Obj(element.getAttribute("event-args"))
+    // return this.e;
+  }
+
+
+  Module.prototype.init = function (element) {
+    this.getEventArgs(element)
+    
+  }
+
+  /**
+   * 将uri转换为对象格式
+   *
+   * @param uri URI 格式的数据
+   */
+  Module.prototype.URI2Obj = function (uri) {
+    if (!uri) {
+      return {}
+    }
+    var obj = {}
+    ,args = uri.split('&')
+    ,l
+    ,arg
+    l = args.length
+    while (l-- > 0) {
+      arg = args[l]
+      if (!arg) {
+        continue;
+      }
+      arg = arg.split('=')
+      obj[arg[0]] = arg[1]
+    }
+    return obj
+  }
+
+
+  // TOOLTIP PLUGIN DEFINITION
+  // =========================
+
+  var old = $.fn.module
+
+  $.fn.module = function (option) {
+    return this.each(function () {
+      var $this   = $(this)
+      var data    = $this.data('bs.module')
+      var options = typeof option == 'object' && option
+
+      if (!data) $this.data('bs.module', (data = new Module(this, options)))
+      if (typeof option == 'string') data[option]()
+    })
+  }
+
+  $.fn.module.Constructor = Module
+
+
+  // TOOLTIP NO CONFLICT
+  // ===================
+
+  $.fn.module.noConflict = function () {
+    $.fn.module = old
     return this
   }
-
-  $(function () {
-    $.support.transition = transitionEnd()
-  })
 
 }(jQuery);

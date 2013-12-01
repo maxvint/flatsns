@@ -104,10 +104,9 @@ footer {
 .passport .login {
   position: relative;
   float: right;
-  margin: 20px 0;
-  padding: 40px 20px;
-  width: auto;
-  height: 280px;
+  margin: 40px 0;
+  padding: 40px;
+  width: 100%;
   background: rgba(0, 0, 0, 0.4);
   color: #fff;
 }
@@ -125,6 +124,9 @@ footer {
 .passport .login .form-login .btn {
   width: 280px;
   text-shadow: 0 1px 0 #007543;
+}
+.passport .login .has-error .help-block {
+  color: #c66;
 }
 .passport .login .on-changes {
   display: none;
@@ -232,13 +234,26 @@ footer {
 
 /*topic*/
 .topic {
-  padding: 15px 0;
+  
   border-bottom: 1px solid #eee;
 }
+.hover {
+  background: #f9f9f9;
+  cursor: pointer;
+}
 .topic-item {
+  padding: 15px 0;
+}
+.topic-item:hover {
+  background: #f9f9f9;
+  cursor: pointer;
+}
+.topic-item .info {
   padding-left: 68px;
 }
+
 .topic-item .title {
+  display: inline-block;
   margin-top: 0;
   margin-bottom: 15px;
   font-size: 16px;
@@ -262,3 +277,20 @@ footer {
 .topic-item .meta span {
   margin-right: 5px;
 }
+.topic-reply {
+  display: none;
+  padding: 20px 40px 0 80px;
+  background: #f9f9f9;
+  border-top: 1px solid #eee;
+}
+.topic-reply .form-group {
+  margin-bottom: 0;
+  padding-bottom: 20px;
+}
+.topic-reply .form-group textarea {
+  height: 50px;
+}
+
+
+
+

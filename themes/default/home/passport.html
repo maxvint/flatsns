@@ -1,9 +1,14 @@
 <?php $this->load->view('header.html');?>
+<script language="javascript">
+	seajs.use('app/main', function(main) {
+		main.load('passport');
+	});
+</script>
 <secrion class="passport">
 	<div class="inner">
 		<div id="" class="container">
 			<div class="row">
-				<div class="col-sm-7">
+				<div class="col-lg-7">
 					<div class="intro">
 						<h1>为移动社区而生</h1>
 						<h4>轻量级、移动化社区系统</h4>
@@ -13,37 +18,31 @@
 						<a href="https://github.com/yuwenhui/flateam" class="btn btn-large btn-warning btn-download" target="_blank"><i class="icon-circle-arrow-down icon-white"></i>下载源码</a>
 					</div>
 				</div>
-				<div class="col-sm-5 pull-right">
-					<div class="login" model-node="login_input">
+				<div class="col-lg-5">
+					<div class="login">
 						<form action="<?php echo site_url('user/login'); ?>" method="post" class="form-horizontal">
-							<div class="control-group">
-								<div class="span4">
-									<input type="text" name="email" id="email" class="input-xlarge" placeholder="邮箱"  autocomplete="off" />
-									<div class="email-list on-changes">
-										<p>请选择或继续输入...</p>
-										<ul>
-											<li email="" rel="show"></li>
-											<?php foreach ($email_suffix as $v) { ?>
-											<li email="<?php echo $v; ?>" rel="show"><?php echo $v; ?></li>
-											<?php } ?>
-										</ul>
-									</div>
+							<div class="form-group">
+								<input type="text" name="email" id="email" class="form-control input-lg col-lg-12" placeholder="邮箱"  autocomplete="off" />
+								<div class="email-list on-changes">
+									<p>请选择或继续输入...</p>
+									<ul>
+										<li email="" rel="show"></li>
+										<?php foreach ($email_suffix as $v) { ?>
+										<li email="<?php echo $v; ?>" rel="show"><?php echo $v; ?></li>
+										<?php } ?>
+									</ul>
 								</div>
 							</div>
-							<div class="control-group">
-								<div class="span4">
-									<input type="password" name="password" id="password" class="input-xlarge" placeholder="密码" />
+							<div class="form-group">
+								<input type="password" name="password" id="password" class="form-control input-lg col-xs-12" placeholder="密码" />
+							</div>
+							<div class="form-group">
+								<div class="checkbox">
+									<label><input type="checkbox" name="remember" id="remember" value="1" /> 记住我，下次自动登录</label>
 								</div>
 							</div>
-							<div class="control-group">
-								<div class="span8">
-									<label class="checkbox">
-										<input type="checkbox" name="remember" id="remember" class="pull-left" value="1" />记住我，下次自动登录
-									</label>
-								</div>
-							</div>
-							<div class="form-login">
-								<button type="submit" class="btn btn-large btn-primary">登录</button>
+							<div class="form-group">
+								<button type="submit" id="do_login" class="btn btn-lg btn-primary">登录</button>
 							</div>
 						</form>
 						<div id="message" class="error-box a-fadein"><i class="icon-error"></i></div>
@@ -53,3 +52,4 @@
 		</div>
 	</div>
 </secrion>
+<?php $this->load->view('footer.html');?>

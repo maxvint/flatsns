@@ -207,14 +207,14 @@ class User extends Main_Controller {
 		$this->load->library('form_validation');
 		$this->form_validation->set_error_delimiters('', '');
 		$this->form_validation->set_rules('email', '邮箱', 'trim|required|min_length[3]|max_length[50]|valid_email|callback_chk_reg');
-		$this->form_validation->set_rules('password', '用户密码', 'trim|required|min_length[6]|max_length[40]');
-		$this->form_validation->set_rules('repassword', '密码验证', 'trim|required|min_length[6]|max_length[40]|matches[password]');
-		$this->form_validation->set_message('required', '%s不能为空！');
-		$this->form_validation->set_message('min_length', '%s最小长度不少于 %s 个字符或汉字！');
-		$this->form_validation->set_message('max_length', '%s最大长度不多于 %s 个字符或汉字！');
+		$this->form_validation->set_rules('password', '用户密码', 'trim|required|min_length[6]|max_length[30]');
+		$this->form_validation->set_rules('repassword', '密码验证', 'trim|required|min_length[6]|max_length[30]|matches[password]');
+		$this->form_validation->set_message('required', '%s不能为空');
+		$this->form_validation->set_message('min_length', '%s最小长度不少于 %s 个字符或汉字');
+		$this->form_validation->set_message('max_length', '%s最大长度不多于 %s 个字符或汉字');
 		$this->form_validation->set_message('matches', '两次密码不一致');
-		$this->form_validation->set_message('valid_email', '邮箱格式不对');
-		$this->form_validation->set_message('alpha_dash', '邮箱格式不对');
+		$this->form_validation->set_message('valid_email', '邮箱格式错误');
+		$this->form_validation->set_message('alpha_dash', '邮箱格式错误');
 		
 		if($this->form_validation->run() == FALSE)
 		{
