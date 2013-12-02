@@ -1979,13 +1979,12 @@
 
   Module.prototype.getEventArgs = function (element) {
     this.$element = $(element)
-    return 'get';
+    return 'get'
     // return this.URI2Obj(this.$element.attr("event-args"))
     // element.args = this.URI2Obj(element.getAttribute("event-args"))
     // return this.URI2Obj(element.getAttribute("event-args"))
     // return this.e;
   }
-
 
   Module.prototype.init = function (element) {
     this.getEventArgs(element)
@@ -2016,7 +2015,6 @@
     }
     return obj
   }
-
 
   // TOOLTIP PLUGIN DEFINITION
   // =========================

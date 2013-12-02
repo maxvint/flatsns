@@ -4,9 +4,7 @@ define(function(require, exports, moudles) {
 
 	exports.init = function(context, options){
 		
-		$('#aaa').module('getEventArgs', function(res) {
-			console.log(res);
-		});
+		$('#aaa').tooltip('show');
 		/*
 		$('#topiclist .topic-item').click(function() {
 			
