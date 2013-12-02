@@ -12,8 +12,7 @@
 	<script src="<?php echo base_url('public/js/sea.js'); ?>" id="seajsnode"></script>
 </head>
 <body>
-
-<header class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+<div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
   	<div class="container">
 	    <div class="navbar-header">
 	    	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -30,9 +29,7 @@
 				<li <?php if($this->router->class == 'topic'){ ?>class="active"<?php } ?>><a href="<?php echo site_url('topic')?>">话题</a></li>
 				<li <?php if($this->router->class == 'ui'){ ?>class="active"<?php } ?>><a href="<?php echo site_url('ui')?>">UI模板</a></li>
 	      	</ul>
-
 	      	<span class="nav-post"><a href="<?php echo site_url('topic/post')?>" class="btn btn-danger">发新话题</a></span>
-
 	      	<ul class="nav navbar-nav navbar-right">
 	      		<?php if($this->session->userdata('uid')){ ?>
 				<li class=""><a href="<?php echo site_url('user/register')?>"><i class="icon-user"></i><?php echo $this->session->userdata('username'); ?></a></li>
@@ -45,4 +42,4 @@
 	        </ul>
 	    </div>
   </div>
-</header>
+</div>

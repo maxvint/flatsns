@@ -6,17 +6,17 @@ define(function (require, exports, moudles) {
 				email: {
 					validators: {
 						notEmpty: {
-							message: '邮箱不能为空'
+							message: '您还没有填写邮箱'
 						},
 						emailAddress: {
-							message: '邮箱格式错误'
+							message: '邮箱格式不对哦'
 						}
 					}
 				},
 				password: {
 					validators: {
 						notEmpty: {
-							message: '密码不能为空'
+							message: '您还没有填写密码'
 						},
 	                    stringLength: {
 	                        min: 6,
@@ -25,14 +25,14 @@ define(function (require, exports, moudles) {
 	                    },
 	                    identical: {
 	                        field: 'repassword',
-	                        message: '两次密码不一致'
+	                        message: '两次密码不一致哦'
 	                    }
 					}
 				},
 				repassword: {
 					validators: {
 						notEmpty: {
-							message: '验证密码不能为空'
+							message: '您还没有输入验证密码'
 						},
 						stringLength: {
 							min: 6,
