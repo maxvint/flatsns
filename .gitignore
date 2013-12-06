@@ -9,3 +9,5 @@ app/logs/*
 !app/logs/.htaccess
 
 node_modules/*
+
+temp/*
