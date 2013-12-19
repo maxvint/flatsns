@@ -1,10 +1,10 @@
 seajs.config({
 	// 别名
 	alias:{
-			'jquery': 'lib/jquery.js',
-			'module': 'lib/module.js',
-			'bootstrap': 'lib/bootstrap.js',
-			'validator': 'lib/bootstrapValidator.js'
+		'jquery': 'lib/jquery.js',
+		'bootstrap': 'lib/bootstrap.js',
+		'validator': 'lib/bootstrapValidator.js',
+		'core': 'app/core.js',
 	}
 });
 

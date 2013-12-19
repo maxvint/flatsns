@@ -1,42 +1,71 @@
-define(function(require, exports, moudles) {
-	require('bootstrap');
-	
-
+define(function(require, exports) {
+	var core = require('core');
+	require('validator');
 	exports.init = function(context, options){
-		
-		$('#aaa').tooltip('show');
-		/*
-		$('#topiclist .topic-item').click(function() {
-			
-			$('#topiclist .topic .topic-reply').slideUp(function() {
-				// $(this).prev().removeAttr("style");
-				// $(this).prev().unbind();
-				// $(this).prev().click(quickReply);
-				$(this).remove();
-			});
-			$(this).removeClass('hover');
-			$(this).attr('style', 'background-color: #FFF');
 
-			var arg = $(this).attr('arg');
-
-
-			var reply = '<div id="reply_'+ arg +'" class="topic-reply col-lg-12"><form action="" class="form-horizontal"><div class="form-group"><div class="col-lg-8"><textarea name="" id="" class="form-control" rows="2" placeholder="请您输入评论内容"></textarea></div></div></form></div>';
-
-
-			$(this).unbind();
-			$(this).after(reply);
-
-			$(this).next().slideToggle(function() {
-					// $(this).next().slideUp(function(){
-						// $(this).prev().unbind();
-						// $(this).prev().click(quickReply);
-						// $(this).remove();
-					// });
-			});
-
-			// $(this).parents('.topic').find('.topic-reply').slideToggle('fast');
-			// console.log($(this).parents('.topic').find('.topic-reply'));
+		$('#aaa').click(function() {
+			var args = getArgs(this);
+		}).mouseover(function() {
+			var args = getArgs(this);
 		});
-		*/
+
+		$('.add').bootstrapValidator({
+			fields: {
+				title: {
+					validators: {
+						notEmpty: {
+							message: '您还没有填写标题'
+						}
+					}
+				},
+				content: {
+					validators: {
+						notEmpty: {
+							message: '您还没有填写内容'
+						}
+					}
+				}
+			}
+		});
+
+		// post
+		$('#topic_post').click(function() {
+
+		});
+
+		// top
+		$('#topic_top').click(function() {
+			var args = core.getArgs(this);
+			core.ui.success();
+		});
+
+		// delete
+		$('#topic_delete').click(function() {
+			var args = core.getArgs(this);
+			core.ui.confirm(this, 'confirm');
+		});
+
+		// add_reply
+		$('#add_reply').click(function() {
+			var args = core.getArgs(this);
+			var content = $('#reply_content').val();
+			$.post(SITE_URL + '/topic/add_reply', {tid: args.tid, uid: UID, content: content}, function(res) {
+				console.log(res);
+				if(res.status == 'success') {
+					// 清空当前发布框
+					$('#reply_content').val('');
+					var html = '<div class="list">' +
+								'<div class="author">' +
+									'<div class="avatar"><a href=""><img src="" class="img-circle" width="50" height="50" alt=""></a></div>' +
+									'<div class="userinfo"><a href="">'+ res.data.uid +'</a><span class="time">'+ res.data.addtime +'</span></div></div>' +
+								'<div class="content">'+ res.data.content +'</div>' +
+							'</div>';
+					$('.reply').append(html);
+				}
+			}, 'json');
+		});
 	}
 });
+
+
+							

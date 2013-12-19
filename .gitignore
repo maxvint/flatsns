@@ -1,11 +1,6 @@
+/bootstrap/compiled.php
+/vendor
+composer.phar
+composer.lock
 .DS_Store
-
-app/cache/*
-!app/cache/index.html
-!app/cache/.htaccess
-
-app/logs/*
-!app/logs/index.html
-!app/logs/.htaccess
-
-node_modules/*
+Thumbs.db

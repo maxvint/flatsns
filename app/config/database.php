@@ -1,70 +1,124 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-/*
-| -------------------------------------------------------------------
-| DATABASE CONNECTIVITY SETTINGS
-| -------------------------------------------------------------------
-| This file will contain the settings needed to access your database.
-|
-| For complete instructions please consult the 'Database Connection'
-| page of the User Guide.
-|
-| -------------------------------------------------------------------
-| EXPLANATION OF VARIABLES
-| -------------------------------------------------------------------
-|
-|	['hostname'] The hostname of your database server.
-|	['username'] The username used to connect to the database
-|	['password'] The password used to connect to the database
-|	['database'] The name of the database you want to connect to
-|	['dbdriver'] The database type. ie: mysql.  Currently supported:
-				 mysql, mysqli, postgre, odbc, mssql, sqlite, oci8
-|	['dbprefix'] You can add an optional prefix, which will be added
-|				 to the table name when using the  Active Record class
-|	['pconnect'] TRUE/FALSE - Whether to use a persistent connection
-|	['db_debug'] TRUE/FALSE - Whether database errors should be displayed.
-|	['cache_on'] TRUE/FALSE - Enables/disables query caching
-|	['cachedir'] The path to the folder where cache files should be stored
-|	['char_set'] The character set used in communicating with the database
-|	['dbcollat'] The character collation used in communicating with the database
-|				 NOTE: For MySQL and MySQLi databases, this setting is only used
-| 				 as a backup if your server is running PHP < 5.2.3 or MySQL < 5.0.7
-|				 (and in table creation queries made with DB Forge).
-| 				 There is an incompatibility in PHP with mysql_real_escape_string() which
-| 				 can make your site vulnerable to SQL injection if you are using a
-| 				 multi-byte character set and are running versions lower than these.
-| 				 Sites using Latin-1 or UTF-8 database character set and collation are unaffected.
-|	['swap_pre'] A default table prefix that should be swapped with the dbprefix
-|	['autoinit'] Whether or not to automatically initialize the database.
-|	['stricton'] TRUE/FALSE - forces 'Strict Mode' connections
-|							- good for ensuring strict SQL while developing
-|
-| The $active_group variable lets you choose which connection group to
-| make active.  By default there is only one group (the 'default' group).
-|
-| The $active_record variables lets you determine whether or not to load
-| the active record class
-*/
+<?php
 
-$active_group = 'default';
-$active_record = TRUE;
+return array(
 
-$db['default']['hostname'] = 'localhost';
-$db['default']['port'] = '3306';
-$db['default']['username'] = 'root';
-$db['default']['password'] = '123456';
-$db['default']['database'] = 'flatsns';
-$db['default']['dbdriver'] = 'mysql';
-$db['default']['dbprefix'] = 'pre_';
-$db['default']['pconnect'] = TRUE;
-$db['default']['db_debug'] = TRUE;
-$db['default']['cache_on'] = FALSE;
-$db['default']['cachedir'] = 'app/cache';
-$db['default']['char_set'] = 'utf8';
-$db['default']['dbcollat'] = 'utf8_general_ci';
-$db['default']['swap_pre'] = '';
-$db['default']['autoinit'] = TRUE;
-$db['default']['stricton'] = FALSE;
+	/*
+	|--------------------------------------------------------------------------
+	| PDO Fetch Style
+	|--------------------------------------------------------------------------
+	|
+	| By default, database results will be returned as instances of the PHP
+	| stdClass object; however, you may desire to retrieve records in an
+	| array format for simplicity. Here you can tweak the fetch style.
+	|
+	*/
 
+	'fetch' => PDO::FETCH_CLASS,
 
-/* End of file database.php */
-/* Location: ./application/config/database.php */
+	/*
+	|--------------------------------------------------------------------------
+	| Default Database Connection Name
+	|--------------------------------------------------------------------------
+	|
+	| Here you may specify which of the database connections below you wish
+	| to use as your default connection for all database work. Of course
+	| you may use many connections at once using the Database library.
+	|
+	*/
+
+	'default' => 'mysql',
+
+	/*
+	|--------------------------------------------------------------------------
+	| Database Connections
+	|--------------------------------------------------------------------------
+	|
+	| Here are each of the database connections setup for your application.
+	| Of course, examples of configuring each database platform that is
+	| supported by Laravel is shown below to make development simple.
+	|
+	|
+	| All database work in Laravel is done through the PHP PDO facilities
+	| so make sure you have the driver for your particular database of
+	| choice installed on your machine before you begin development.
+	|
+	*/
+
+	'connections' => array(
+
+		'sqlite' => array(
+			'driver'   => 'sqlite',
+			'database' => __DIR__.'/../database/production.sqlite',
+			'prefix'   => '',
+		),
+
+		'mysql' => array(
+			'driver'    => 'mysql',
+			'host'      => 'localhost',
+			'database'  => 'flatsns',
+			'username'  => 'root',
+			'password'  => '123456',
+			'charset'   => 'utf8',
+			'collation' => 'utf8_unicode_ci',
+			'prefix'    => '',
+		),
+
+		'pgsql' => array(
+			'driver'   => 'pgsql',
+			'host'     => 'localhost',
+			'database' => 'database',
+			'username' => 'root',
+			'password' => '',
+			'charset'  => 'utf8',
+			'prefix'   => '',
+			'schema'   => 'public',
+		),
+
+		'sqlsrv' => array(
+			'driver'   => 'sqlsrv',
+			'host'     => 'localhost',
+			'database' => 'database',
+			'username' => 'root',
+			'password' => '',
+			'prefix'   => '',
+		),
+
+	),
+
+	/*
+	|--------------------------------------------------------------------------
+	| Migration Repository Table
+	|--------------------------------------------------------------------------
+	|
+	| This table keeps track of all the migrations that have already run for
+	| your application. Using this information, we can determine which of
+	| the migrations on disk have not actually be run in the databases.
+	|
+	*/
+
+	'migrations' => 'migrations',
+
+	/*
+	|--------------------------------------------------------------------------
+	| Redis Databases
+	|--------------------------------------------------------------------------
+	|
+	| Redis is an open source, fast, and advanced key-value store that also
+	| provides a richer set of commands than a typical key-value systems
+	| such as APC or Memcached. Laravel makes it easy to dig right in.
+	|
+	*/
+
+	'redis' => array(
+
+		'cluster' => true,
+
+		'default' => array(
+			'host'     => '127.0.0.1',
+			'port'     => 6379,
+			'database' => 0,
+		),
+
+	),
+
+);

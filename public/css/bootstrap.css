@@ -273,7 +273,7 @@ cite {
   font-style: normal;
 }
 .text-muted {
-  color: #cccccc;
+  color: #dddddd;
 }
 .text-primary {
   color: #1abc9c;
@@ -357,7 +357,7 @@ h6 .small,
 .h6 .small {
   font-weight: normal;
   line-height: 1;
-  color: #cccccc;
+  color: #dddddd;
 }
 h1,
 h2,
@@ -493,7 +493,7 @@ dd {
 abbr[title],
 abbr[data-original-title] {
   cursor: help;
-  border-bottom: 1px dotted #cccccc;
+  border-bottom: 1px dotted #dddddd;
 }
 abbr.initialism {
   font-size: 90%;
@@ -515,7 +515,7 @@ blockquote p:last-child {
 blockquote small {
   display: block;
   line-height: 1.6;
-  color: #cccccc;
+  color: #dddddd;
 }
 blockquote small:before {
   content: '\2014 \00A0';
@@ -1571,16 +1571,16 @@ output {
   box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(26, 188, 156, 0.6);
 }
 .form-control:-moz-placeholder {
-  color: #cccccc;
+  color: #dddddd;
 }
 .form-control::-moz-placeholder {
-  color: #cccccc;
+  color: #dddddd;
 }
 .form-control:-ms-input-placeholder {
-  color: #cccccc;
+  color: #dddddd;
 }
 .form-control::-webkit-input-placeholder {
-  color: #cccccc;
+  color: #dddddd;
 }
 .form-control[disabled],
 .form-control[readonly],
@@ -2113,7 +2113,7 @@ fieldset[disabled] .btn-link {
 fieldset[disabled] .btn-link:hover,
 .btn-link[disabled]:focus,
 fieldset[disabled] .btn-link:focus {
-  color: #cccccc;
+  color: #dddddd;
   text-decoration: none;
 }
 .btn-lg {
@@ -2856,7 +2856,7 @@ input[type="button"].btn-block {
 .dropdown-menu > .disabled > a,
 .dropdown-menu > .disabled > a:hover,
 .dropdown-menu > .disabled > a:focus {
-  color: #cccccc;
+  color: #dddddd;
 }
 .dropdown-menu > .disabled > a:hover,
 .dropdown-menu > .disabled > a:focus {
@@ -2877,7 +2877,7 @@ input[type="button"].btn-block {
   padding: 3px 20px;
   font-size: 12px;
   line-height: 1.6;
-  color: #cccccc;
+  color: #dddddd;
 }
 .dropdown-backdrop {
   position: fixed;
@@ -3317,11 +3317,11 @@ textarea.input-group-sm > .input-group-btn > .btn {
   background-color: #eeeeee;
 }
 .nav > li.disabled > a {
-  color: #cccccc;
+  color: #dddddd;
 }
 .nav > li.disabled > a:hover,
 .nav > li.disabled > a:focus {
-  color: #cccccc;
+  color: #dddddd;
   text-decoration: none;
   background-color: transparent;
   cursor: not-allowed;
@@ -3945,7 +3945,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   background-color: transparent;
 }
 .navbar-inverse .navbar-text {
-  color: #cccccc;
+  color: #dddddd;
 }
 .navbar-inverse .navbar-nav > li > a {
   color: #ffffff;
@@ -4047,7 +4047,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   color: #cccccc;
 }
 .breadcrumb > .active {
-  color: #cccccc;
+  color: #dddddd;
 }
 .pagination {
   display: inline-block;
@@ -4096,7 +4096,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .pagination > .disabled > a,
 .pagination > .disabled > a:hover,
 .pagination > .disabled > a:focus {
-  color: #cccccc;
+  color: #dddddd;
   background-color: #ffffff;
   border-color: #dddddd;
   cursor: not-allowed;
@@ -4185,7 +4185,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .pager .disabled > a:hover,
 .pager .disabled > a:focus,
 .pager .disabled > span {
-  color: #cccccc;
+  color: #dddddd;
   background-color: #ffffff;
   cursor: not-allowed;
 }
@@ -4210,11 +4210,11 @@ textarea.input-group-sm > .input-group-btn > .btn {
   display: none;
 }
 .label-default {
-  background-color: #cccccc;
+  background-color: #dddddd;
 }
 .label-default[href]:hover,
 .label-default[href]:focus {
-  background-color: #b3b3b3;
+  background-color: #c3c3c3;
 }
 .label-primary {
   background-color: #1abc9c;
@@ -4262,7 +4262,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   vertical-align: baseline;
   white-space: nowrap;
   text-align: center;
-  background-color: #cccccc;
+  background-color: #dddddd;
   border-radius: 10px;
 }
 .badge:empty {
@@ -4287,11 +4287,11 @@ a.list-group-item.active > .badge,
   margin-left: 3px;
 }
 .badge-default {
-  background-color: #cccccc;
+  background-color: #dddddd;
 }
 .badge-default[href]:hover,
 .badge-default[href]:focus {
-  background-color: #b3b3b3;
+  background-color: #c3c3c3;
 }
 .badge-primary {
   background-color: #1abc9c;
@@ -4878,7 +4878,7 @@ a.list-group-item.active:focus .list-group-item-text {
 }
 .well {
   min-height: 20px;
-  padding: 10px 20px 20px;
+  padding: 10px 20px;
   margin-bottom: 20px;
   background-color: #f5f5f5;
   border: 1px solid #e3e3e3;

@@ -1,34 +1,21 @@
-FlatSNS
-=======
+## Laravel PHP Framework
 
-FlatSNS是移动优先的社区程序，基于Codeigniter和Twitter Bootstrap3。
+[![Latest Stable Version](https://poser.pugx.org/laravel/framework/version.png)](https://packagist.org/packages/laravel/framework) [![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.png)](https://packagist.org/packages/laravel/framework) [![Build Status](https://travis-ci.org/laravel/framework.png)](https://travis-ci.org/laravel/framework)
 
-##应用  
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, and caching.
 
-* 问答：社会化问答；
-* 图片：类Lofter、Tumblr的图片分享功能；
-* 论坛：轻论坛；
-* ……
+Laravel aims to make the development process a pleasing one for the developer without sacrificing application functionality. Happy developers make the best code. To this end, we've attempted to combine the very best of what we have seen in other web frameworks, including frameworks implemented in other languages, such as Ruby on Rails, ASP.NET MVC, and Sinatra.
 
-##有什么不同？
+Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
 
-####强调前端体验，例如：
+## Official Documentation
 
-* 美化的表单设计，参考：<http://www.bootcss.com/p/icheck>；
+Documentation for the entire framework can be found on the [Laravel website](http://laravel.com/docs).
 
-####性能、速度
+### Contributing To Laravel
 
-* 优化速度，弃用模板引擎，大幅提升速度和性能；
-* 分布式部署设计，数据库读写分离设计；
-* 考虑内置coreseek搜索引擎，满足高精准的模糊搜索；
-* 阿里云OSS、又拍云存储支持。
+**All issues and pull requests should be filed on the [laravel/framework](http://github.com/laravel/framework) repository.**
 
-####运营支持
+### License
 
-* 内置微信公众接口和运营工具；
-* 积分消耗和充值（支付宝、财付通）功能。
-                    
-
-####功能模块可自定义
-
-* 应用可根据需要开关，可以只开启一个或某几个模块。
+The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)

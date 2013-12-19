@@ -1977,14 +1977,6 @@
     }
   }
 
-  Module.prototype.getEventArgs = function (element) {
-    this.$element = $(element)
-    return 'get'
-    // return this.URI2Obj(this.$element.attr("event-args"))
-    // element.args = this.URI2Obj(element.getAttribute("event-args"))
-    // return this.URI2Obj(element.getAttribute("event-args"))
-    // return this.e;
-  }
 
   Module.prototype.init = function (element) {
     this.getEventArgs(element)
@@ -2015,6 +2007,24 @@
     }
     return obj
   }
+
+  Module.prototype.getEventArgs = function (element) {
+    this.$element = $(element)
+    var args = this.$element.attr('event-args')
+    return this.URI2Obj(args)
+  }
+
+  Module.prototype.addEventFns = function (fns) {
+    if ( "object" != typeof fns ) {
+      return false
+    }
+    console.log(fns)
+  }
+
+  Module.prototype.addListener = function (node, events) {
+
+  }
+
 
   // TOOLTIP PLUGIN DEFINITION
   // =========================
