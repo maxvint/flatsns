@@ -3,4 +3,19 @@
 composer.phar
 composer.lock
 .DS_Store
+<<<<<<< HEAD
 Thumbs.db
+=======
+
+app/cache/*
+!app/cache/index.html
+!app/cache/.htaccess
+
+app/logs/*
+!app/logs/index.html
+!app/logs/.htaccess
+
+node_modules/*
+
+temp/*
+>>>>>>> 94ce30b9ce2ef31bd52051c369f8fa268bb1ad7c
