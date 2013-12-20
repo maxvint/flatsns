@@ -1,0 +1,60 @@
+@extends('layout')
+
+
+<div class="container">
+	<div class="row">
+		<div class="page-header">
+			<h1 id="grid">布局</h1>
+		</div>
+		<h2 id="type-headings">栅格</h2>
+	</div>
+	<div class="row">
+        <div class="col-md-4">.col-md-4</div>
+        <div class="col-md-4">.col-md-4</div>
+        <div class="col-md-4">.col-md-4</div>
+	</div>
+	<div class="row">
+        <div class="col-md-3">.col-md-3</div>
+        <div class="col-md-6">.col-md-6</div>
+        <div class="col-md-3">.col-md-3</div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">.col-md-8</div>
+        <div class="col-md-4">.col-md-4</div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+          	.col-md-8
+          	<div class="row">
+            	<div class="col-md-6">.col-md-6</div>
+            	<div class="col-md-6">.col-md-6</div>
+          	</div>
+        </div>
+        <div class="col-md-4">.col-md-4</div>
+	</div>
+
+	<div class="row">
+		<h2 id="type-headings">标题</h2>
+	</div>
+
+	<div class="row">
+		<h1>h1. 我是标题  <small>字号： 36px</small></h1>
+		<h2>h2. 我是标题  <small>字号： 30px</small></h2>
+		<h3>h3. 我是标题  <small>字号： 24px</small></h3>
+		<h4>h4. 我是标题  <small>字号： 18px</small></h4>
+		<h5>h5. 我是标题  <small>字号： 14px</small></h5>
+		<h6>h6. 我是标题  <small>字号： 12px</small></h6>
+	</div>
+
+	<div class="row">
+		<h2 id="type-headings">页面主体</h2>
+	</div>
+
+	<div class="row">
+
+	</div>
+
+
+
+
+</div>

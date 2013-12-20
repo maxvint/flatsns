@@ -14,12 +14,7 @@ class HomeController extends BaseController {
 	|	Route::get('/', 'HomeController@showWelcome');
 	|
 	*/
-
-	public function passport()
-	{
-		return View::make('passport');
-	}
-
+	
 	/**
 	 * undocumented function
 	 *
@@ -28,6 +23,7 @@ class HomeController extends BaseController {
 	 **/
 	public function getIndex()
 	{
+		
 		return View::make('home.index');
 	}
 

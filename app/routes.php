@@ -15,14 +15,14 @@ Route::group(array('before' => 'auth'), function()
 {
 	Route::get('/', 'HomeController@getIndex');
 	Route::get('users', 'UserController@getIndex');
-
-	
 });
 
 Route::group(array('after' => 'auth'), function()
 {
 	Route::get('/', 'HomeController@getIndex');
 	Route::get('users', 'UserController@getIndex');
+	Route::get('topics', 'TopicController@getIndex');
+	Route::get('ui', 'UiController@getIndex');
 
 	
 });
