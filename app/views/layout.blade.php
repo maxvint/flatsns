@@ -9,7 +9,7 @@
 	<link type="image/x-icon" href="/img/favicon.ico" rel="shortcut icon">
 	<?php echo HTML::style('css/bootstrap.css'); ?>
 	<?php echo HTML::style('css/module.css'); ?>
-	<?php echo HTML::script('js/sea.js', array('id' => 'seajsnode')) ?>
+	<?php echo HTML::script('js/sea.js', array('data-config' => 'config', 'data-main' => 'main')) ?>
 </head>
 <body>
 	<div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
