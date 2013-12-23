@@ -21,7 +21,10 @@ Route::group(array('after' => 'auth'), function()
 {
 	Route::get('/', 'HomeController@getIndex');
 	Route::get('users', 'UserController@getIndex');
-	Route::get('topics', 'TopicController@getIndex');
+	Route::get('topics', 'TopicController@index');
+	Route::get('topics', 'TopicController@create');
+
+
 	Route::get('ui', 'UiController@getIndex');
 
 	
