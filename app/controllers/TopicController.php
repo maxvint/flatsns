@@ -30,8 +30,12 @@ class TopicController extends BaseController {
 	 **/
 	public function create()
 	{
-		$post = $this->posts->instance();
 		return View::make('topics.post', compact('post'));
 	}
+
+	public function show($id)
+    {
+        
+    }
 
 }
