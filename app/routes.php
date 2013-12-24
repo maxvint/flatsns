@@ -18,10 +18,18 @@ Route::group(array('before' => 'auth'), function()
 
 Route::group(array('after' => 'auth'), function()
 {
+	
 	Route::get('/', 'HomeController@getIndex');
-	Route::get('user/index', 'UserController@getIndex');
+	
+	// Topic Route
+
 	Route::get('topic/index', 'TopicController@getIndex');
-	Route::get('topic/post', 'TopicController@postIndex');
+	Route::get('topic/show/{tid}', 'TopicController@getShow');
+	Route::get('topic/create', 'TopicController@getCreate');
+	Route::post('topic/create', 'TopicController@postCreate');
+
+	// User Route
+	Route::get('user/index', 'UserController@getIndex');
 
 	// Route::controller('users', 'UserController@getIndex');
 

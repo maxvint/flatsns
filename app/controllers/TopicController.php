@@ -2,6 +2,7 @@
 
 class TopicController extends BaseController {
 
+	protected $topic;
 	/*
 	|--------------------------------------------------------------------------
 	| Default Home Controller
@@ -15,11 +16,19 @@ class TopicController extends BaseController {
 	|
 	*/
 
+	public function __construct(Topic $topic)
+	{
+		// parent::__construct();
+		$this->topic = $topic;
+	}
+
 	public function getIndex()
 	{
-		// echo URL::current();
-		// echo URL::route('topic');
-		return View::make('topic.index');
+		// var_dump(URL::current());
+		// echo Route::currentRouteNamed()->getPath();
+		// echo Route::getCurrentRoute()->getPath();
+		$topics = $this->topic->orderBy('created_at', 'DESC')->paginate(10);
+		return View::make('topic/index', compact('topics'));
 
 	}
 
@@ -29,9 +38,39 @@ class TopicController extends BaseController {
 	 * @return void
 	 * @author 
 	 **/
-	public function postIndex()
+	public function getShow($tid)
 	{
-		return View::make('topic.post', compact('post'));
+		$topic = $this->topic->where('tid', '=', $tid)->first();
+		return View::make('topic/view', compact('topic'));
+	}
+
+	/**
+	 * undocumented function
+	 *
+	 * @return void
+	 * @author 
+	 **/
+	public function getCreate()
+	{
+		
+		return View::make('topic/create');
+	}
+
+	/**
+	 * undocumented function
+	 *
+	 * @return void
+	 * @author 
+	 **/
+	public function postCreate()
+	{
+		$this->topic->title = Input::get('title');
+		$this->topic->content = Input::get('content');
+		
+		if($this->topic->save())
+		{
+			return Redirect::to('topic/show/'.$this->topic->id);
+		}
 	}
 
 

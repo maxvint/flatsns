@@ -248,34 +248,48 @@ footer {
 }
 
 
-/*topic*/
-.topic {
+/*topic-list*/
+.topic-list {
+	
+}
+.topic-list .tab-nav {
 	border-bottom: 1px solid #eee;
 }
-.topic:hover {
-	border-color: #ddd;
-	cursor: pointer;
+.topic-list .tab-nav .sub-tab {
+	margin-top: -30px;
 }
-.topic-item {
-	padding: 15px 0;
+.topic-list .tab-nav .sub-tab a {
+	margin-left: 10px;
 }
-.topic-item .info {
-	padding-left: 68px;
+.topic-list .tab-nav .sub-tab .btn {
+	margin-top: -5px;
 }
-.topic-item .title {
-	display: block;
-	margin-top: 0;
-	margin-bottom: 15px;
+.topic-list .tab-nav .sub-tab a.active {
+	color: #999
+}
+.topic-list .post {
+	padding: 10px 0;
+	border-bottom: 1px solid #eee;
+}
+.topic-list .post .avatar {
+	float: left;
+	width: 70px;
+}
+.topic-list .post .summary {
+	margin: 0 0 0 70px;
+	min-height: 30px;
+}
+.topic-list .post .summary h4 {
 	font-size: 16px;
 }
-.topic-item .title a,
-.topic-item .title a:active {
-	color: #333;
+.topic-list .post .summary .meta {
+	font-size: 12px;
+	color: #999;
 }
-.topic-item .title a:hover {
-	color: #148f77;
-	text-decoration: none;
-}
+
+
+
+
 .topic-item .title .badge {
 	vertical-align: top;
 }
@@ -306,6 +320,7 @@ footer {
 .content {
 	padding: 10px 0 10px 70px;
 	border-bottom: 1px solid #eee;
+	word-wrap: break-word;
 }
 
 

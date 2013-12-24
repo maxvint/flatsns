@@ -17,7 +17,7 @@ class UserController extends BaseController {
 
 	public function getIndex()
 	{
-		echo URL::current();
+		// echo URL::current()->name;
 		$users = User::all();
 		return View::make('user.index')->
 				with('users', $users);

@@ -7,20 +7,33 @@
 			<h2>Hello, world!</h2>
 			<p>This is an example to show the potential of an offcanvas layout pattern in Bootstrap. </p>
 		</div> -->
-
-		<div class="panel panel-default">
-		  <div class="panel-heading">
-		    <h3 class="panel-title">最新话题</h3>
-		  </div>
-		  <div class="panel-body">
-		    <article class="post">
-		    	<div class="avatar"></div>
-		    	<div class="summary">
-		    		<h2>nginx配置访问php出现No input file specified</h2>
-		    		<div class="meta"></div>
-		    	</div>
-		    </article>
-		  </div>
+		<div class="topic-list">
+			<div class="tab-nav">
+				<h4>最新话题</h4>
+				<nav class="pull-right sub-tab">
+            <a class="active" href="http://segmentfault.com/">最新的</a>
+            <a href="http://segmentfault.com/hottest">热门的</a>
+            <a href="http://segmentfault.com/unanswered">未回答的</a>
+            <a href="{{ URL::to('topic/create') }}" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span>发布话题</a>
+        </nav>
+			</div>
+			<div id="content">
+				@foreach($topics as $topic)
+				<article class="post">
+					<div class="avatar">
+						<a href="{{ URL::to('topic/show/') }}"><img src="{{ asset('img/avatar.jpg') }}" class="img-circle" width="60" height="60" alt=""></a>
+					</div>
+					<div class="summary">
+						<h4><a href="{{ URL::to('topic/show/'.$topic->tid) }}">{{	$topic->title }}</a></h4>
+						<div class="meta">
+							<span class="views"><i class="i-view"></i> 24 次浏览</span>
+							<span class="datetime"><i class="i-time"></i> 49分钟前</span>
+						</div>
+					</div>
+				</article>
+				@endforeach
+				{{ $topics->links() }}
+			</div>
 		</div>
 
 
