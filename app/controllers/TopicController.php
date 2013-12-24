@@ -17,7 +17,7 @@ class TopicController extends BaseController {
 
 	public function getIndex()
 	{
-		echo URL::current();
+		// echo URL::current();
 		// echo URL::route('topic');
 		return View::make('topic.index');
 

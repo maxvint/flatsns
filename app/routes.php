@@ -19,8 +19,8 @@ Route::group(array('before' => 'auth'), function()
 Route::group(array('after' => 'auth'), function()
 {
 	Route::get('/', 'HomeController@getIndex');
-	Route::get('user', 'UserController@getIndex');
-	Route::get('topic', 'TopicController@getIndex');
+	Route::get('user/index', 'UserController@getIndex');
+	Route::get('topic/index', 'TopicController@getIndex');
 	Route::get('topic/post', 'TopicController@postIndex');
 
 	// Route::controller('users', 'UserController@getIndex');

@@ -12,7 +12,7 @@ footer {
 }
 .container {
 	margin: 0 auto;
-	max-width: 980px;
+	max-width: 1170px;
 }
 .main {
 	padding-top: 20px;
@@ -20,6 +20,19 @@ footer {
 .nav-post {
 	display: inline-block;
 	margin: 6px 0 0 40px;
+}
+.nav-search {
+	margin-left: 20px;
+	width: 200px;
+	border: 1px solid #1abc9c;
+	border-radius: 3px;
+}
+.nav-search:focus {
+	border-color: #169d82;
+}
+.navbar-right li > a {
+	padding: 14px;
+
 }
 
 /*返回信息提示*/
@@ -322,4 +335,9 @@ footer {
 }
 .list .info .time span {
 	margin-right: 10px;
+}
+
+/*tags*/
+.tags > span {
+	margin-bottom: 10px;
 }
