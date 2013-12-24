@@ -1038,100 +1038,6 @@
         ]
     },
     {
-        "name": "mustache/mustache",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/bobthecow/mustache.php.git",
-            "reference": "dd528e765afcaaae20ce3bebdda3162456d93b47"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/bobthecow/mustache.php/zipball/dd528e765afcaaae20ce3bebdda3162456d93b47",
-            "reference": "dd528e765afcaaae20ce3bebdda3162456d93b47",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.2.4"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "*"
-        },
-        "time": "2013-12-14 20:57:43",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Mustache": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Justin Hileman",
-                "email": "justin@justinhileman.info",
-                "homepage": "http://justinhileman.com"
-            }
-        ],
-        "description": "A Mustache implementation in PHP.",
-        "homepage": "https://github.com/bobthecow/mustache.php",
-        "keywords": [
-            "mustache",
-            "templating"
-        ]
-    },
-    {
-        "name": "conarwelsh/mustache-l4",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/conarwelsh/mustache-l4.git",
-            "reference": "677bd04a7720c534a526dd3559550f195bec3bc3"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/conarwelsh/mustache-l4/zipball/677bd04a7720c534a526dd3559550f195bec3bc3",
-            "reference": "677bd04a7720c534a526dd3559550f195bec3bc3",
-            "shasum": ""
-        },
-        "require": {
-            "illuminate/support": "~4",
-            "mustache/mustache": "dev-master",
-            "php": ">=5.3.0"
-        },
-        "time": "2013-10-02 15:21:12",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Conarwelsh\\MustacheL4": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Conar Welsh",
-                "email": "conar@welshlabs.com"
-            }
-        ],
-        "description": "A Mustache.php wrapper for Laravel 4",
-        "homepage": "https://github.com/conarwelsh/mustache-l4",
-        "keywords": [
-            "Laravel 4",
-            "laravel",
-            "mustache",
-            "php"
-        ]
-    },
-    {
         "name": "doctrine/dbal",
         "version": "2.4.x-dev",
         "version_normalized": "2.4.9999999.9999999-dev",
@@ -1254,66 +1160,6 @@
             }
         ],
         "description": "Symfony Translation Component",
-        "homepage": "http://symfony.com"
-    },
-    {
-        "name": "symfony/routing",
-        "version": "2.3.x-dev",
-        "version_normalized": "2.3.9999999.9999999-dev",
-        "target-dir": "Symfony/Component/Routing",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/Routing.git",
-            "reference": "f3622da652fc6a73ce9d85dbee4ec7ef425c8349"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/symfony/Routing/zipball/f3622da652fc6a73ce9d85dbee4ec7ef425c8349",
-            "reference": "f3622da652fc6a73ce9d85dbee4ec7ef425c8349",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.3"
-        },
-        "require-dev": {
-            "doctrine/common": "~2.2",
-            "psr/log": "~1.0",
-            "symfony/config": "~2.2",
-            "symfony/yaml": "~2.0"
-        },
-        "suggest": {
-            "doctrine/common": "",
-            "symfony/config": "",
-            "symfony/yaml": ""
-        },
-        "time": "2013-12-14 11:06:34",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.3-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Symfony\\Component\\Routing\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com"
-            },
-            {
-                "name": "Symfony Community",
-                "homepage": "http://symfony.com/contributors"
-            }
-        ],
-        "description": "Symfony Routing Component",
         "homepage": "http://symfony.com"
     },
     {
@@ -1983,5 +1829,205 @@
             "framework",
             "laravel"
         ]
+    },
+    {
+        "name": "anahkiasen/underscore-php",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Anahkiasen/underscore-php.git",
+            "reference": "735759486fa1128420d601065dc6f7af07d6b8cb"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Anahkiasen/underscore-php/zipball/735759486fa1128420d601065dc6f7af07d6b8cb",
+            "reference": "735759486fa1128420d601065dc6f7af07d6b8cb",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/support": "~4",
+            "patchwork/utf8": "1.1.*",
+            "php": ">=5.3.0"
+        },
+        "time": "2013-12-14 14:27:47",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Underscore": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Maxime Fabre",
+                "email": "ehtnam6@gmail.com"
+            }
+        ],
+        "description": "A redacted port of Underscore.js for PHP",
+        "keywords": [
+            "internals",
+            "laravel",
+            "toolkit"
+        ]
+    },
+    {
+        "name": "anahkiasen/html-object",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Anahkiasen/html-object.git",
+            "reference": "2c6cdc6368d19ac42357f7ae17bd99652a1916e4"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Anahkiasen/html-object/zipball/2c6cdc6368d19ac42357f7ae17bd99652a1916e4",
+            "reference": "2c6cdc6368d19ac42357f7ae17bd99652a1916e4",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2013-11-19 15:20:02",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "HtmlObject": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Anahkiasen",
+                "email": "ehtnam6@gmail.com"
+            }
+        ],
+        "description": "A set of classes to create and manipulate HTML objects abstractions"
+    },
+    {
+        "name": "patricktalmadge/bootstrapper",
+        "version": "dev-develop",
+        "version_normalized": "dev-develop",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/patricktalmadge/bootstrapper.git",
+            "reference": "368b3928b01675bba50cfd1c2cc0440895e206ea"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/patricktalmadge/bootstrapper/zipball/368b3928b01675bba50cfd1c2cc0440895e206ea",
+            "reference": "368b3928b01675bba50cfd1c2cc0440895e206ea",
+            "shasum": ""
+        },
+        "require": {
+            "anahkiasen/html-object": "dev-master",
+            "anahkiasen/underscore-php": "dev-master",
+            "illuminate/html": ">=4.0.0",
+            "illuminate/support": ">=4.0.0",
+            "php": ">=5.3.0"
+        },
+        "require-dev": {
+            "mockery/mockery": "dev-master"
+        },
+        "time": "2013-12-19 12:52:44",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Bootstrapper": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Maxime Fabre",
+                "email": "ehtnam6@gmail.com"
+            },
+            {
+                "name": "Patrick Talmadge",
+                "email": "ptalmadge@gmail.com"
+            },
+            {
+                "name": "Patrick Rose",
+                "email": "pjr0911025@gmail.com"
+            }
+        ],
+        "description": "Twitter Bootstrap markup generator",
+        "keywords": [
+            "bootstrap",
+            "laravel"
+        ]
+    },
+    {
+        "name": "symfony/routing",
+        "version": "2.3.x-dev",
+        "version_normalized": "2.3.9999999.9999999-dev",
+        "target-dir": "Symfony/Component/Routing",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/Routing.git",
+            "reference": "5d19251aef6994aa1ee9d03e298a319d636a0a0f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/Routing/zipball/5d19251aef6994aa1ee9d03e298a319d636a0a0f",
+            "reference": "5d19251aef6994aa1ee9d03e298a319d636a0a0f",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "require-dev": {
+            "doctrine/common": "~2.2",
+            "psr/log": "~1.0",
+            "symfony/config": "~2.2",
+            "symfony/yaml": "~2.0"
+        },
+        "suggest": {
+            "doctrine/common": "",
+            "symfony/config": "",
+            "symfony/yaml": ""
+        },
+        "time": "2013-12-16 16:42:19",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.3-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Symfony\\Component\\Routing\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "http://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony Routing Component",
+        "homepage": "http://symfony.com"
     }
 ]

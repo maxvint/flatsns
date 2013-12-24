@@ -15,11 +15,12 @@ class TopicController extends BaseController {
 	|
 	*/
 
-	public function index()
+	public function getIndex()
 	{
-		// $active = Route::currentRouteName();
-		// print_r($active);
-		return View::make('topics.index');
+		echo URL::current();
+		// echo URL::route('topic');
+		return View::make('topic.index');
+
 	}
 
 	/**
@@ -28,14 +29,11 @@ class TopicController extends BaseController {
 	 * @return void
 	 * @author 
 	 **/
-	public function create()
+	public function postIndex()
 	{
-		return View::make('topics.post', compact('post'));
+		return View::make('topic.post', compact('post'));
 	}
 
-	public function show($id)
-    {
-        
-    }
+
 
 }

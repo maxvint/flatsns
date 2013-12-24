@@ -114,8 +114,6 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 
-		'Conarwelsh\MustacheL4\MustacheL4ServiceProvider',
-
 	),
 
 	/*
@@ -180,7 +178,6 @@ return array(
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
-
 	),
 
 );

@@ -5,7 +5,7 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.0.*",
-		"conarwelsh/mustache-l4": "dev-master"
+		"patricktalmadge/bootstrapper": "dev-develop"
 	},
 	"autoload": {
 		"classmap": [

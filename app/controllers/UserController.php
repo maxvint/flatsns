@@ -20,7 +20,7 @@ class UserController extends BaseController {
 		// $active = Route::currentRouteName();
 		// print_r($active);
 		$users = User::all();
-		return View::make('users.users')->
+		return View::make('user.index')->
 				with('users', $users);
 	}
 
