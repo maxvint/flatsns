@@ -3,6 +3,7 @@
 class TopicController extends BaseController {
 
 	protected $topic;
+	protected $reply;
 	/*
 	|--------------------------------------------------------------------------
 	| Default Home Controller
@@ -16,7 +17,7 @@ class TopicController extends BaseController {
 	|
 	*/
 
-	public function __construct(Topic $topic)
+	public function __construct(Topic $topic, Reply $reply)
 	{
 		// parent::__construct();
 		$this->topic = $topic;
@@ -24,40 +25,40 @@ class TopicController extends BaseController {
 
 	public function getIndex()
 	{
-		// var_dump(URL::current());
-		// echo Route::currentRouteNamed()->getPath();
-		// echo Route::getCurrentRoute()->getPath();
 		$topics = $this->topic->orderBy('created_at', 'DESC')->paginate(10);
 		return View::make('topic/index', compact('topics'));
-
 	}
 
 	/**
-	 * undocumented function
+	 * Display the specified resource.
 	 *
 	 * @return void
 	 * @author 
 	 **/
-	public function getShow($tid)
+	public function getShow($id)
 	{
-		$topic = $this->topic->where('tid', '=', $tid)->first();
-		return View::make('topic/view', compact('topic'));
+		$topic = Topic::find($id);
+		if($topic) {
+			$replies = Reply::where('pid', '=', $id)->orderBy('created_at', 'DESC')->take(10)->get();
+			// print_r($replies);
+		}
+		return View::make('topic/view', compact('topic', 'replies'));
+		// return Response::json($topic);
 	}
 
 	/**
-	 * undocumented function
+	 * Show the form for creating a new resource.
 	 *
 	 * @return void
 	 * @author 
 	 **/
 	public function getCreate()
 	{
-		
 		return View::make('topic/create');
 	}
 
 	/**
-	 * undocumented function
+	 * Store a newly created resource in storage.
 	 *
 	 * @return void
 	 * @author 
@@ -73,6 +74,61 @@ class TopicController extends BaseController {
 		}
 	}
 
+	/**
+	 * Show the form for editing the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function getEdit($id)
+	{
+		$topic = Topic::find($id);
+		return View::make('topic/edit', compact('topic'));
+	}
+ 
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function postEdit($id)
+	{
+		$topic = Topic::find($id);
+		$topic->title = Input::get('title');
+		$topic->content = Input::get('content');
+		if($topic->save())
+		{
+			return Redirect::to('topic/show/'.$topic->id);
+		}
+	}
 
+	/**
+   * Remove the specified resource from storage.
+   *
+   * @param  int  $id
+   * @return Response
+   */
+	public function getDelete($id)
+	{
+    $topic = Topic::find($id);
+    return View::make('topic/delete', compact('topic'));
+	}
+
+	/**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+	public function postDelete($id)
+	{
+		Topic::destroy($id);
+		$topic = Topic::find($id);
+    if(empty($topic))
+    {
+      return Redirect::to('topic');
+    }
+	}
 
 }

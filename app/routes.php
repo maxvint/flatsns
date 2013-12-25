@@ -23,13 +23,24 @@ Route::group(array('after' => 'auth'), function()
 	
 	// Topic Route
 
-	Route::get('topic/index', 'TopicController@getIndex');
-	Route::get('topic/show/{tid}', 'TopicController@getShow');
-	Route::get('topic/create', 'TopicController@getCreate');
-	Route::post('topic/create', 'TopicController@postCreate');
+	// Route::get('topic/index', 'TopicController@getIndex');
+	// Route::get('topic/show/{tid}', 'TopicController@getShow');
+	// Route::get('topic/create', 'TopicController@getCreate');
+	// Route::post('topic/create', 'TopicController@postCreate');
 
+	Route::controller('topic', 'TopicController');
+	Route::controller('user', 'UserController');
+	Route::controller('reply', 'ReplyController');
+
+
+	// Route resource
+	// Route::resource('topic', 'TopicController', array('except' => array('create', 'store', 'update', 'delete')));
+	// Route::resource('user', 'UserController', array('except' => array('create', 'store', 'update', 'delete')));
+
+
+	
 	// User Route
-	Route::get('user/index', 'UserController@getIndex');
+	// Route::get('user/index', 'UserController@getIndex');
 
 	// Route::controller('users', 'UserController@getIndex');
 

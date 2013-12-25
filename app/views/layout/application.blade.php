@@ -26,8 +26,8 @@
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li{{ (Request::is('/') ? ' class="active"' : '') }}>{{ HTML::link('/', '首页') }}</li>
-					<li{{ (Request::is('topic/index') ? ' class="active"' : '') }}>{{ HTML::link('topic/index', '话题') }}</li>
-					<li{{ (Request::is('user/index') ? ' class="active"' : '') }}>{{ HTML::link('user/index', '用户') }}</li>
+					<li{{ (Request::is('topic', 'topic/*') ? ' class="active"' : '') }}>{{ HTML::link('topic', '话题') }}</li>
+					<li{{ (Request::is('user', 'user/*') ? ' class="active"' : '') }}>{{ HTML::link('user', '用户') }}</li>
 				</ul>
 				<form class="navbar-form navbar-left hidden-sm" role="search">
 					<div class="form-group">

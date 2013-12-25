@@ -25,7 +25,7 @@ return array(
 	| compatible with Twitter's Bootstrap is given to you by default.
 	|
 	*/
-
-	'pagination' => 'pagination::slider',
+	// change pagination layout to bs3
+	'pagination' => 'pagination::slider-3',
 
 );

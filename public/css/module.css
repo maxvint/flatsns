@@ -282,10 +282,22 @@ footer {
 .topic-list .post .summary h4 {
 	font-size: 16px;
 }
+.topic-list .post .summary span.badge {
+	margin-top: -25px;
+}
 .topic-list .post .summary .meta {
 	font-size: 12px;
 	color: #999;
 }
+
+/*topic-view*/
+.topic-view h3 {
+	margin-top: 0;
+	height: 40px;
+	line-height: 30px;
+	border-bottom: 1px solid #eee;
+}
+
 
 
 

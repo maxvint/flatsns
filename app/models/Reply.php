@@ -1,8 +1,6 @@
 <?php
 
-// use Date;
-
-class Topic extends Eloquent {
+class Reply extends Eloquent {
 
 	/**
 	 * The database table used by the model.
