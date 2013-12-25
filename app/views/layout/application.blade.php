@@ -35,10 +35,9 @@
 					</div>
       	</form>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#">登录</a></li>
-	      	<li><a href="#">注册</a></li>
-	      	<li class="dropdown">
-	        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+					@if(Auth::check())
+					<li class="dropdown">
+	        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ $user['username'] }} <b class="caret"></b></a>
 		        <ul class="dropdown-menu">
 		          	<li><a href="#">Action</a></li>
 		          	<li><a href="#">Another action</a></li>
@@ -47,6 +46,13 @@
 		          	<li><a href="#">Separated link</a></li>
 		        </ul>
 	      	</li>
+					<li><a href="{{ URL::to('user/logout') }}">退出</a></li>
+					@else
+					<li><a href="{{ URL::to('user/login') }}">登录</a></li>
+	      	<li><a href="{{ URL::to('user/register') }}">注册</a></li>
+					@endif
+					
+	      	
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div>

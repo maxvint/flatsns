@@ -25,8 +25,9 @@ class TopicController extends BaseController {
 
 	public function getIndex()
 	{
+		$user = Session::get('user');
 		$topics = $this->topic->orderBy('created_at', 'DESC')->paginate(10);
-		return View::make('topic/index', compact('topics'));
+		return View::make('topic/index', compact('topics', 'user'));
 	}
 
 	/**
@@ -43,7 +44,6 @@ class TopicController extends BaseController {
 			// print_r($replies);
 		}
 		return View::make('topic/view', compact('topic', 'replies'));
-		// return Response::json($topic);
 	}
 
 	/**

@@ -12,15 +12,27 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 
 	public function getDateFormat()
-  {
-  	return 'U';
-  }
+	{
+		return 'U';
+	}
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *
 	 * @var array
 	 */
 	protected $hidden = array('password');
+
+	public function setPasswordAttribute($value)
+	{
+		$this->attributes['password'] = Hash::make($value);
+	}
+
+	public function setUsernameAttribute()
+	{
+		$username = ($this->username) ? $this->username : preg_replace('/@.*/', '', $this->email);
+		$this->attributes['username'] = $username;
+	}
+
 
 	/**
 	 * Get the unique identifier for the user.

@@ -12,8 +12,9 @@ class UserController extends BaseController {
 
 	public function getIndex()
 	{
-		$users = $this->user->orderBy('uid', 'DESC')->paginate(10);
-		return View::make('user/index', compact('users'));
+		echo 'index';
+		// $users = $this->user->orderBy('uid', 'DESC')->paginate(10);
+		// return View::make('user/index', compact('users'));
 	}
 
 	/**
@@ -22,9 +23,9 @@ class UserController extends BaseController {
 	 * @return void
 	 * @author 
 	 **/
-	public function getCreate()
+	public function getRegister()
 	{
-		
+		return View::make('user/register');
 	}
 
 	/**
@@ -33,20 +34,62 @@ class UserController extends BaseController {
 	 * @return void
 	 * @author 
 	 **/
-	public function postCreate()
+	public function postRegister()
 	{
-		
+
+		$input = Input::only('email', 'password', 'username');;
+		$input['group_type'] = 2;
+		$input['gid'] = 3;
+		$input['is_active'] = 1;
+
+
+		Eloquent::unguard();
+		$user = User::create($input);
+		if($user)
+		{
+			$session_data = array(
+				'uid' => $user->id,
+				'email' => $user->email,
+				'password' => $user->password,
+				'username' => $user->username,
+				'group_type' => $user->group_type,
+				'gid' => $user->gid,
+				'is_active' => $user->is_active
+			);
+			Session::put('user', $session_data);
+			Auth::loginUsingId($user->id);
+			return Redirect::to('topic');
+		}
 	}
 
 	/**
-	 * Display the specified resource.
+	 * user login
 	 *
 	 * @return void
 	 * @author 
 	 **/
-	public function getShow($id)
+	public function getLogin()
 	{
-		
+		return View::make('user/login');
+	}
+
+	/**
+	 * do post user login
+	 *
+	 * @return void
+	 * @author 
+	 **/
+	public function postLogin()
+	{
+		$input = Input::all();
+		$credentials = array('email' => $input['email'], 'password' => $input['password']);
+		if(Auth::attempt($credentials))
+		{
+			return Redirect::to('topic');
+		} else {
+			return Redirect::to('user/login')->with('loginError', 'Incorrect Details');
+		}
+			
 	}
 
 	/**
@@ -69,5 +112,12 @@ class UserController extends BaseController {
 	public function postEdit($id)
 	{
 		
+	}
+
+	public function getLogout()
+	{
+
+		Auth::logout();
+		return Redirect::to('user/login');
 	}
 }

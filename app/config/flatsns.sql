@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.4
+-- version 3.4.10
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2013 年 12 月 25 日 10:39
--- 服务器版本: 5.5.32
--- PHP 版本: 5.4.19
+-- 生成日期: 2013 年 12 月 25 日 17:46
+-- 服务器版本: 5.5.34
+-- PHP 版本: 5.3.25
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -91,9 +91,9 @@ INSERT INTO `topics` (`id`, `uid`, `title`, `content`, `created_at`, `updated_at
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
-  `uid` int(10) NOT NULL AUTO_INCREMENT,
+  `id` int(10) NOT NULL AUTO_INCREMENT COMMENT '主键id',
   `username` varchar(20) DEFAULT NULL,
-  `password` char(32) DEFAULT NULL,
+  `password` varchar(100) DEFAULT NULL COMMENT '密码',
   `openid` char(32) NOT NULL,
   `email` varchar(50) DEFAULT NULL,
   `avatar` varchar(100) DEFAULT NULL,
@@ -105,7 +105,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `notices` smallint(5) DEFAULT '0',
   `follows` int(10) NOT NULL DEFAULT '0',
   `created_at` int(10) DEFAULT NULL,
-  `lastlogin` int(10) DEFAULT NULL,
+  `updated_at` int(10) DEFAULT NULL,
   `lastpost` int(10) DEFAULT NULL,
   `qq` varchar(20) DEFAULT NULL,
   `group_type` tinyint(3) NOT NULL DEFAULT '0',
@@ -115,16 +115,15 @@ CREATE TABLE IF NOT EXISTS `users` (
   `token` varchar(40) DEFAULT NULL,
   `introduction` text,
   `is_active` tinyint(1) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`uid`,`group_type`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  PRIMARY KEY (`id`,`group_type`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- 转存表中的数据 `users`
 --
 
-INSERT INTO `users` (`uid`, `username`, `password`, `openid`, `email`, `avatar`, `homepage`, `money`, `signature`, `forums`, `replies`, `notices`, `follows`, `created_at`, `lastlogin`, `lastpost`, `qq`, `group_type`, `gid`, `ip`, `location`, `token`, `introduction`, `is_active`) VALUES
-(1, 'yuwenhui1986', '96e79218965eb72c92a549dd5a330112', '', 'yuwenhui1986@163.com', NULL, NULL, 100, NULL, 0, 0, 0, 0, 1385523862, 1385997511, NULL, NULL, 2, 3, '120.192.230.202', NULL, NULL, NULL, 1),
-(2, '168834615', '96e79218965eb72c92a549dd5a330112', '', '168834615@qq.com', NULL, NULL, 100, NULL, 0, 0, 0, 0, 1385546468, NULL, NULL, NULL, 2, 3, '218.200.62.90', NULL, NULL, NULL, 1);
+INSERT INTO `users` (`id`, `username`, `password`, `openid`, `email`, `avatar`, `homepage`, `money`, `signature`, `forums`, `replies`, `notices`, `follows`, `created_at`, `updated_at`, `lastpost`, `qq`, `group_type`, `gid`, `ip`, `location`, `token`, `introduction`, `is_active`) VALUES
+(1, 'yuwenhui', '$2y$08$rnEQD94wXijgm0TyOugnBO8XZXRwRMwZ4uhoIyLFNGP8OM/GNUAr6', '', 'yuwenhui@163.com', NULL, NULL, 100, NULL, 0, 0, 0, 0, 1387989555, 1387989555, NULL, NULL, 2, 3, NULL, NULL, NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
