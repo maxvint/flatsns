@@ -11,6 +11,9 @@
 |
 */
 
+// Home Route
+Route::get('/', 'HomeController@getIndex');
+
 // User Route
 Route::get('user', 'UserController@getIndex');
 Route::get('user/login', 'UserController@getLogin');

@@ -18,15 +18,15 @@ define(function (require, exports, moudles) {
 						notEmpty: {
 							message: '您还没有填写密码'
 						},
-	                    stringLength: {
-	                        min: 6,
-	                        max: 30,
-	                        message: '密码长度为6到30个字符'
-	                    },
-	                    identical: {
-	                        field: 'repassword',
-	                        message: '两次密码不一致哦'
-	                    }
+						stringLength: {
+							min: 6,
+							max: 30,
+							message: '密码长度为6到30个字符'
+						},
+						identical: {
+							field: 'repassword',
+							message: '两次密码不一致哦'
+						}
 					}
 				},
 				repassword: {
@@ -39,10 +39,10 @@ define(function (require, exports, moudles) {
 							max: 30,
 							message: '密码长度为6到30个字符'
 						},
-	                    identical: {
-	                        field: 'password',
-	                        message: '两次密码输入不一致'
-	                    }
+						identical: {
+							field: 'password',
+							message: '两次密码输入不一致'
+						}
 					}
 				}
 			}

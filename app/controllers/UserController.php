@@ -4,15 +4,17 @@ class UserController extends BaseController {
 
 	protected $user;
 
-	public function __construct(User $user)
-	{
+	public function __construct(User $user) {
 		// parent::__construct();
 		$this->user = $user;
 	}
 
-	public function getIndex()
-	{
-		echo 'index';
+	public function getIndex() {
+		if (Auth::check()) {
+			return View::make('user.index');
+		} else {
+			return View::make('user.login');
+		}
 		// $users = $this->user->orderBy('uid', 'DESC')->paginate(10);
 		// return View::make('user/index', compact('users'));
 	}
@@ -23,9 +25,8 @@ class UserController extends BaseController {
 	 * @return void
 	 * @author 
 	 **/
-	public function getRegister()
-	{
-		return View::make('user/register');
+	public function getRegister() {
+		return View::make('user.register');
 	}
 
 	/**
@@ -34,19 +35,16 @@ class UserController extends BaseController {
 	 * @return void
 	 * @author 
 	 **/
-	public function postRegister()
-	{
+	public function postRegister() {
 
 		$input = Input::only('email', 'password', 'username');;
 		$input['group_type'] = 2;
 		$input['gid'] = 3;
 		$input['is_active'] = 1;
 
-
 		Eloquent::unguard();
 		$user = User::create($input);
-		if($user)
-		{
+		if($user) {
 			$session_data = array(
 				'uid' => $user->id,
 				'email' => $user->email,
@@ -68,9 +66,8 @@ class UserController extends BaseController {
 	 * @return void
 	 * @author 
 	 **/
-	public function getLogin()
-	{
-		return View::make('user/login');
+	public function getLogin() {
+		return View::make('user.login');
 	}
 
 	/**
@@ -79,12 +76,10 @@ class UserController extends BaseController {
 	 * @return void
 	 * @author 
 	 **/
-	public function postLogin()
-	{
+	public function postLogin() {
 		$input = Input::all();
 		$credentials = array('email' => $input['email'], 'password' => $input['password']);
-		if(Auth::attempt($credentials))
-		{
+		if(Auth::attempt($credentials)) {
 			return Redirect::to('topic');
 		} else {
 			return Redirect::to('user/login')->with('loginError', 'Incorrect Details');
@@ -98,8 +93,7 @@ class UserController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function getEdit($id)
-	{
+	public function getEdit($id) {
 		
 	}
  
@@ -109,14 +103,11 @@ class UserController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function postEdit($id)
-	{
+	public function postEdit($id) {
 		
 	}
 
-	public function getLogout()
-	{
-
+	public function getLogout() {
 		Auth::logout();
 		return Redirect::to('user/login');
 	}

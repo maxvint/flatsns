@@ -1,15 +1,17 @@
-define(function(require, exports) {
-	var core = require('core');
+define(function(require, exports, module) {
 	require('validator');
+	var core = require('core');
 	exports.init = function(context, options){
 
 		$('#aaa').click(function() {
-			var args = getArgs(this);
+			var args = core.getArgs(this);
 		}).mouseover(function() {
-			var args = getArgs(this);
+			console.log(this)
+			var args = core.getArgs(this);
+			console.log(args)
 		});
 
-		$('.add').bootstrapValidator({
+		$('.create').bootstrapValidator({
 			fields: {
 				title: {
 					validators: {
@@ -35,14 +37,12 @@ define(function(require, exports) {
 
 		// top
 		$('#topic_top').click(function() {
-			var args = core.getArgs(this);
-			core.ui.success();
+
 		});
 
 		// delete
 		$('#topic_delete').click(function() {
-			var args = core.getArgs(this);
-			core.ui.confirm(this, 'confirm');
+
 		});
 	}
 });

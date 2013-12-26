@@ -1,6 +1,11 @@
 @extends('layout.application')
 
 @section('content')
+<script language="javascript">
+	seajs.use('app/main', function(main) {
+		main.load('topic');
+	});
+</script>
 <div class="row">
 	<div class="col-xs-12 col-sm-8 col-md-8">
 		<!-- <div class="jumbotron">
@@ -15,6 +20,7 @@
 						<a href="http://segmentfault.com/hottest">热门的</a>
 						<a href="http://segmentfault.com/unanswered">未回答的</a>
 						<a href="{{ URL::to('topic/create') }}" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span>发布话题</a>
+						<a href="{{ URL::to('topic/create') }}" id="aaa" class="btn btn-sm btn-success" event-args="id=33">发布话题</a>
 				</nav>
 			</div>
 			<div id="content">

@@ -17,17 +17,14 @@ class TopicController extends BaseController {
 	|
 	*/
 
-	public function __construct(Topic $topic, Reply $reply)
-	{
+	public function __construct(Topic $topic, Reply $reply) {
 		// parent::__construct();
 		$this->topic = $topic;
 	}
 
-	public function getIndex()
-	{
-		$user = Session::get('user');
+	public function getIndex() {
 		$topics = $this->topic->orderBy('created_at', 'DESC')->paginate(10);
-		return View::make('topic/index', compact('topics', 'user'));
+		return View::make('topic/index', compact('topics'));
 	}
 
 	/**
@@ -36,8 +33,7 @@ class TopicController extends BaseController {
 	 * @return void
 	 * @author 
 	 **/
-	public function getShow($id)
-	{
+	public function getShow($id) {
 		$topic = Topic::find($id);
 		if($topic) {
 			$replies = Reply::where('pid', '=', $id)->orderBy('created_at', 'DESC')->take(10)->get();
@@ -52,8 +48,7 @@ class TopicController extends BaseController {
 	 * @return void
 	 * @author 
 	 **/
-	public function getCreate()
-	{
+	public function getCreate() {
 		return View::make('topic/create');
 	}
 
@@ -63,13 +58,10 @@ class TopicController extends BaseController {
 	 * @return void
 	 * @author 
 	 **/
-	public function postCreate()
-	{
+	public function postCreate() {
 		$this->topic->title = Input::get('title');
 		$this->topic->content = Input::get('content');
-		
-		if($this->topic->save())
-		{
+		if($this->topic->save()) {
 			return Redirect::to('topic/show/'.$this->topic->id);
 		}
 	}
@@ -80,8 +72,7 @@ class TopicController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function getEdit($id)
-	{
+	public function getEdit($id) {
 		$topic = Topic::find($id);
 		return View::make('topic/edit', compact('topic'));
 	}
@@ -92,43 +83,38 @@ class TopicController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function postEdit($id)
-	{
+	public function postEdit($id) {
 		$topic = Topic::find($id);
 		$topic->title = Input::get('title');
 		$topic->content = Input::get('content');
-		if($topic->save())
-		{
+		if($topic->save()) {
 			return Redirect::to('topic/show/'.$topic->id);
 		}
 	}
 
 	/**
-   * Remove the specified resource from storage.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-	public function getDelete($id)
-	{
-    $topic = Topic::find($id);
-    return View::make('topic/delete', compact('topic'));
+	 * Remove the specified resource from storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function getDelete($id) {
+		$topic = Topic::find($id);
+		return View::make('topic/delete', compact('topic'));
 	}
 
 	/**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-	public function postDelete($id)
-	{
+		 * Remove the specified resource from storage.
+		 *
+		 * @param  int  $id
+		 * @return Response
+		 */
+	public function postDelete($id) {
 		Topic::destroy($id);
 		$topic = Topic::find($id);
-    if(empty($topic))
-    {
-      return Redirect::to('topic');
-    }
+		if(empty($topic)) {
+			return Redirect::to('topic');
+		}
 	}
 
 }

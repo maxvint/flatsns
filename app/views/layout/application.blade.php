@@ -33,26 +33,26 @@
 					<div class="form-group">
 						<input type="text" name="q" class="form-control nav-search" placeholder="输入关键字回车">
 					</div>
-      	</form>
+				</form>
 				<ul class="nav navbar-nav navbar-right">
 					@if(Auth::check())
 					<li class="dropdown">
-	        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ $user['username'] }} <b class="caret"></b></a>
-		        <ul class="dropdown-menu">
-		          	<li><a href="#">Action</a></li>
-		          	<li><a href="#">Another action</a></li>
-		          	<li><a href="#">Something else here</a></li>
-		          	<li class="divider"></li>
-		          	<li><a href="#">Separated link</a></li>
-		        </ul>
-	      	</li>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ $user['username'] }}<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+						</ul>
+					</li>
 					<li><a href="{{ URL::to('user/logout') }}">退出</a></li>
 					@else
 					<li><a href="{{ URL::to('user/login') }}">登录</a></li>
-	      	<li><a href="{{ URL::to('user/register') }}">注册</a></li>
+					<li><a href="{{ URL::to('user/register') }}">注册</a></li>
 					@endif
 					
-	      	
+					
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div>

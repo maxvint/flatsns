@@ -1,6 +1,11 @@
 @extends('layout.application')
 
 @section('content')
+<script language="javascript">
+	seajs.use('app/main', function(main) {
+		main.load('register');
+	});
+</script>
 <div class="row">
 	<div class="col-xs-12 col-sm-12 col-md-12">
 		<div class="well">

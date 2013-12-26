@@ -21,10 +21,11 @@ class HomeController extends BaseController {
 	 * @return void
 	 * @author 
 	 **/
-	public function getIndex()
-	{
-		echo URL::current();
-		return View::make('home.index');
+	public function getIndex() {
+		if (Auth::check()) {
+			return View::make('home.index');
+		} else {
+			return View::make('home.passport');
+		}
 	}
-
 }

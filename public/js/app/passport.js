@@ -1,5 +1,5 @@
 define(function (require, exports, moudles) {
-	var validator = require('validator');
+	require('validator');
 	exports.init = function(context, options){
 		$('.form-horizontal').bootstrapValidator({
 			fields: {

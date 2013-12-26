@@ -1,6 +1,11 @@
 @extends('layout.application')
 
 @section('content')
+<script language="javascript">
+	seajs.use('app/main', function(main) {
+		main.load('topic');
+	});
+</script>
 <div class="row">
 	<div class="col-xs-12 col-sm-12 col-md-12">
 		<ol class="breadcrumb">
@@ -11,7 +16,7 @@
 		<div class="row">
 			<div class="col-xs-12 col-sm-8 col-md-8">
 				<div class="well">
-					<form action="" class="" method="post" role="form">
+					<form action="" class="create" method="post" role="form">
 						<legend>发新话题</legend>
 						<div class="form-group">
 							<label for="title" class="control-label">标题：</label>

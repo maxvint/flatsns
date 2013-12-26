@@ -9,7 +9,7 @@
 			<li class="active">编辑话题</li>
 		</ol>
 		<div class="col-xs-12 col-sm-8 col-md-8 well">
-			<form action="" class="" method="post" role="form">
+			<form action="" class="create" method="post" role="form">
 				<legend>编辑话题</legend>
 				<div class="form-group">
 					<label for="title" class="control-label">标题：</label>

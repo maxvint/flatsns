@@ -16,8 +16,7 @@ class ReplyController extends BaseController {
 	|
 	*/
 
-	public function __construct(Reply $reply)
-	{
+	public function __construct(Reply $reply) {
 		// parent::__construct();
 		$this->reply = $reply;
 	}
@@ -28,8 +27,7 @@ class ReplyController extends BaseController {
 	 * @return void
 	 * @author 
 	 **/
-	public function getShow($id)
-	{
+	public function getShow($id) {
 		
 	}
 
@@ -39,8 +37,7 @@ class ReplyController extends BaseController {
 	 * @return void
 	 * @author 
 	 **/
-	public function getCreate()
-	{
+	public function getCreate() {
 		
 	}
 
@@ -50,14 +47,12 @@ class ReplyController extends BaseController {
 	 * @return void
 	 * @author 
 	 **/
-	public function postCreate()
-	{
+	public function postCreate() {
 		$this->reply->pid = Input::get('pid');
 		$this->reply->type = 'topic';
 		$this->reply->content = Input::get('content');
 		
-		if($this->reply->save())
-		{
+		if($this->reply->save()) {
 			return Redirect::to('topic/show/'.$this->reply->pid);
 		}
 	}
@@ -68,8 +63,7 @@ class ReplyController extends BaseController {
    * @param  int  $id
    * @return Response
    */
-	public function getDelete($id)
-	{
+	public function getDelete($id) {
     $reply = Reply::find($id);
     // return View::make('topic/delete', compact('topic'));
 	}
@@ -80,14 +74,11 @@ class ReplyController extends BaseController {
      * @param  int  $id
      * @return Response
      */
-	public function postDelete($id)
-	{
+	public function postDelete($id) {
 		Reply::destroy($id);
 		$reply = Reply::find($id);
-    if(empty($reply))
-    {
+    if(empty($reply)) {
       return Redirect::to('topic');
     }
 	}
-
 }
