@@ -13,7 +13,7 @@ define(function(require, exports, module) {
 	window.$ = $;
 	
 	exports.context = {};
-	exports.context.siteurl = "http://127.0.0.1/flatsns";
+	// exports.context.siteurl = "<?php echo URL::base(); ?>";
 
 	exports.load = function(name, options) {
 		require.async('./' + name + '.js', function(page) {

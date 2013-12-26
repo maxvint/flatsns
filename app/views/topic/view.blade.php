@@ -1,6 +1,11 @@
 @extends('layout.application')
 
 @section('content')
+<script language="javascript">
+	seajs.use('app/main', function(main) {
+		main.load('topic');
+	});
+</script>
 <div class="row">
 	<div class="col-xs-12 col-sm-12 col-md-12">
 		<ol class="breadcrumb hidden-xs">
@@ -29,10 +34,9 @@
 					<form action="{{ URL::to('reply/create') }}" class="" method="post" role="form">
 						<legend>发表回复</legend>
 						<div class="form-group">
-							<textarea name="content" class="form-control" rows="5" placeholder="请输入回复内容"></textarea>
+							<textarea name="content" id="reply_content" class="form-control" rows="5" placeholder="请输入回复内容"></textarea>
 						</div>
-						<input type="hidden" name="pid" value="{{ $topic->id }}" />
-						<button type="submit" id="topic_post" class="btn btn-primary">提交发布</button>
+						<a href="javascript:;" id="add_reply" class="btn btn-primary" event-args="pid={{ $topic->id }}">提交发布</a>
 						<a href="" class="btn btn-default">取消</a>
 					</form>
 				</div>

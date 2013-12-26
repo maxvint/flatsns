@@ -48,12 +48,16 @@ class ReplyController extends BaseController {
 	 * @author 
 	 **/
 	public function postCreate() {
-		$this->reply->pid = Input::get('pid');
-		$this->reply->type = 'topic';
-		$this->reply->content = Input::get('content');
-		
-		if($this->reply->save()) {
-			return Redirect::to('topic/show/'.$this->reply->pid);
+		if(Request::ajax()) {
+			$this->reply->pid = Input::get('pid');
+			$this->reply->type = 'topic';
+			$this->reply->content = Input::get('content');
+			print_r(Input::all());
+			
+			if($this->reply->save()) {
+				// return Redirect::to('topic/show/'.$this->reply->pid);
+				return Response::json($this->reply);
+			}
 		}
 	}
 

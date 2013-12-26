@@ -42,7 +42,8 @@ Route::group(array('before' => 'auth'), function()
 	// Route::get('user', 'UserController@showIndex');
 	// Route::controller('user', 'UserController');
 
-	Route::controller('reply', 'ReplyController');
+	// Route::controller('reply', 'ReplyController');
+	Route::post('reply/create', 'ReplyController@postCreate');
 
 
 	// Route resource

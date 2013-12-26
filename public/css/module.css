@@ -30,11 +30,12 @@ footer {
 .nav-search:focus {
 	border-color: #169d82;
 }
-.navbar-right li > a {
-	padding: 14px;
-
+.navbar-right .dropdown .userinfo {
+	width: 170px;
 }
-
+.navbar-right li .userinfo {
+	padding: 13px 14px;
+}
 /*返回信息提示*/
 .prompt {
 	padding: 50px 100px 50px 50px;

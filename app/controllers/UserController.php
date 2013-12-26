@@ -37,7 +37,15 @@ class UserController extends BaseController {
 	 **/
 	public function postRegister() {
 
-		$input = Input::only('email', 'password', 'username');;
+		$input = Input::only('email', 'password', 'username');
+		$rules = array(
+			'username' => 'required|unique:users', 
+      'firstName' => 'required',
+      'lastName' => 'required',
+      'email' => 'required|unique:users|email', 
+      'password' => 'required',
+      'confirmPassword' => 'required'
+    );
 		$input['group_type'] = 2;
 		$input['gid'] = 3;
 		$input['is_active'] = 1;
@@ -78,13 +86,18 @@ class UserController extends BaseController {
 	 **/
 	public function postLogin() {
 		$input = Input::all();
-		$credentials = array('email' => $input['email'], 'password' => $input['password']);
-		if(Auth::attempt($credentials)) {
-			return Redirect::to('topic');
-		} else {
-			return Redirect::to('user/login')->with('loginError', 'Incorrect Details');
-		}
-			
+		$rules = array('email' => 'required', 'password' => 'required');
+		$v = Validator::make($input, $rules);
+		if($v->fails()) {
+			return Redirect::to('user/login')->withErrors($v);
+    } else {
+    	$credentials = array('email' => $input['email'], 'password' => $input['password']);
+			if(Auth::attempt($credentials)) {
+				return Redirect::to('topic');
+			} else {
+				return Redirect::to('user/login')->with('loginError', 'Incorrect Details');
+			}
+    }
 	}
 
 	/**
