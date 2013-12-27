@@ -38,7 +38,7 @@ class ReplyController extends BaseController {
 	 * @author 
 	 **/
 	public function getCreate() {
-		
+		echo Request::url();
 	}
 
 	/**
@@ -48,17 +48,27 @@ class ReplyController extends BaseController {
 	 * @author 
 	 **/
 	public function postCreate() {
+
+
 		if(Request::ajax()) {
 			$this->reply->pid = Input::get('pid');
+			$this->reply->type = 'topic';
+			$this->reply->content = Input::get('content');
+			if($this->reply->save()) {
+				$this->reply->status = 'success';
+				return Response::json($this->reply);
+			}
+		} else {
+			$this->reply->pid = '14';
 			$this->reply->type = 'topic';
 			$this->reply->content = Input::get('content');
 			print_r(Input::all());
 			
 			if($this->reply->save()) {
-				// return Redirect::to('topic/show/'.$this->reply->pid);
-				return Response::json($this->reply);
+				return Redirect::to('topic/show/'.$this->reply->pid);
 			}
 		}
+		
 	}
 
 	/**

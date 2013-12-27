@@ -42,21 +42,8 @@ Route::group(array('before' => 'auth'), function()
 	// Route::get('user', 'UserController@showIndex');
 	// Route::controller('user', 'UserController');
 
-	// Route::controller('reply', 'ReplyController');
-	Route::post('reply/create', 'ReplyController@postCreate');
-
-
-	// Route resource
-	// Route::resource('topic', 'TopicController', array('except' => array('create', 'store', 'update', 'delete')));
-	// Route::resource('user', 'UserController', array('except' => array('create', 'store', 'update', 'delete')));
-
-
-	
-	// User Route
-	// Route::get('user/index', 'UserController@getIndex');
-
-	// Route::controller('users', 'UserController@getIndex');
-
+	Route::controller('reply', 'ReplyController');
+	// Route::post('reply/create', 'ReplyController@postCreate');
 
 	
 });

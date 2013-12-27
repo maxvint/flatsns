@@ -25,20 +25,25 @@
 				</div>
 				<div class="share"></div>
 
-				<ul class="replies">
+				<div class="replies">
 					@foreach($replies as $reply)
-					<li>{{ $reply->content }}</li>
+					<div class="list">
+						<div class="author">
+							<div class="avatar"><a href=""><img src="{{ asset('img/avatar.jpg') }}" class="img-circle" width="60" height="60" alt=""></a></div>
+							<div class="userinfo"><a href="">{{ $reply->uid }}</a><span class="time">{{ $reply->created_at }}</span></div>
+						</div>
+						<div class="info">{{ $reply->content }}</div>
+					</div>
 					@endforeach
-				</ul>
+				</div>
 				<div class="reply">
-					<form action="{{ URL::to('reply/create') }}" class="" method="post" role="form">
-						<legend>发表回复</legend>
+					{{ Form::open(array('url' => '', 'method' => 'post')) }}
 						<div class="form-group">
 							<textarea name="content" id="reply_content" class="form-control" rows="5" placeholder="请输入回复内容"></textarea>
 						</div>
-						<a href="javascript:;" id="add_reply" class="btn btn-primary" event-args="pid={{ $topic->id }}">提交发布</a>
+						<a href="javascript:;" id="add_reply" class="btn btn-primary" event-args="pid={{ $topic->id }}&uid=1">提交发布</a>
 						<a href="" class="btn btn-default">取消</a>
-					</form>
+					{{ Form::close() }}
 				</div>
 			</div>
 

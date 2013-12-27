@@ -329,8 +329,7 @@ footer {
 }
 
 /*share*/
-.share,
-.content {
+.share {
 	padding: 10px 0 10px 70px;
 	border-bottom: 1px solid #eee;
 	word-wrap: break-word;
@@ -338,8 +337,8 @@ footer {
 
 
 /*reply*/
-.reply {
-	
+.replies {
+	margin: 0 0 20px 0;
 }
 .list {
 	display: block;
@@ -347,9 +346,13 @@ footer {
 	width: 100%;
 	border-bottom: 1px solid #eee;
 }
+.list .author {
+	height: 70px;
+}
 .list .author .avatar {
 	float: left;
 	width: 70px;
+	height: 70px;
 }
 .list .author .replyinfo {
 	margin-bottom: 5px;
@@ -364,6 +367,7 @@ footer {
 .list .info .time span {
 	margin-right: 10px;
 }
+
 
 /*tags*/
 .tags > span {

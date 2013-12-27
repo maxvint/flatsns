@@ -44,38 +44,28 @@ define(function(require, exports) {
 			var args = core.getArgs(this);
 			core.ui.confirm(this, 'confirm');
 		});
-
-		// add_reply
+		
 		$('#add_reply').click(function() {
 			var args = core.getArgs(this);
 			var content = $('#reply_content').val();
 			
-
-			$.ajax({
-        url : SITE_URL + '/reply/create',
-        data : '1',
-        type : 'POST',
-        dataType :'json',
-	    })
-
-			/*
-			$.post(SITE_URL + '/reply/create', {pid: args.id, uid: 1, content: content}, function(res) {
-				console.log(res);
-				console.log(content);
+			$.post(SITE_URL + '/reply/create', {pid: args.pid, uid: args.uid, content: content}, function(res) {
 				if(res.status == 'success') {
 					// 清空当前发布框
 					$('#reply_content').val('');
 					var html = '<div class="list">' +
 								'<div class="author">' +
-									'<div class="avatar"><a href=""><img src="" class="img-circle" width="50" height="50" alt=""></a></div>' +
-									'<div class="userinfo"><a href="">'+ res.data.uid +'</a><span class="time">'+ res.data.addtime +'</span></div></div>' +
-								'<div class="content">'+ res.data.content +'</div>' +
+									'<div class="avatar"><a href=""><img src="'+ res.avatar +'" class="img-circle" width="50" height="50" alt=""></a></div>' +
+									'<div class="userinfo"><a href="">'+ res.uid +'</a><span class="time">'+ res.addtime +'</span></div></div>' +
+								'<div class="content">'+ res.content +'</div>' +
 							'</div>';
-					$('.reply').append(html);
+					$('.replies').append(html);
 				}
-			});
-*/
+			}, 'json');
 		});
+		
+
+
 	}
 });
 

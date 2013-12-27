@@ -43,9 +43,8 @@
 				{{ $topics->links() }}
 			</div>
 		</div>
-
-
 	</div>
+	
 	<div class="col-xs-12 col-sm-4 col-md-4">
 		<div class="panel panel-default hidden-xs">
 			<div class="panel-heading">
