@@ -8,10 +8,10 @@ class Reply extends Eloquent {
 	 * @var string
 	 */
 
-	public function getDateFormat()
-  {
+	public function getDateFormat() {
   	return 'U';
   }
+
 
 
 

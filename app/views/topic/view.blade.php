@@ -26,24 +26,36 @@
 				<div class="share"></div>
 
 				<div class="replies">
+					<h4><span class="count">{{ $topic->replies }}</span>个回复</h4>
 					@foreach($replies as $reply)
 					<div class="list">
-						<div class="author">
-							<div class="avatar"><a href=""><img src="{{ asset('img/avatar.jpg') }}" class="img-circle" width="60" height="60" alt=""></a></div>
-							<div class="userinfo"><a href="">{{ $reply->uid }}</a><span class="time">{{ $reply->created_at }}</span></div>
+						<div class="avatar"><a href=""><img src="{{ asset('img/avatar.jpg') }}" class="img-circle" width="40" height="40" alt=""></a></div>
+						<div class="userinfo">
+							<a href="">张三丰</a>
+							<span class="time">{{ $reply->created_at }}</span>
 						</div>
-						<div class="info">{{ $reply->content }}</div>
+						<div class="reply">{{ $reply->content }}</div>
+						<div class="action">
+							<a href="">回复</a>
+							<a href=""></a>
+						</div>
 					</div>
 					@endforeach
 				</div>
 				<div class="reply">
-					{{ Form::open(array('url' => '', 'method' => 'post')) }}
-						<div class="form-group">
-							<textarea name="content" id="reply_content" class="form-control" rows="5" placeholder="请输入回复内容"></textarea>
+					<div class="avatar"><a href=""><img src="{{ asset('img/avatar.jpg') }}" class="img-circle" width="40" height="40" alt=""></a></div>
+					<div class="userinfo">
+							<a href="">张三丰</a>
 						</div>
-						<a href="javascript:;" id="add_reply" class="btn btn-primary" event-args="pid={{ $topic->id }}&uid=1">提交发布</a>
-						<a href="" class="btn btn-default">取消</a>
-					{{ Form::close() }}
+					<div class="field">
+						{{ Form::open(array('url' => '', 'method' => 'post')) }}
+							<div class="form-group">
+								<textarea name="content" id="reply_content" class="form-control" rows="5" placeholder="你怎么看？"></textarea>
+							</div>
+							<a href="javascript:;" id="add_reply" class="btn btn-primary" event-args="pid={{ $topic->id }}&uid=1">提交发布</a>
+							<a href="" class="btn btn-default">取消</a>
+						{{ Form::close() }}
+					</div>
 				</div>
 			</div>
 

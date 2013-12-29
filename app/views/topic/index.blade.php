@@ -34,8 +34,8 @@
 						<span class="pull-right badge">{{ $topic->views }}</span>
 						
 						<div class="meta">
-							<span class="views"><i class="i-view"></i> 24 次浏览</span>
-							<span class="datetime"><i class="i-time"></i> 49分钟前</span>
+							<span class="views"><i class="i-view"></i> {{ $topic->replies }} 个回复</span>
+							<span class="datetime"><i class="i-time"></i> {{ $topic->updated_at }}</span>
 						</div>
 					</div>
 				</article>

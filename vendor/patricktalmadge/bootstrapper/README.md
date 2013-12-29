@@ -43,6 +43,7 @@ You can then (if you want to) add the following aliases to your `aliases` array 
 'Image'          => 'Bootstrapper\\Image',
 'Label'          => 'Bootstrapper\\Label',
 'MediaObject'    => 'Bootstrapper\\MediaObject',
+'Modal'          => 'Bootstrapper\\Modal',
 'Navbar'         => 'Bootstrapper\\Navbar',
 'Navigation'     => 'Bootstrapper\\Navigation',
 'Paginator'      => 'Bootstrapper\\Paginator',
@@ -70,7 +71,8 @@ Feel free to use a CDN, but bear in mind that you may get unexpected functionali
 
 ```html
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-<script >
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 ```
 
 ## Documentation

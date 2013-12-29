@@ -183,7 +183,7 @@ html {
 body {
   font-family: "Microsoft YaHei UI", "Microsoft YaHei", SimSun, Helvetica, Arial, sans-serif;
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 1.8;
   color: #333333;
   background-color: #ffffff;
 }
@@ -222,7 +222,7 @@ img {
 }
 .img-thumbnail {
   padding: 4px;
-  line-height: 1.6;
+  line-height: 1.8;
   background-color: #ffffff;
   border: 1px solid #dddddd;
   border-radius: 4px;
@@ -236,8 +236,8 @@ img {
   border-radius: 50%;
 }
 hr {
-  margin-top: 22px;
-  margin-bottom: 22px;
+  margin-top: 25px;
+  margin-bottom: 25px;
   border: 0;
   border-top: 1px solid #eeeeee;
 }
@@ -252,10 +252,10 @@ hr {
   border: 0;
 }
 p {
-  margin: 0 0 11px;
+  margin: 0 0 12.5px;
 }
 .lead {
-  margin-bottom: 22px;
+  margin-bottom: 25px;
   font-size: 16px;
   font-weight: 200;
   line-height: 1.4;
@@ -362,8 +362,8 @@ h6 .small,
 h1,
 h2,
 h3 {
-  margin-top: 22px;
-  margin-bottom: 11px;
+  margin-top: 25px;
+  margin-bottom: 12.5px;
 }
 h1 small,
 h2 small,
@@ -376,8 +376,8 @@ h3 .small {
 h4,
 h5,
 h6 {
-  margin-top: 11px;
-  margin-bottom: 11px;
+  margin-top: 12.5px;
+  margin-bottom: 12.5px;
 }
 h4 small,
 h5 small,
@@ -412,14 +412,14 @@ h6,
   font-size: 12px;
 }
 .page-header {
-  padding-bottom: 10px;
-  margin: 22px 0;
+  padding-bottom: 11.5px;
+  margin: 25px 0;
   border-bottom: 1px solid #eeeeee;
 }
 ul,
 ol {
   margin-top: 0;
-  margin-bottom: 11px;
+  margin-bottom: 12.5px;
 }
 ul ul,
 ol ul,
@@ -444,11 +444,11 @@ ol ol {
   padding-left: 0;
 }
 dl {
-  margin-bottom: 22px;
+  margin-bottom: 25px;
 }
 dt,
 dd {
-  line-height: 1.6;
+  line-height: 1.8;
 }
 dt {
   font-weight: bold;
@@ -500,8 +500,8 @@ abbr.initialism {
   text-transform: uppercase;
 }
 blockquote {
-  padding: 11px 22px;
-  margin: 0 0 22px;
+  padding: 12.5px 25px;
+  margin: 0 0 25px;
   border-left: 5px solid #eeeeee;
 }
 blockquote p {
@@ -514,7 +514,7 @@ blockquote p:last-child {
 }
 blockquote small {
   display: block;
-  line-height: 1.6;
+  line-height: 1.8;
   color: #cccccc;
 }
 blockquote small:before {
@@ -544,9 +544,9 @@ blockquote:after {
   content: "";
 }
 address {
-  margin-bottom: 22px;
+  margin-bottom: 25px;
   font-style: normal;
-  line-height: 1.6;
+  line-height: 1.8;
 }
 code,
 kbd,
@@ -564,10 +564,10 @@ code {
 }
 pre {
   display: block;
-  padding: 10.5px;
-  margin: 0 0 11px;
+  padding: 12px;
+  margin: 0 0 12.5px;
   font-size: 13px;
-  line-height: 1.6;
+  line-height: 1.8;
   word-break: break-all;
   word-wrap: break-word;
   color: #333333;
@@ -1291,7 +1291,7 @@ th {
 }
 .table {
   width: 100%;
-  margin-bottom: 22px;
+  margin-bottom: 25px;
 }
 .table > thead > tr > th,
 .table > tbody > tr > th,
@@ -1300,7 +1300,7 @@ th {
 .table > tbody > tr > td,
 .table > tfoot > tr > td {
   padding: 8px;
-  line-height: 1.6;
+  line-height: 1.8;
   vertical-align: top;
   border-top: 1px solid #dddddd;
 }
@@ -1439,7 +1439,7 @@ table th[class*="col-"] {
 @media (max-width: 767px) {
   .table-responsive {
     width: 100%;
-    margin-bottom: 16.5px;
+    margin-bottom: 18.75px;
     overflow-y: hidden;
     overflow-x: scroll;
     -ms-overflow-style: -ms-autohiding-scrollbar;
@@ -1492,7 +1492,7 @@ legend {
   display: block;
   width: 100%;
   padding: 0;
-  margin-bottom: 22px;
+  margin-bottom: 25px;
   font-size: 21px;
   line-height: inherit;
   color: #333333;
@@ -1543,17 +1543,17 @@ output {
   display: block;
   padding-top: 7px;
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 1.8;
   color: #555555;
   vertical-align: middle;
 }
 .form-control {
   display: block;
   width: 100%;
-  height: 36px;
+  height: 39px;
   padding: 6px 12px;
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 1.8;
   color: #555555;
   vertical-align: middle;
   background-color: #ffffff;
@@ -1597,7 +1597,7 @@ textarea.form-control {
 .radio,
 .checkbox {
   display: block;
-  min-height: 22px;
+  min-height: 25px;
   margin-top: 10px;
   margin-bottom: 10px;
   padding-left: 20px;
@@ -1827,7 +1827,7 @@ textarea.input-lg {
   white-space: nowrap;
   padding: 6px 12px;
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 1.8;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -2826,7 +2826,7 @@ input[type="button"].btn-block {
 }
 .dropdown-menu .divider {
   height: 1px;
-  margin: 10px 0;
+  margin: 11.5px 0;
   overflow: hidden;
   background-color: #e5e5e5;
 }
@@ -2835,7 +2835,7 @@ input[type="button"].btn-block {
   padding: 5px 20px;
   clear: both;
   font-weight: normal;
-  line-height: 1.6;
+  line-height: 1.8;
   color: #333333;
   white-space: nowrap;
 }
@@ -2876,7 +2876,7 @@ input[type="button"].btn-block {
   display: block;
   padding: 3px 20px;
   font-size: 12px;
-  line-height: 1.6;
+  line-height: 1.8;
   color: #cccccc;
 }
 .dropdown-backdrop {
@@ -3340,7 +3340,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 .nav .nav-divider {
   height: 1px;
-  margin: 10px 0;
+  margin: 11.5px 0;
   overflow: hidden;
   background-color: #e5e5e5;
 }
@@ -3356,7 +3356,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 .nav-tabs > li > a {
   margin-right: 2px;
-  line-height: 1.6;
+  line-height: 1.8;
   border: 1px solid transparent;
   border-radius: 4px 4px 0 0;
 }
@@ -3512,7 +3512,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .navbar {
   position: relative;
   min-height: 50px;
-  margin-bottom: 22px;
+  margin-bottom: 25px;
 }
 .navbar:before,
 .navbar:after {
@@ -3666,9 +3666,9 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 .navbar-brand {
   float: left;
-  padding: 14px 15px;
+  padding: 12.5px 15px;
   font-size: 24px;
-  line-height: 22px;
+  line-height: 25px;
 }
 .navbar-brand:hover,
 .navbar-brand:focus {
@@ -3705,12 +3705,12 @@ textarea.input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-nav {
-  margin: 7px -15px;
+  margin: 6.25px -15px;
 }
 .navbar-nav > li > a {
   padding-top: 10px;
   padding-bottom: 10px;
-  line-height: 22px;
+  line-height: 25px;
 }
 @media (max-width: 767px) {
   .navbar-nav .open .dropdown-menu {
@@ -3727,7 +3727,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
     padding: 5px 15px 5px 25px;
   }
   .navbar-nav .open .dropdown-menu > li > a {
-    line-height: 22px;
+    line-height: 25px;
   }
   .navbar-nav .open .dropdown-menu > li > a:hover,
   .navbar-nav .open .dropdown-menu > li > a:focus {
@@ -3743,8 +3743,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
     float: left;
   }
   .navbar-nav > li > a {
-    padding-top: 14px;
-    padding-bottom: 14px;
+    padding-top: 12.5px;
+    padding-bottom: 12.5px;
   }
 }
 @media (min-width: 768px) {
@@ -3763,8 +3763,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
   border-bottom: 1px solid transparent;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
-  margin-top: 7px;
-  margin-bottom: 7px;
+  margin-top: 5.5px;
+  margin-bottom: 5.5px;
 }
 @media (min-width: 768px) {
   .navbar-form .form-group {
@@ -3820,13 +3820,13 @@ textarea.input-group-sm > .input-group-btn > .btn {
   right: 0;
 }
 .navbar-btn {
-  margin-top: 7px;
-  margin-bottom: 7px;
+  margin-top: 5.5px;
+  margin-bottom: 5.5px;
 }
 .navbar-text {
   float: left;
-  margin-top: 14px;
-  margin-bottom: 14px;
+  margin-top: 12.5px;
+  margin-bottom: 12.5px;
 }
 @media (min-width: 768px) {
   .navbar-text {
@@ -4033,7 +4033,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 .breadcrumb {
   padding: 8px 15px;
-  margin-bottom: 22px;
+  margin-bottom: 25px;
   list-style: none;
   background-color: #f5f5f5;
 }
@@ -4051,7 +4051,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .pagination {
   display: inline-block;
   padding-left: 0;
-  margin: 22px 0;
+  margin: 25px 0;
 }
 .pagination > li {
   display: inline;
@@ -4061,7 +4061,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   position: relative;
   float: left;
   padding: 6px 12px;
-  line-height: 1.6;
+  line-height: 1.8;
   text-decoration: none;
   background-color: #ffffff;
   border: 1px solid #dddddd;
@@ -4132,7 +4132,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 .pager {
   padding-left: 0;
-  margin: 22px 0;
+  margin: 25px 0;
   list-style: none;
   text-align: center;
 }
@@ -4332,7 +4332,7 @@ a.list-group-item.active > .badge,
   margin-bottom: 30px;
   font-size: 21px;
   font-weight: 200;
-  line-height: 2.4000000000000004;
+  line-height: 2.7;
   color: inherit;
   background-color: #eeeeee;
 }
@@ -4358,7 +4358,7 @@ a.list-group-item.active > .badge,
 }
 .thumbnail {
   padding: 4px;
-  line-height: 1.6;
+  line-height: 1.8;
   background-color: #ffffff;
   border: 1px solid #dddddd;
   border-radius: 4px;
@@ -4368,7 +4368,7 @@ a.list-group-item.active > .badge,
   max-width: 100%;
   height: auto;
   display: block;
-  margin-bottom: 22px;
+  margin-bottom: 25px;
 }
 .thumbnail > img {
   display: block;
@@ -4388,7 +4388,7 @@ a.thumbnail.active {
 }
 .alert {
   padding: 15px;
-  margin-bottom: 22px;
+  margin-bottom: 25px;
   border: 1px solid transparent;
   border-radius: 4px;
 }
@@ -4477,8 +4477,8 @@ a.thumbnail.active {
 }
 .progress {
   overflow: hidden;
-  height: 22px;
-  margin-bottom: 22px;
+  height: 25px;
+  margin-bottom: 25px;
   background-color: #f5f5f5;
   border-radius: 4px;
   -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -4489,7 +4489,7 @@ a.thumbnail.active {
   width: 0%;
   height: 100%;
   font-size: 12px;
-  line-height: 22px;
+  line-height: 25px;
   color: #ffffff;
   text-align: center;
   background-color: #1abc9c;
@@ -4638,7 +4638,7 @@ a.list-group-item.active:focus .list-group-item-text {
   line-height: 1.3;
 }
 .panel {
-  margin-bottom: 22px;
+  margin-bottom: 25px;
   background-color: #f5f5f5;
 }
 .panel-body {
@@ -4986,14 +4986,14 @@ button.close {
 .modal-header {
   padding: 15px;
   border-bottom: 1px solid #e5e5e5;
-  min-height: 16.6px;
+  min-height: 16.8px;
 }
 .modal-header .close {
   margin-top: -2px;
 }
 .modal-title {
   margin: 0;
-  line-height: 1.6;
+  line-height: 1.8;
 }
 .modal-body {
   position: relative;

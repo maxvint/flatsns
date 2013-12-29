@@ -34,7 +34,7 @@ footer {
 	width: 170px;
 }
 .navbar-right li .userinfo {
-	padding: 13px 14px;
+	padding: 12px 14px;
 }
 /*返回信息提示*/
 .prompt {
@@ -331,43 +331,50 @@ footer {
 /*share*/
 .share {
 	padding: 10px 0 10px 70px;
-	border-bottom: 1px solid #eee;
+	/*border-bottom: 1px solid #eee;*/
 	word-wrap: break-word;
 }
 
 
-/*reply*/
+/*replies & reply*/
 .replies {
 	margin: 0 0 20px 0;
 }
-.list {
-	display: block;
+.replies h4 {
+	margin-bottom: 0;
+	height: 30px;
+	line-height: 30px;
+	border-bottom: 1px solid #eee;
+}
+.replies .list {
+	display: inline-block;
 	padding: 15px 0;
 	width: 100%;
 	border-bottom: 1px solid #eee;
 }
-.list .author {
-	height: 70px;
-}
-.list .author .avatar {
+.replies .list .avatar,
+.reply .avatar {
 	float: left;
-	width: 70px;
-	height: 70px;
+	width: 40px;
+	height: 40px;
 }
-.list .author .replyinfo {
-	margin-bottom: 5px;
+.replies .list .userinfo,
+.replies .list .reply,
+.replies .list .action,
+.reply .userinfo,
+.reply .field {
+	margin-left: 60px;
 }
-.list .info {
-	margin-left: 70px;
+.replies .list .action a {
+	color: #999;
 }
-.list .info span,
-.list .info a {
-	color: #aaa;
+.replies .list .userinfo .time {
+	margin-left: 10px;
+	color: #999;
 }
-.list .info .time span {
-	margin-right: 10px;
+.reply .field {
+	margin-top: 5px;
 }
-
 
 /*tags*/
 .tags > span {

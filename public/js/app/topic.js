@@ -48,24 +48,26 @@ define(function(require, exports) {
 		$('#add_reply').click(function() {
 			var args = core.getArgs(this);
 			var content = $('#reply_content').val();
-			
 			$.post(SITE_URL + '/reply/create', {pid: args.pid, uid: args.uid, content: content}, function(res) {
 				if(res.status == 'success') {
+					console.log(res);
 					// 清空当前发布框
 					$('#reply_content').val('');
 					var html = '<div class="list">' +
 								'<div class="author">' +
-									'<div class="avatar"><a href=""><img src="'+ res.avatar +'" class="img-circle" width="50" height="50" alt=""></a></div>' +
-									'<div class="userinfo"><a href="">'+ res.uid +'</a><span class="time">'+ res.addtime +'</span></div></div>' +
-								'<div class="content">'+ res.content +'</div>' +
+									'<div class="avatar"><a href=""><img src="'+ res.avatar +'" class="img-circle" width="40" height="40" alt=""></a></div>' +
+									'<div class="userinfo"><a href="">'+ res.uid +'</a><span class="time">'+ res.created_at +'</span></div></div>' +
+								'<div class="reply">'+ res.content +'</div>' +
+								'<div class="action"><a href="">回复</a><a href=""></a></div>' +
 							'</div>';
 					$('.replies').append(html);
+					// 统计更新
+					var count = parseInt($('.replies .count').html());
+					count++;
+					$('.replies .count').html(count);
 				}
 			}, 'json');
 		});
-		
-
-
 	}
 });
 

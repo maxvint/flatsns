@@ -37,7 +37,6 @@ class TopicController extends BaseController {
 		$topic = Topic::find($id);
 		if($topic) {
 			$replies = Reply::where('pid', '=', $id)->orderBy('created_at', 'DESC')->take(10)->get();
-			// print_r($replies);
 		}
 		return View::make('topic/view', compact('topic', 'replies'));
 	}
@@ -87,6 +86,7 @@ class TopicController extends BaseController {
 		$topic = Topic::find($id);
 		$topic->title = Input::get('title');
 		$topic->content = Input::get('content');
+		$topic->updated_at = time();
 		if($topic->save()) {
 			return Redirect::to('topic/show/'.$topic->id);
 		}
