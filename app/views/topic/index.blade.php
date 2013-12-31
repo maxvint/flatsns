@@ -31,7 +31,7 @@
 					</div>
 					<div class="summary">
 						<h4><a href="{{ URL::to('topic/show/'.$topic->id) }}">{{	$topic->title }}</a></h4>
-						<span class="pull-right badge">{{ $topic->views }}</span>
+						<span class="pull-right badge">{{ $topic->replies }}</span>
 						
 						<div class="meta">
 							<span class="views"><i class="i-view"></i> {{ $topic->replies }} 个回复</span>

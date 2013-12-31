@@ -29,9 +29,9 @@
 					<h4><span class="count">{{ $topic->replies }}</span>个回复</h4>
 					@foreach($replies as $reply)
 					<div class="list">
-						<div class="avatar"><a href=""><img src="{{ asset('img/avatar.jpg') }}" class="img-circle" width="40" height="40" alt=""></a></div>
+						<div class="avatar"><a href="{{ URL('user/'.$reply->user->id) }}"><img src="{{ asset('img/avatar.jpg') }}" class="img-circle" width="40" height="40" alt=""></a></div>
 						<div class="userinfo">
-							<a href="">{{ $reply->user->username }}</a>
+							<a href="{{ URL('user/'.$reply->user->id) }}">{{ $reply->user->username }}</a>
 							<span class="time" title="{{ $reply->created_at }}">{{ $reply->create }}</span>
 						</div>
 						<div class="reply">{{ $reply->content }}</div>

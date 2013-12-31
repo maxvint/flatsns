@@ -64,7 +64,6 @@ define(function(require, exports) {
 								'<div class="action"><a href="">回复</a><a href=""></a></div>' +
 							'</div>';
 					$('.replies').append(html);
-					html.fadeIn();
 					// 统计更新
 					var count = parseInt($('.replies .count').html());
 					count++;
