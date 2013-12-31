@@ -33,6 +33,19 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		$this->attributes['username'] = $username;
 	}
 
+	/**
+	 * getUserById
+	 *
+	 * @return void
+	 * @author 
+	 **/
+	public function getUserById($uid)
+	{
+		$user = $this->where('id', '=', $uid)->first();
+		$user->avatar = ($user->avatar) ? $user->avatar : asset('img/avatar.jpg');
+		return $user;
+	}
+
 
 	/**
 	 * Get the unique identifier for the user.

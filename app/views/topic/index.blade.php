@@ -35,7 +35,7 @@
 						
 						<div class="meta">
 							<span class="views"><i class="i-view"></i> {{ $topic->replies }} 个回复</span>
-							<span class="datetime"><i class="i-time"></i> {{ $topic->updated_at }}</span>
+							<span class="datetime"><i class="i-time"></i> {{ $topic->update }}</span>
 						</div>
 					</div>
 				</article>

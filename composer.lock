@@ -3,87 +3,8 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "b57484e7e61e32eb02b46d89468ede64",
+    "hash": "78dd04d05dc3f0248179522398e2c62f",
     "packages": [
-        {
-            "name": "anahkiasen/html-object",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Anahkiasen/html-object.git",
-                "reference": "2c6cdc6368d19ac42357f7ae17bd99652a1916e4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/html-object/zipball/2c6cdc6368d19ac42357f7ae17bd99652a1916e4",
-                "reference": "2c6cdc6368d19ac42357f7ae17bd99652a1916e4",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "HtmlObject": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Anahkiasen",
-                    "email": "ehtnam6@gmail.com"
-                }
-            ],
-            "description": "A set of classes to create and manipulate HTML objects abstractions",
-            "time": "2013-11-19 15:20:02"
-        },
-        {
-            "name": "anahkiasen/underscore-php",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Anahkiasen/underscore-php.git",
-                "reference": "735759486fa1128420d601065dc6f7af07d6b8cb"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Anahkiasen/underscore-php/zipball/735759486fa1128420d601065dc6f7af07d6b8cb",
-                "reference": "735759486fa1128420d601065dc6f7af07d6b8cb",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "~4",
-                "patchwork/utf8": "1.1.*",
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Underscore": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Maxime Fabre",
-                    "email": "ehtnam6@gmail.com"
-                }
-            ],
-            "description": "A redacted port of Underscore.js for PHP",
-            "keywords": [
-                "internals",
-                "laravel",
-                "toolkit"
-            ],
-            "time": "2013-12-14 14:27:47"
-        },
         {
             "name": "classpreloader/classpreloader",
             "version": "1.0.1",
@@ -429,12 +350,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "7195d201b86daf071fc50f7c47450265afc7e310"
+                "reference": "7af248c66d7edaafca0b531b73de1c5155b014fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/7195d201b86daf071fc50f7c47450265afc7e310",
-                "reference": "7195d201b86daf071fc50f7c47450265afc7e310",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/7af248c66d7edaafca0b531b73de1c5155b014fb",
+                "reference": "7af248c66d7edaafca0b531b73de1c5155b014fb",
                 "shasum": ""
             },
             "require": {
@@ -460,7 +381,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan H. Wage",
+                    "name": "Jonathan Wage",
                     "email": "jonwage@gmail.com",
                     "homepage": "http://www.jwage.com/",
                     "role": "Creator"
@@ -487,7 +408,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2013-12-22 10:50:36"
+            "time": "2013-12-29 22:16:54"
         },
         {
             "name": "doctrine/inflector",
@@ -1076,61 +997,6 @@
             "time": "2013-12-07 12:20:20"
         },
         {
-            "name": "patricktalmadge/bootstrapper",
-            "version": "dev-develop",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/patricktalmadge/bootstrapper.git",
-                "reference": "b07ad15300e91fb5cc6ed2d1f50fb2a43d663a17"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/patricktalmadge/bootstrapper/zipball/b07ad15300e91fb5cc6ed2d1f50fb2a43d663a17",
-                "reference": "b07ad15300e91fb5cc6ed2d1f50fb2a43d663a17",
-                "shasum": ""
-            },
-            "require": {
-                "anahkiasen/html-object": "dev-master",
-                "anahkiasen/underscore-php": "dev-master",
-                "illuminate/html": ">=4.0.0",
-                "illuminate/support": ">=4.0.0",
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "dev-master"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Bootstrapper": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Maxime Fabre",
-                    "email": "ehtnam6@gmail.com"
-                },
-                {
-                    "name": "Patrick Talmadge",
-                    "email": "ptalmadge@gmail.com"
-                },
-                {
-                    "name": "Patrick Rose",
-                    "email": "pjr0911025@gmail.com"
-                }
-            ],
-            "description": "Twitter Bootstrap markup generator",
-            "keywords": [
-                "bootstrap",
-                "laravel"
-            ],
-            "time": "2013-12-27 11:12:54"
-        },
-        {
             "name": "predis/predis",
             "version": "0.8.x-dev",
             "source": {
@@ -1331,12 +1197,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Console.git",
-                "reference": "035e072f9cc73f8c832bb691474998a878895f7d"
+                "reference": "2a5650d129f336fce941fe7c8dd2ea0151ed2610"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/035e072f9cc73f8c832bb691474998a878895f7d",
-                "reference": "035e072f9cc73f8c832bb691474998a878895f7d",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/2a5650d129f336fce941fe7c8dd2ea0151ed2610",
+                "reference": "2a5650d129f336fce941fe7c8dd2ea0151ed2610",
                 "shasum": ""
             },
             "require": {
@@ -1375,7 +1241,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "http://symfony.com",
-            "time": "2013-12-28 07:46:05"
+            "time": "2013-12-30 21:13:42"
         },
         {
             "name": "symfony/css-selector",
@@ -1384,12 +1250,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/CssSelector.git",
-                "reference": "8df20c54ffa650df860a3e42dbcd1fbd25a24977"
+                "reference": "f2900e53a13f3438edac578914446c58099122e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/CssSelector/zipball/8df20c54ffa650df860a3e42dbcd1fbd25a24977",
-                "reference": "8df20c54ffa650df860a3e42dbcd1fbd25a24977",
+                "url": "https://api.github.com/repos/symfony/CssSelector/zipball/f2900e53a13f3438edac578914446c58099122e2",
+                "reference": "f2900e53a13f3438edac578914446c58099122e2",
                 "shasum": ""
             },
             "require": {
@@ -1426,7 +1292,7 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "http://symfony.com",
-            "time": "2013-10-30 08:30:20"
+            "time": "2013-12-30 21:13:42"
         },
         {
             "name": "symfony/debug",
@@ -1491,12 +1357,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/DomCrawler.git",
-                "reference": "ce09e3982e10a6b2e010042f4fc6e245dff78ca7"
+                "reference": "87995db4869762a3a277d369568b7a625a865da0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/DomCrawler/zipball/ce09e3982e10a6b2e010042f4fc6e245dff78ca7",
-                "reference": "ce09e3982e10a6b2e010042f4fc6e245dff78ca7",
+                "url": "https://api.github.com/repos/symfony/DomCrawler/zipball/87995db4869762a3a277d369568b7a625a865da0",
+                "reference": "87995db4869762a3a277d369568b7a625a865da0",
                 "shasum": ""
             },
             "require": {
@@ -1535,7 +1401,7 @@
             ],
             "description": "Symfony DomCrawler Component",
             "homepage": "http://symfony.com",
-            "time": "2013-12-28 08:33:14"
+            "time": "2013-12-29 18:30:30"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -1692,12 +1558,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpFoundation.git",
-                "reference": "d6beae5fe6c55ff9c3a16d05abbe68459fc6d3e4"
+                "reference": "fa1f369dd56d45cab494181a8787f978a05d4257"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/d6beae5fe6c55ff9c3a16d05abbe68459fc6d3e4",
-                "reference": "d6beae5fe6c55ff9c3a16d05abbe68459fc6d3e4",
+                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/fa1f369dd56d45cab494181a8787f978a05d4257",
+                "reference": "fa1f369dd56d45cab494181a8787f978a05d4257",
                 "shasum": ""
             },
             "require": {
@@ -1733,7 +1599,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "http://symfony.com",
-            "time": "2013-12-28 08:33:14"
+            "time": "2013-12-30 21:13:42"
         },
         {
             "name": "symfony/http-kernel",
@@ -1813,12 +1679,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Process.git",
-                "reference": "a82b12ccfd0d176c7000abf91131c67f9e98645f"
+                "reference": "4272db48491224d53bc060bca50f373ddbe710fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Process/zipball/a82b12ccfd0d176c7000abf91131c67f9e98645f",
-                "reference": "a82b12ccfd0d176c7000abf91131c67f9e98645f",
+                "url": "https://api.github.com/repos/symfony/Process/zipball/4272db48491224d53bc060bca50f373ddbe710fe",
+                "reference": "4272db48491224d53bc060bca50f373ddbe710fe",
                 "shasum": ""
             },
             "require": {
@@ -1851,7 +1717,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "http://symfony.com",
-            "time": "2013-12-28 21:34:46"
+            "time": "2013-12-29 08:14:19"
         },
         {
             "name": "symfony/routing",
@@ -1860,12 +1726,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Routing.git",
-                "reference": "31f26124b04b52a31882f9690dcaa8dcd8175ec6"
+                "reference": "4062580e1f31e72bd8a03fe718dac00f64885007"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Routing/zipball/31f26124b04b52a31882f9690dcaa8dcd8175ec6",
-                "reference": "31f26124b04b52a31882f9690dcaa8dcd8175ec6",
+                "url": "https://api.github.com/repos/symfony/Routing/zipball/4062580e1f31e72bd8a03fe718dac00f64885007",
+                "reference": "4062580e1f31e72bd8a03fe718dac00f64885007",
                 "shasum": ""
             },
             "require": {
@@ -1909,7 +1775,7 @@
             ],
             "description": "Symfony Routing Component",
             "homepage": "http://symfony.com",
-            "time": "2013-12-28 08:33:14"
+            "time": "2013-12-30 21:13:42"
         },
         {
             "name": "symfony/translation",
@@ -1974,9 +1840,9 @@
 
     ],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "patricktalmadge/bootstrapper": 20
-    },
+    "stability-flags": [
+
+    ],
     "platform": [
 
     ],

@@ -2,6 +2,8 @@
 
 class BaseController extends Controller {
 
+	private $user;
+
 	/**
 	 * Setup the layout used by the controller.
 	 *
@@ -12,7 +14,8 @@ class BaseController extends Controller {
 			$this->layout = View::make($this->layout);
 		}
 		$user = Session::get('user');
-		View::share('user', $user);
+		$this->user = DB::table('users')->find($user['uid']);
+		View::share('user', $this->user);
 	}
 
 	

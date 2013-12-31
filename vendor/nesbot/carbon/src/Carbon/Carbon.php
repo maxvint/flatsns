@@ -64,13 +64,13 @@ class Carbon extends DateTime
    * @var array
    */
    protected static $days = array(
-      self::SUNDAY    => 'Sunday',
-      self::MONDAY    => 'Monday',
-      self::TUESDAY   => 'Tuesday',
-      self::WEDNESDAY => 'Wednesday',
-      self::THURSDAY  => 'Thursday',
-      self::FRIDAY    => 'Friday',
-      self::SATURDAY  => 'Saturday'
+      self::SUNDAY    => '周日',
+      self::MONDAY    => '周一',
+      self::TUESDAY   => '周二',
+      self::WEDNESDAY => '周三',
+      self::THURSDAY  => '周四',
+      self::FRIDAY    => '周五',
+      self::SATURDAY  => '周六'
    );
 
     /**
@@ -1681,15 +1681,15 @@ class Carbon extends DateTime
 
       // 4 weeks per month, 365 days per year... good enough!!
       $divs = array(
-         'second' => self::SECONDS_PER_MINUTE,
-         'minute' => self::MINUTES_PER_HOUR,
-         'hour'   => self::HOURS_PER_DAY,
-         'day'    => self::DAYS_PER_WEEK,
-         'week'   => 4,
-         'month'  => self::MONTHS_PER_YEAR
+         '秒' => self::SECONDS_PER_MINUTE,
+         '分钟' => self::MINUTES_PER_HOUR,
+         '小时'   => self::HOURS_PER_DAY,
+         '天'    => self::DAYS_PER_WEEK,
+         '周'   => 4,
+         '个月'  => self::MONTHS_PER_YEAR
       );
 
-      $unit = 'year';
+      $unit = '年';
 
       foreach ($divs as $divUnit => $divValue) {
          if ($delta < $divValue) {
@@ -1704,22 +1704,21 @@ class Carbon extends DateTime
          $delta = 1;
       }
 
-      $txt = $delta . ' ' . $unit;
-      $txt .= $delta == 1 ? '' : 's';
+      $txt = $delta . '' . $unit;
 
       if ($isNow) {
          if ($isFuture) {
             return $txt . ' from now';
          }
 
-         return $txt . ' ago';
+         return $txt . '前';
       }
 
       if ($isFuture) {
-         return $txt . ' after';
+         return $txt . '后';
       }
 
-      return $txt . ' before';
+      return $txt . '前';
    }
 
    ///////////////////////////////////////////////////////////////////

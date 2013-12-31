@@ -4,15 +4,20 @@ class UserController extends BaseController {
 
 	protected $user;
 
-	public function __construct(User $user) {
+	public function __construct(User $user)
+	{
 		// parent::__construct();
 		$this->user = $user;
 	}
 
-	public function getIndex() {
-		if (Auth::check()) {
+	public function getIndex()
+	{
+		if (Auth::check())
+		{
 			return View::make('user.index');
-		} else {
+		}
+		else
+		{
 			return View::make('user.login');
 		}
 		// $users = $this->user->orderBy('uid', 'DESC')->paginate(10);
@@ -25,7 +30,8 @@ class UserController extends BaseController {
 	 * @return void
 	 * @author 
 	 **/
-	public function getRegister() {
+	public function getRegister()
+	{
 		return View::make('user.register');
 	}
 
@@ -52,7 +58,8 @@ class UserController extends BaseController {
 
 		Eloquent::unguard();
 		$user = User::create($input);
-		if($user) {
+		if($user)
+		{
 			$session_data = array(
 				'uid' => $user->id,
 				'email' => $user->email,
@@ -74,7 +81,8 @@ class UserController extends BaseController {
 	 * @return void
 	 * @author 
 	 **/
-	public function getLogin() {
+	public function getLogin()
+	{
 		return View::make('user.login');
 	}
 
@@ -84,7 +92,8 @@ class UserController extends BaseController {
 	 * @return void
 	 * @author 
 	 **/
-	public function postLogin() {
+	public function postLogin()
+	{
 		$input = Input::all();
 		$rules = array('email' => 'required', 'password' => 'required');
 		$v = Validator::make($input, $rules);
