@@ -48,6 +48,10 @@ define(function(require, exports) {
 		$('#add_reply').click(function() {
 			var args = core.getArgs(this);
 			var content = $('#reply_content').val();
+			if(content == '') {
+				$('#reply_content').focus();
+				return false;
+			}
 			$.post(SITE_URL + '/reply/create', {pid: args.pid, uid: args.uid, content: content}, function(res) {
 				if(res.status == 'success') {
 					// 清空当前发布框
@@ -60,6 +64,7 @@ define(function(require, exports) {
 								'<div class="action"><a href="">回复</a><a href=""></a></div>' +
 							'</div>';
 					$('.replies').append(html);
+					html.fadeIn();
 					// 统计更新
 					var count = parseInt($('.replies .count').html());
 					count++;
