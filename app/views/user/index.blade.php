@@ -1,5 +1,5 @@
 @extends('layout.application')
 
 @section('content')
-	{{ $user['username'] }}
+	{{ $user->username }}
 @stop

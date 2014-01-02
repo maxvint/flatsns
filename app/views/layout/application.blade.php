@@ -42,15 +42,14 @@
 					<li>
 						<a href="{{ URL::to('user/'.$user->id) }}" class="userinfo" data-toggle="dropdown"><img src="{{ asset('img/avatar.jpg') }}" class="img-circle" width="24" height="24" alt=""> {{ $user->username }}</a>
 					</li>
+					<li><a href="{{ URL::to('user/setting') }}"><span class="glyphicon glyphicon-cog"></span> 设置</a></li>
 					<li><a href="{{ URL::to('user/logout') }}"><span class="glyphicon glyphicon-off"></span> 退出</a></li>
 					@else
 					<li><a href="{{ URL::to('user/login') }}">登录</a></li>
 					<li><a href="{{ URL::to('user/register') }}">注册</a></li>
 					@endif
-					
-					
 				</ul>
-			</div><!--/.nav-collapse -->
+			</div>
 		</div>
 	</div>
 

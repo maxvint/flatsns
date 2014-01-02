@@ -44,7 +44,7 @@ define(function(require, exports) {
 			var args = core.getArgs(this);
 			core.ui.confirm(this, 'confirm');
 		});
-		
+
 		$('#add_reply').click(function() {
 			var args = core.getArgs(this);
 			var content = $('#reply_content').val();
@@ -73,6 +73,3 @@ define(function(require, exports) {
 		});
 	}
 });
-
-
-							

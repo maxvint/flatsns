@@ -5,13 +5,14 @@ seajs.config({
 		'bootstrap': 'lib/bootstrap.js',
 		'validator': 'lib/bootstrapValidator.js',
 		'core': 'app/core.js',
+		'upload': 'app/jquery.ajaxfileupload.js'
 	}
 });
 
 define(function(require, exports, module) {
 	var $ = require('jquery');
 	window.$ = $;
-	
+
 	exports.context = {};
 	// exports.context.siteurl = "<?php echo URL::base(); ?>";
 
@@ -26,7 +27,7 @@ define(function(require, exports, module) {
 	exports.init = function(){
 		// 加载小组二级菜单
 		$("#nav_group").mouseover(function(){$(".subnav_group").show();}).mouseout(function(){$(".subnav_group").hide();});
-		
+
 		// ie7以下版本警示
 		if(navigator.appName=="Microsoft Internet Explorer" && (navigator.appVersion.split(";")[1].replace(/[ ]/g,"")=="MSIE6.0" || navigator.appVersion.split(";")[1].replace(/[ ]/g,"")=="MSIE7.0")) {
 			// require('notify')($);
