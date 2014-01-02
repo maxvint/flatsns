@@ -29,8 +29,17 @@
 
 							</div>
 							<div class="upload-btn">
-								<input type="file" name="avatar" id="fileupload" class="btn btn-success">
+								<input id="fileupload" type="file" name="files[]" multiple>
 							</div>
+							<div id="progress" class="progress">
+					      <div class="progress-bar progress-bar-success"></div>
+					    </div>
+					    <!-- The container for the uploaded files -->
+					    <div id="files" class="files"></div>
+
+
+
+
 
 							<div class="avatar-upload">
 

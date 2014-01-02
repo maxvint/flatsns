@@ -5,7 +5,6 @@ seajs.config({
 		'bootstrap': 'lib/bootstrap.js',
 		'validator': 'lib/bootstrapValidator.js',
 		'core': 'app/core.js',
-		'upload': 'app/jquery.ajaxfileupload.js'
 	}
 });
 
