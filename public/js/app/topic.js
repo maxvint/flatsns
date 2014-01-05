@@ -44,19 +44,22 @@ define(function(require, exports) {
 			var args = core.getArgs(this);
 			core.ui.confirm(this, 'confirm');
 		});
-		
+
 		$('#add_reply').click(function() {
 			var args = core.getArgs(this);
 			var content = $('#reply_content').val();
+			if(content == '') {
+				$('#reply_content').focus();
+				return false;
+			}
 			$.post(SITE_URL + '/reply/create', {pid: args.pid, uid: args.uid, content: content}, function(res) {
 				if(res.status == 'success') {
-					console.log(res);
 					// 清空当前发布框
 					$('#reply_content').val('');
 					var html = '<div class="list">' +
 								'<div class="author">' +
-									'<div class="avatar"><a href=""><img src="'+ res.avatar +'" class="img-circle" width="40" height="40" alt=""></a></div>' +
-									'<div class="userinfo"><a href="">'+ res.uid +'</a><span class="time">'+ res.created_at +'</span></div></div>' +
+									'<div class="avatar"><a href=""><img src="'+ res.user.avatar +'" class="img-circle" width="40" height="40" alt=""></a></div>' +
+									'<div class="userinfo"><a href="">'+ res.user.username +'</a><span class="time">'+ res.create +'</span></div></div>' +
 								'<div class="reply">'+ res.content +'</div>' +
 								'<div class="action"><a href="">回复</a><a href=""></a></div>' +
 							'</div>';
@@ -70,6 +73,3 @@ define(function(require, exports) {
 		});
 	}
 });
-
-
-							

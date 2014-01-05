@@ -1,29 +1,27 @@
 <?php
 
-class TopicController extends BaseController {
+class TopicController extends BaseController
+	{
 
 	protected $topic;
 	protected $reply;
-	/*
-	|--------------------------------------------------------------------------
-	| Default Home Controller
-	|--------------------------------------------------------------------------
-	|
-	| You may wish to use controllers instead of, or in addition to, Closure
-	| based routes. That's great! Here is an example controller method to
-	| get you started. To route to this controller, just add the route:
-	|
-	| Route::get('/', 'HomeController@showWelcome');
-	|
-	*/
 
-	public function __construct(Topic $topic, Reply $reply) {
+	public function __construct(Topic $topic, Reply $reply, User $user)
+	{
 		// parent::__construct();
 		$this->topic = $topic;
 	}
 
-	public function getIndex() {
-		$topics = $this->topic->orderBy('created_at', 'DESC')->paginate(10);
+	public function getIndex()
+	{
+		$topics = $this->topic->orderBy('created_at', 'DESC')->paginate(15);
+		if($topics)
+		{
+			foreach ($topics as $key => &$value)
+			{
+				$value->update = Carbon::createFromTimeStamp(strtotime($value->updated_at))->diffForHumans();
+			}
+		}
 		return View::make('topic/index', compact('topics'));
 	}
 
@@ -33,10 +31,20 @@ class TopicController extends BaseController {
 	 * @return void
 	 * @author 
 	 **/
-	public function getShow($id) {
+	public function getShow($id)
+	{
+
 		$topic = Topic::find($id);
-		if($topic) {
+		if($topic)
+		{
+			$userModel = new User;
+			$topic->user = $userModel->getUserById($topic->uid);
+			$topic->create = Carbon::createFromTimeStamp(strtotime($topic->created_at))->diffForHumans();
 			$replies = Reply::where('pid', '=', $id)->orderBy('created_at', 'DESC')->take(10)->get();
+			foreach ($replies as $key => $value) {
+				$value->create = Carbon::createFromTimeStamp(strtotime($value->created_at))->diffForHumans();
+				$value->user = $userModel->getUserById($value->uid);
+			}
 		}
 		return View::make('topic/view', compact('topic', 'replies'));
 	}
@@ -47,7 +55,8 @@ class TopicController extends BaseController {
 	 * @return void
 	 * @author 
 	 **/
-	public function getCreate() {
+	public function getCreate()
+	{
 		return View::make('topic/create');
 	}
 
@@ -57,10 +66,13 @@ class TopicController extends BaseController {
 	 * @return void
 	 * @author 
 	 **/
-	public function postCreate() {
+	public function postCreate()
+	{
+		$this->topic->uid = Auth::user()->id;
 		$this->topic->title = Input::get('title');
 		$this->topic->content = Input::get('content');
-		if($this->topic->save()) {
+		if($this->topic->save())
+		{
 			return Redirect::to('topic/show/'.$this->topic->id);
 		}
 	}
@@ -71,7 +83,8 @@ class TopicController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function getEdit($id) {
+	public function getEdit($id)
+	{
 		$topic = Topic::find($id);
 		return View::make('topic/edit', compact('topic'));
 	}
@@ -82,12 +95,14 @@ class TopicController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function postEdit($id) {
+	public function postEdit($id)
+	{
 		$topic = Topic::find($id);
 		$topic->title = Input::get('title');
 		$topic->content = Input::get('content');
 		$topic->updated_at = time();
-		if($topic->save()) {
+		if($topic->save())
+		{
 			return Redirect::to('topic/show/'.$topic->id);
 		}
 	}
@@ -98,7 +113,8 @@ class TopicController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function getDelete($id) {
+	public function getDelete($id)
+	{
 		$topic = Topic::find($id);
 		return View::make('topic/delete', compact('topic'));
 	}
@@ -109,10 +125,12 @@ class TopicController extends BaseController {
 		 * @param  int  $id
 		 * @return Response
 		 */
-	public function postDelete($id) {
+	public function postDelete($id)
+	{
 		Topic::destroy($id);
 		$topic = Topic::find($id);
-		if(empty($topic)) {
+		if(empty($topic))
+		{
 			return Redirect::to('topic');
 		}
 	}

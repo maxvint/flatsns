@@ -22,14 +22,14 @@ Route::get('user/logout', 'UserController@getLogout');
 Route::get('user/register', 'UserController@getRegister');
 Route::post('user/register', 'UserController@postRegister');
 Route::get('user/forgotten', 'UserController@getForgotten');
-Route::post('user/forgotten', 'UserController@postForgotten'); 
+Route::post('user/forgotten', 'UserController@postForgotten');
 
 
 Route::group(array('before' => 'auth'), function()
 {
-	
+
 	Route::get('/', 'HomeController@getIndex');
-	
+
 	// Topic Route
 
 	// Route::get('topic/index', 'TopicController@getIndex');
@@ -39,11 +39,12 @@ Route::group(array('before' => 'auth'), function()
 
 	Route::controller('topic', 'TopicController');
 
-	// Route::get('user', 'UserController@showIndex');
-	// Route::controller('user', 'UserController');
+	Route::get('user/setting', 'UserController@getSetting');
+	Route::get('user/avatar', 'UserController@getAvatar');
+	Route::get('user/message', 'UserController@getMessage');
 
 	Route::controller('reply', 'ReplyController');
 	// Route::post('reply/create', 'ReplyController@postCreate');
 
-	
+
 });

@@ -24,7 +24,9 @@
 						</div>
 						<div class="form-group">
 							<label for="content" class="control-label">内容：</label>
-							<textarea name="content" class="form-control" rows="20" placeholder="请输入话题内容"></textarea>
+							<!-- <textarea name="content" class="form-control" rows="20" placeholder="请输入话题内容"></textarea> -->
+							
+							@include('layout.editor')
 						</div>
 						<button type="submit" id="topic_post" class="btn btn-primary">提交发布</button>
 						<a href="" class="btn btn-default">取消</a>

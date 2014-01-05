@@ -16,7 +16,7 @@ class ReplyController extends BaseController {
 	|
 	*/
 
-	public function __construct(Reply $reply, Topic $topic) {
+	public function __construct(Reply $reply, Topic $topic, User $user) {
 		// parent::__construct();
 		$this->reply = $reply;
 	}
@@ -28,7 +28,6 @@ class ReplyController extends BaseController {
 	 * @author 
 	 **/
 	public function getShow($id) {
-		
 	}
 
 	/**
@@ -49,11 +48,16 @@ class ReplyController extends BaseController {
 	 **/
 	public function postCreate() {
 		$this->reply->pid = Input::get('pid');
+		$this->reply->uid = Auth::user()->id;
 		$this->reply->type = 'topic';
 		$this->reply->content = Input::get('content');
 		if($this->reply->save()) {
 			$this->reply->status = 'success';
+			$this->reply->create = Carbon::createFromTimeStamp(strtotime($this->reply->created_at))->diffForHumans();
 			// update replies
+			$userModel = new User;
+			$user = $userModel->getUserById($this->reply->uid);
+			$this->reply->user = $user->toArray();
 			$topic = Topic::find($this->reply->pid);
 			$topic->increment('replies');
 			return Response::json($this->reply);
@@ -61,27 +65,27 @@ class ReplyController extends BaseController {
 	}
 
 	/**
-   * Remove the specified resource from storage.
-   *
-   * @param  int  $id
-   * @return Response
-   */
+	 * Remove the specified resource from storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
 	public function getDelete($id) {
-    $reply = Reply::find($id);
-    // return View::make('topic/delete', compact('topic'));
+		$reply = Reply::find($id);
+		// return View::make('topic/delete', compact('topic'));
 	}
 
 	/**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
+		 * Remove the specified resource from storage.
+		 *
+		 * @param  int  $id
+		 * @return Response
+		 */
 	public function postDelete($id) {
 		Reply::destroy($id);
 		$reply = Reply::find($id);
-    if(empty($reply)) {
-      return Redirect::to('topic');
-    }
+		if(empty($reply)) {
+			return Redirect::to('topic');
+		}
 	}
 }

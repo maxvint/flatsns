@@ -8,14 +8,23 @@
 </script>
 <div class="row">
 	<div class="col-xs-12 col-sm-12 col-md-12">
-		<ol class="breadcrumb hidden-xs">
+		<!-- <ol class="breadcrumb hidden-xs">
 			<li><a href="{{ URL::to('/') }}">首页</a></li>
 			<li><a href="{{ URL::to('topic') }}">话题</a></li>
 			<li class="active">{{ $topic->title }}</li>
-		</ol>
+		</ol> -->
 		<div class="row">
 			<div class="col-xs-12 col-sm-8 col-md-8 topic-view">
+				<div class="avatar"><a href="{{ URL('user/'.$topic->uid) }}"><img src="{{ asset('img/avatar.jpg') }}" class="img-circle" width="60" height="60" alt=""></a></div>
 				<h3>{{ $topic->title }}</h3>
+				<div class="meta">
+					<a href="{{ URL::to('user/'.$topic->uid) }}">{{ $topic->user->username }}</a>
+					<div class="pull-right info">
+						<span>{{ $topic->create }}</span>
+						<span class="glyphicon glyphicon-eye-open"></span>{{ $topic->views }}
+						<span class="glyphicon glyphicon-comment"></span>{{ $topic->replies }}
+					</div>
+				</div>
 				<article>
 					{{ $topic->content }}
 				</article>
@@ -26,13 +35,13 @@
 				<div class="share"></div>
 
 				<div class="replies">
-					<h4><span class="count">{{ $topic->replies }}</span>个回复</h4>
+					<h4><span class="count">{{ $topic->replies }}</span>条回复</h4>
 					@foreach($replies as $reply)
 					<div class="list">
-						<div class="avatar"><a href=""><img src="{{ asset('img/avatar.jpg') }}" class="img-circle" width="40" height="40" alt=""></a></div>
+						<div class="avatar"><a href="{{ URL('user/'.$reply->user->id) }}"><img src="{{ asset('img/avatar.jpg') }}" class="img-circle" width="40" height="40" alt=""></a></div>
 						<div class="userinfo">
-							<a href="">张三丰</a>
-							<span class="time">{{ $reply->created_at }}</span>
+							<a href="{{ URL('user/'.$reply->user->id) }}">{{ $reply->user->username }}</a>
+							<span class="time" title="{{ $reply->created_at }}">{{ $reply->create }}</span>
 						</div>
 						<div class="reply">{{ $reply->content }}</div>
 						<div class="action">
@@ -45,12 +54,12 @@
 				<div class="reply">
 					<div class="avatar"><a href=""><img src="{{ asset('img/avatar.jpg') }}" class="img-circle" width="40" height="40" alt=""></a></div>
 					<div class="userinfo">
-							<a href="">张三丰</a>
+							<a href="{{ URL('user/'.$user->id) }}">{{ $user->username }}</a>
 						</div>
 					<div class="field">
 						{{ Form::open(array('url' => '', 'method' => 'post')) }}
 							<div class="form-group">
-								<textarea name="content" id="reply_content" class="form-control" rows="5" placeholder="你怎么看？"></textarea>
+								<textarea name="content" id="reply_content" class="form-control" rows="4" placeholder="你怎么看？"></textarea>
 							</div>
 							<a href="javascript:;" id="add_reply" class="btn btn-primary" event-args="pid={{ $topic->id }}&uid=1">提交发布</a>
 							<a href="" class="btn btn-default">取消</a>

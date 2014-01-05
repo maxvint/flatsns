@@ -33,6 +33,16 @@ footer {
 .navbar-right .dropdown .userinfo {
 	width: 170px;
 }
+.navbar-right li {
+	border-right: 1px solid #169d82;
+	border-left: 1px solid #ccc;
+}
+.navbar-right li:first-child {
+	border-left: none;
+}
+.navbar-right li:last-child {
+	border-right: none;
+}
 .navbar-right li .userinfo {
 	padding: 12px 14px;
 }
@@ -66,6 +76,38 @@ footer {
 }
 .prompt-time {
 	text-align: center;
+}
+
+.editor {
+	margin-bottom: 10px;
+}
+
+/*editor*/
+.editor {
+}
+.editor input[type="file"] {
+  display: inline-block;
+}
+#editor {
+	padding: 10px;
+	max-height: 650px;
+	height: 400px;
+	background-color: white;
+	border-collapse: separate; 
+	overflow: scroll;
+	outline: none;
+}
+
+div[data-role="editor-toolbar"] {
+	margin-bottom: 10px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.dropdown-menu a {
+  cursor: pointer;
 }
 
 
@@ -251,7 +293,7 @@ footer {
 
 /*topic-list*/
 .topic-list {
-	
+
 }
 .topic-list .tab-nav {
 	border-bottom: 1px solid #eee;
@@ -290,17 +332,31 @@ footer {
 	font-size: 12px;
 	color: #999;
 }
-
+.topic-list .post .summary .meta .views {
+	margin-right: 10px;
+}
 /*topic-view*/
+.topic-view .avatar {
+	float: left;
+	width: 80px;
+	height: 80px;
+}
 .topic-view h3 {
-	margin-top: 0;
+	margin: 0;
 	height: 40px;
-	line-height: 30px;
+	line-height: 40px;
+}
+.topic-view .meta {
+	margin-bottom: 20px;
+	padding-bottom: 5px;
 	border-bottom: 1px solid #eee;
 }
-
-
-
+.topic-view .meta .info {
+	color: #999;
+}
+.topic-view .meta .info .glyphicon {
+	margin: 0 5px 0 20px;
+}
 
 
 .topic-item .title .badge {
@@ -317,7 +373,7 @@ footer {
 
 /*topic*/
 .userinfo {
-	
+
 }
 .userinfo .avatar {
 	float: left;
@@ -379,4 +435,26 @@ footer {
 /*tags*/
 .tags > span {
 	margin-bottom: 10px;
+}
+
+
+
+/*profile*/
+.avatar-crop {
+	display: inline-block;
+	width: 300px;
+	height: 300px;
+	border: 2px solid #eee;
+	background: url(../img/img-upload.png) 86px 86px no-repeat;
+}
+.avatar-crop .upload-tip {
+	margin-top: 120px;
+	width: 100%;
+	text-align: center;
+	font-size: 12px;
+	line-height: 24px;
+	color: #999;
+}
+.avatar-crop .upload-tip p {
+	margin-bottom: 0;
 }

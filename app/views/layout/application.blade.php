@@ -39,31 +39,17 @@
 				</form>
 				<ul class="nav navbar-nav navbar-right">
 					@if(Auth::check())
-					<!-- <li class="dropdown">
-						<a href="#" class="dropdown-toggle userinfo" data-toggle="dropdown">
-							<img src="{{ asset('img/avatar.jpg') }}" class="img-circle" width="24" height="24" alt="">
-							{{ $user['username'] }}<b class="caret"></b>
-						</a>
-						<ul class="dropdown-menu">
-								<li><a href="#"><span class="glyphicon glyphicon glyphicon-cog"></span> 设置</a></li>
-								<li><a href="#">Another action</a></li>
-								<li><a href="#"><span class="glyphicon glyphicon-map-marker"></span> Something</a></li>
-								<li><a href="#"><span class="glyphicon glyphicon-off"></span> Separated link</a></li>
-								<li class="divider"></li>
-						</ul>
-					</li> -->
 					<li>
-						<a href="#" class="userinfo" data-toggle="dropdown"><img src="{{ asset('img/avatar.jpg') }}" class="img-circle" width="24" height="24" alt=""> {{ $user['username'] }}</a>
+						<a href="{{ URL::to('user/'.$user->id) }}" class="userinfo"><img src="{{ asset('img/avatar.jpg') }}" class="img-circle" width="24" height="24" alt=""> {{ $user->username }}</a>
 					</li>
-					<li><a href="{{ URL::to('user/logout') }}"><span class="glyphicon glyphicon-off"></span> 退出</a></li>
+					<li><a href="{{ URL::to('user/setting') }}"><span class="glyphicon glyphicon-cog"></span> 设置</a></li>
+					<li><a href="{{ URL::to('user/logout') }}"><span class="glyphicon glyphicon-log-out"></span> 退出</a></li>
 					@else
 					<li><a href="{{ URL::to('user/login') }}">登录</a></li>
 					<li><a href="{{ URL::to('user/register') }}">注册</a></li>
 					@endif
-					
-					
 				</ul>
-			</div><!--/.nav-collapse -->
+			</div>
 		</div>
 	</div>
 

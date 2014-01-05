@@ -4,15 +4,20 @@ class UserController extends BaseController {
 
 	protected $user;
 
-	public function __construct(User $user) {
+	public function __construct(User $user)
+	{
 		// parent::__construct();
 		$this->user = $user;
 	}
 
-	public function getIndex() {
-		if (Auth::check()) {
+	public function getIndex()
+	{
+		if (Auth::check())
+		{
 			return View::make('user.index');
-		} else {
+		}
+		else
+		{
 			return View::make('user.login');
 		}
 		// $users = $this->user->orderBy('uid', 'DESC')->paginate(10);
@@ -23,9 +28,10 @@ class UserController extends BaseController {
 	 * Show the form for creating a new resource.
 	 *
 	 * @return void
-	 * @author 
+	 * @author
 	 **/
-	public function getRegister() {
+	public function getRegister()
+	{
 		return View::make('user.register');
 	}
 
@@ -33,32 +39,35 @@ class UserController extends BaseController {
 	 * Store a newly created resource in storage.
 	 *
 	 * @return void
-	 * @author 
+	 * @author
 	 **/
-	public function postRegister() {
+	public function postRegister()
+	{
 
 		$input = Input::only('email', 'password', 'username');
 		$rules = array(
-			'username' => 'required|unique:users', 
-      'firstName' => 'required',
-      'lastName' => 'required',
-      'email' => 'required|unique:users|email', 
-      'password' => 'required',
-      'confirmPassword' => 'required'
-    );
-		$input['group_type'] = 2;
+			'email' => 'required|unique:users|email',
+			'password' => 'required|between:6,16',
+		);
+
+		$v = Validator::make($input, $rules);
+		if($v->fails())
+		{
+			return Redirect::back()->withErrors($v)->withInput();
+		}
+
 		$input['gid'] = 3;
 		$input['is_active'] = 1;
 
 		Eloquent::unguard();
 		$user = User::create($input);
-		if($user) {
+		if($user)
+		{
 			$session_data = array(
 				'uid' => $user->id,
 				'email' => $user->email,
 				'password' => $user->password,
 				'username' => $user->username,
-				'group_type' => $user->group_type,
 				'gid' => $user->gid,
 				'is_active' => $user->is_active
 			);
@@ -72,9 +81,10 @@ class UserController extends BaseController {
 	 * user login
 	 *
 	 * @return void
-	 * @author 
+	 * @author
 	 **/
-	public function getLogin() {
+	public function getLogin()
+	{
 		return View::make('user.login');
 	}
 
@@ -82,22 +92,39 @@ class UserController extends BaseController {
 	 * do post user login
 	 *
 	 * @return void
-	 * @author 
+	 * @author
 	 **/
-	public function postLogin() {
+	public function postLogin()
+	{
 		$input = Input::all();
 		$rules = array('email' => 'required', 'password' => 'required');
 		$v = Validator::make($input, $rules);
-		if($v->fails()) {
+		if($v->fails())
+		{
 			return Redirect::to('user/login')->withErrors($v);
-    } else {
-    	$credentials = array('email' => $input['email'], 'password' => $input['password']);
-			if(Auth::attempt($credentials)) {
+		}
+		else
+		{
+			$credentials = array('email' => $input['email'], 'password' => $input['password']);
+			if(Auth::attempt($credentials))
+			{
+				$user = User::whereEmail($input['email'])->first();
+				$session_data = array(
+					'uid' => $user->id,
+					'email' => $user->email,
+					'password' => $user->password,
+					'username' => $user->username,
+					'gid' => $user->gid,
+					'is_active' => $user->is_active
+				);
+				(Session::has('user')) ? Session::flash('user', $session_data) : Session::put('user', $session_data);
 				return Redirect::to('topic');
-			} else {
+			}
+			else
+			{
 				return Redirect::to('user/login')->with('loginError', 'Incorrect Details');
 			}
-    }
+		}
 	}
 
 	/**
@@ -106,22 +133,47 @@ class UserController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function getEdit($id) {
-		
+	public function getEdit($id)
+	{
+
 	}
- 
+
 	/**
 	 * Update the specified resource in storage.
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function postEdit($id) {
-		
+	public function postEdit($id)
+	{
+
 	}
 
-	public function getLogout() {
+	public function getLogout()
+	{
 		Auth::logout();
 		return Redirect::to('user/login');
+	}
+
+	/**
+	 * undocumented function
+	 *
+	 * @return void
+	 * @author
+	 **/
+	public function getSetting()
+	{
+		return View::make('user.setting');
+	}
+
+	/**
+	 * undocumented function
+	 *
+	 * @return void
+	 * @author
+	 **/
+	public function getAvatar()
+	{
+		return View::make('user.avatar');
 	}
 }
