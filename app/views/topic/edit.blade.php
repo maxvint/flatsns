@@ -3,11 +3,6 @@
 @section('content')
 <div class="row">
 	<div class="col-xs-12 col-sm-12 col-md-12">
-		<ol class="breadcrumb">
-			<li><a href="">首页</a></li>
-			<li><a href="{{ URL::to('topic') }}">话题</a></li>
-			<li class="active">编辑话题</li>
-		</ol>
 		<div class="col-xs-12 col-sm-8 col-md-8 well">
 			<form action="" class="create" method="post" role="form">
 				<legend>编辑话题</legend>
@@ -26,10 +21,7 @@
 		</div>
 
 		<div class="col-xs-12 col-sm-4 col-md-4">
-
-
 		</div>
 	</div>
-
 </div>
 @stop

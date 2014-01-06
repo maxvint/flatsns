@@ -12,10 +12,10 @@ footer {
 }
 .container {
 	margin: 0 auto;
-	max-width: 1170px;
+	max-width: 1000px;
 }
 .main {
-	padding-top: 20px;
+	padding-top: 40px;
 }
 .nav-post {
 	display: inline-block;
@@ -36,6 +36,10 @@ footer {
 .navbar-right li {
 	border-right: 1px solid #169d82;
 	border-left: 1px solid #ccc;
+}
+.navbar-right li a {
+	padding-left: 15px;
+	padding-right: 15px;
 }
 .navbar-right li:first-child {
 	border-left: none;
@@ -88,18 +92,30 @@ footer {
 	margin-bottom: 10px;
 	height: 37px;
 	/*overflow: hidden;*/
+	background: #fff;
+}
+.editor .isStuck {
+	top: 50px;
+	left: 0;
+	padding: 0 22%;
+	width: 100%;
+	box-shadow: 0 1px 5px #ccc;
+	position: relative;
+	z-index: 1050;
 }
 .editor input[type="file"] {
   display: inline-block;
 }
 #editor {
 	padding: 10px;
-	max-height: 650px;
-	height: 400px;
+	min-height: 450px;
+	height: 100%;
 	background-color: white;
 	border-collapse: separate;
 	/*overflow-y: scroll;*/
 	outline: none;
+	font-size: 16px;
+	z-index: 1050;
 }
 .editor-toolbar div[data-role="editor-toolbar"] {
 	margin-bottom: 10px;
@@ -108,11 +124,78 @@ footer {
   -ms-user-select: none;
   user-select: none;
 }
-
-.dropdown-menu a {
+.editor-toolbar .dropdown-menu a {
   cursor: pointer;
 }
 
+/*share*/
+.share-sns {
+	display: inline-block;
+	padding: 10px 0;
+}
+.share-sns a span {
+	margin-top: 48px;
+	height: 30px;
+	line-height: 30px;
+	display: inline-block;
+}
+
+.share-item {
+	margin-right: 30px;
+	display: inline-block;
+	width: 56px;
+	height: 78px;
+	background: url(../img/ico.png) no-repeat;
+	overflow: hidden;
+	text-align: center;
+	opacity: 0.5;
+	fliter: alpha(opacity=50);
+	transition: opacity .2s linear;
+	-moz-transition: opacity .2s linear;
+	-webkit-transition: opacity .2s linear;
+}
+.share-item:hover {
+	opacity: 1;
+}
+.share-qzone {
+	background-position: -100px 0;
+}
+.share-qzone:hover {
+	background-position: -100px -80px;
+}
+.share-qqmb {
+	background-position: -160px 0;
+}
+.share-qqmb:hover {
+	background-position: -160px -80px;
+}
+.share-qqxiaoyou {
+	background-position: -220px 0;
+}
+.share-qqxiaoyou:hover {
+	background-position: -220px -80px;
+}
+.share-sinaminiblog {
+	background-position: -280px 0;
+}
+.share-sinaminiblog:hover {
+	background-position: -280px -80px;
+}
+.share-qqim {
+	background-position: -340px 0;
+}
+.share-qqim:hover {
+	background-position: -340px -80px;
+}
+.share-renren {
+	background-position: -400px 0;
+}
+.share-renren:hover {
+	background-position: -400px -80px;
+}
+.share-more {
+	background-position: -460px 0;
+}
 
 /*passport*/
 .passport {
@@ -301,6 +384,9 @@ footer {
 .topic-list .tab-nav {
 	border-bottom: 1px solid #eee;
 }
+.topic-list .tab-nav h4 {
+	margin-top: 0;
+}
 .topic-list .tab-nav .sub-tab {
 	margin-top: -30px;
 }
@@ -341,26 +427,34 @@ footer {
 /*topic-view*/
 .topic-view .avatar {
 	float: left;
-	width: 80px;
-	height: 80px;
+	width: 70px;
+	height: 70px;
 }
 .topic-view h3 {
 	margin: 0;
-	height: 40px;
-	line-height: 40px;
+	line-height: 30px;
 }
 .topic-view .meta {
-	margin-bottom: 20px;
+	margin: 10px 0 0 70px;
 	padding-bottom: 5px;
-	border-bottom: 1px solid #eee;
 }
+.topic-view .meta .time,
 .topic-view .meta .info {
-	color: #999;
+	color: #c5c5c5;
 }
 .topic-view .meta .info .glyphicon {
 	margin: 0 5px 0 20px;
 }
-
+.topic-view article {
+	padding: 20px 0;
+	border-top: 1px solid #eee;
+	font-size: 16px;
+	line-height: 1.9
+}
+.topic-view article hr {
+	margin: 20px auto;
+	border-top: 1px dashed #eee;
+}
 
 .topic-item .title .badge {
 	vertical-align: top;
@@ -373,6 +467,13 @@ footer {
 .topic-item .meta span {
 	margin-right: 5px;
 }
+
+.link-list {
+	padding-left: 20px;
+}
+
+
+
 
 /*topic*/
 .userinfo {

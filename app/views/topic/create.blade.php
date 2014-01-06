@@ -8,11 +8,6 @@
 </script>
 <div class="row">
 	<div class="col-xs-12 col-sm-12 col-md-12">
-		<ol class="breadcrumb">
-			<li><a href="">首页</a></li>
-			<li><a href="{{ URL::to('topic') }}">话题</a></li>
-			<li class="active">发新话题</li>
-		</ol>
 		<div class="row">
 			<div class="col-xs-12 col-sm-8 col-md-8">
 				<div class="well">
@@ -25,7 +20,6 @@
 						<div class="form-group">
 							<label for="content" class="control-label">内容：</label>
 							<!-- <textarea name="content" class="form-control" rows="20" placeholder="请输入话题内容"></textarea> -->
-
 							@include('layout.editor', array('data' => ''))
 						</div>
 						<button type="submit" id="topic_post" class="btn btn-primary">提交发布</button>

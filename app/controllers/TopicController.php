@@ -29,7 +29,7 @@ class TopicController extends BaseController
 	 * Display the specified resource.
 	 *
 	 * @return void
-	 * @author 
+	 * @author
 	 **/
 	public function getShow($id)
 	{
@@ -40,20 +40,26 @@ class TopicController extends BaseController
 			$userModel = new User;
 			$topic->user = $userModel->getUserById($topic->uid);
 			$topic->create = Carbon::createFromTimeStamp(strtotime($topic->created_at))->diffForHumans();
+
+			// 获取回复
 			$replies = Reply::where('pid', '=', $id)->orderBy('created_at', 'DESC')->take(10)->get();
 			foreach ($replies as $key => $value) {
 				$value->create = Carbon::createFromTimeStamp(strtotime($value->created_at))->diffForHumans();
 				$value->user = $userModel->getUserById($value->uid);
 			}
+
+			// 获取相关话题
+			$relates = Topic::orderBy('created_at', 'DESC')->take(10)->get();
+			// print_r($relates);
 		}
-		return View::make('topic/view', compact('topic', 'replies'));
+		return View::make('topic/view', compact('topic', 'replies', 'relates'));
 	}
 
 	/**
 	 * Show the form for creating a new resource.
 	 *
 	 * @return void
-	 * @author 
+	 * @author
 	 **/
 	public function getCreate()
 	{
@@ -64,7 +70,7 @@ class TopicController extends BaseController
 	 * Store a newly created resource in storage.
 	 *
 	 * @return void
-	 * @author 
+	 * @author
 	 **/
 	public function postCreate()
 	{
@@ -88,7 +94,7 @@ class TopicController extends BaseController
 		$topic = Topic::find($id);
 		return View::make('topic/edit', compact('topic'));
 	}
- 
+
 	/**
 	 * Update the specified resource in storage.
 	 *

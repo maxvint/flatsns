@@ -32,8 +32,8 @@
 		<div class="btn-group">
 			<a class="btn btn-default" data-edit="insertunorderedlist" title="普通列表"><i class="glyphicon glyphicon-list"></i></a>
 			<a class="btn btn-default" data-edit="insertorderedlist" title="数字列表"><i class="glyphicon glyphicon-th-list"></i></a>
-			<a class="btn btn-default" data-edit="indent" title="缩进 (Tab)"><i class="glyphicon glyphicon-indent-right"></i></a>
-			<a class="btn btn-default" data-edit="outdent" title="取消缩进 (Shift+Tab)"><i class="glyphicon glyphicon-indent-left"></i></a>
+			<!-- <a class="btn btn-default" data-edit="indent" title="缩进 (Tab)"><i class="glyphicon glyphicon-indent-right"></i></a> -->
+			<!-- <a class="btn btn-default" data-edit="outdent" title="取消缩进 (Shift+Tab)"><i class="glyphicon glyphicon-indent-left"></i></a> -->
 		</div>
 
 		<div class="btn-group">
@@ -62,5 +62,5 @@
 	</div>
 
 	<div id="editor" class="form-control">{{ $data }}</div>
-	<textarea name="content" id="content" class="hidden form-control"></textarea>
+	<textarea name="content" id="content" class="hidden form-control">{{ $data }}</textarea>
 </div>

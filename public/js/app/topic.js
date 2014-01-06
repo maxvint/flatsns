@@ -9,7 +9,7 @@ define(function(require, exports) {
 			var args = getArgs(this);
 		});
 
-		$('.add').bootstrapValidator({
+		$('.create').bootstrapValidator({
 			fields: {
 				title: {
 					validators: {
