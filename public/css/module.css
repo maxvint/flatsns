@@ -78,12 +78,16 @@ footer {
 	text-align: center;
 }
 
-.editor {
-	margin-bottom: 10px;
-}
 
 /*editor*/
+
 .editor {
+
+}
+.editor .btn-toolbar {
+	margin-bottom: 10px;
+	height: 37px;
+	/*overflow: hidden;*/
 }
 .editor input[type="file"] {
   display: inline-block;
@@ -93,12 +97,11 @@ footer {
 	max-height: 650px;
 	height: 400px;
 	background-color: white;
-	border-collapse: separate; 
-	overflow: scroll;
+	border-collapse: separate;
+	/*overflow-y: scroll;*/
 	outline: none;
 }
-
-div[data-role="editor-toolbar"] {
+.editor-toolbar div[data-role="editor-toolbar"] {
 	margin-bottom: 10px;
   -webkit-user-select: none;
   -moz-user-select: none;

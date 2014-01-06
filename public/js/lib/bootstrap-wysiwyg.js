@@ -16,7 +16,10 @@
 	};
 	$.fn.cleanHtml = function () {
 		var html = $(this).html();
-		return html && html.replace(/(<br>|\s|<div><br><\/div>|&nbsp;)*$/, '');
+		html = html.replace(/style\s*=\s*\"(.*?)\"|id\s*=\s*\"(.*?)\"|class\s*=\s*\"(.*?)\"/ig, '');
+		// return html && html.replace(/(<br>|\s|<div><br><\/div>|&nbsp;)*$/, '');
+		// return html && html.replace(/<\/?[^>]*>/g, '');
+		return html;
 	};
 	$.fn.wysiwyg = function (userOptions) {
 		var editor = this,

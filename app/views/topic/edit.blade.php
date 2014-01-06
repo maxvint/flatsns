@@ -17,18 +17,19 @@
 				</div>
 				<div class="form-group">
 					<label for="content" class="control-label">内容：</label>
-					<textarea name="content" class="form-control" rows="20" placeholder="请输入话题内容">{{ $topic->content }}</textarea>
+					<!-- <textarea name="content" class="form-control" rows="20" placeholder="请输入话题内容">{{ $topic->content }}</textarea> -->
+					@include('layout.editor', array('data' => $topic->content))
 				</div>
 				<button type="submit" id="topic_post" class="btn btn-primary">提交发布</button>
 				<a href="" class="btn btn-default">取消</a>
 			</form>
 		</div>
-		
+
 		<div class="col-xs-12 col-sm-4 col-md-4">
-			
-			
+
+
 		</div>
 	</div>
-		
+
 </div>
 @stop
