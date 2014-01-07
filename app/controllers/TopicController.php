@@ -1,27 +1,21 @@
 <?php
 
-class TopicController extends BaseController
-	{
+class TopicController extends BaseController {
 
 	protected $topic;
 	protected $reply;
+	protected $user;
 
 	public function __construct(Topic $topic, Reply $reply, User $user)
 	{
-		// parent::__construct();
 		$this->topic = $topic;
+		$this->reply = $reply;
+		$this->user = $user;
 	}
 
 	public function getIndex()
 	{
-		$topics = $this->topic->orderBy('created_at', 'DESC')->paginate(15);
-		if($topics)
-		{
-			foreach ($topics as $key => &$value)
-			{
-				$value->update = Carbon::createFromTimeStamp(strtotime($value->updated_at))->diffForHumans();
-			}
-		}
+		$topics = $this->topic->getTopicList();
 		return View::make('topic/index', compact('topics'));
 	}
 
@@ -33,26 +27,16 @@ class TopicController extends BaseController
 	 **/
 	public function getShow($id)
 	{
-
-		$topic = Topic::find($id);
+		$topic = $this->topic->getTopicShow($id);
 		if($topic)
 		{
-			$userModel = new User;
-			$topic->user = $userModel->getUserById($topic->uid);
-			$topic->create = Carbon::createFromTimeStamp(strtotime($topic->created_at))->diffForHumans();
+			// get reply list
+			$replies = $this->topic->getTopicReply($id);
 
-			// 获取回复
-			$replies = Reply::where('pid', '=', $id)->orderBy('created_at', 'DESC')->take(10)->get();
-			foreach ($replies as $key => $value) {
-				$value->create = Carbon::createFromTimeStamp(strtotime($value->created_at))->diffForHumans();
-				$value->user = $userModel->getUserById($value->uid);
-			}
-
-			// 获取相关话题
-			$relates = Topic::orderBy('created_at', 'DESC')->take(10)->get();
-			// print_r($relates);
+			// get related list
+			$relates = $this->topic->getTopicRelated($id);
+			return View::make('topic/view', compact('topic', 'replies', 'relates'));
 		}
-		return View::make('topic/view', compact('topic', 'replies', 'relates'));
 	}
 
 	/**
@@ -91,7 +75,7 @@ class TopicController extends BaseController
 	 */
 	public function getEdit($id)
 	{
-		$topic = Topic::find($id);
+		$topic = $this->topic->getTopicOne($id);
 		return View::make('topic/edit', compact('topic'));
 	}
 
@@ -103,7 +87,7 @@ class TopicController extends BaseController
 	 */
 	public function postEdit($id)
 	{
-		$topic = Topic::find($id);
+		$topic = $this->topic->getTopicOne($id);
 		$topic->title = Input::get('title');
 		$topic->content = Input::get('content');
 		$topic->updated_at = time();
@@ -121,7 +105,7 @@ class TopicController extends BaseController
 	 */
 	public function getDelete($id)
 	{
-		$topic = Topic::find($id);
+		$topic = $this->topic->getTopicOne($id);
 		return View::make('topic/delete', compact('topic'));
 	}
 
@@ -134,7 +118,7 @@ class TopicController extends BaseController
 	public function postDelete($id)
 	{
 		Topic::destroy($id);
-		$topic = Topic::find($id);
+		$topic = $this->topic->getTopicOne($id);
 		if(empty($topic))
 		{
 			return Redirect::to('topic');

@@ -16,16 +16,16 @@ class ReplyController extends BaseController {
 	|
 	*/
 
-	public function __construct(Reply $reply, Topic $topic, User $user) {
-		// parent::__construct();
+	public function __construct(Reply $reply, Topic $topic) {
 		$this->reply = $reply;
+		parent::__construct();
 	}
-	
+
 	/**
 	 * Display the specified resource.
 	 *
 	 * @return void
-	 * @author 
+	 * @author
 	 **/
 	public function getShow($id) {
 	}
@@ -34,7 +34,7 @@ class ReplyController extends BaseController {
 	 * Show the form for creating a new resource.
 	 *
 	 * @return void
-	 * @author 
+	 * @author
 	 **/
 	public function getCreate() {
 		// echo Request::url();
@@ -44,7 +44,7 @@ class ReplyController extends BaseController {
 	 * Store a newly created resource in storage.
 	 *
 	 * @return void
-	 * @author 
+	 * @author
 	 **/
 	public function postCreate() {
 		$this->reply->pid = Input::get('pid');
@@ -53,10 +53,9 @@ class ReplyController extends BaseController {
 		$this->reply->content = Input::get('content');
 		if($this->reply->save()) {
 			$this->reply->status = 'success';
-			$this->reply->create = Carbon::createFromTimeStamp(strtotime($this->reply->created_at))->diffForHumans();
+			$this->reply->create = $this->reply->created_at->diffForHumans();
 			// update replies
-			$userModel = new User;
-			$user = $userModel->getUserById($this->reply->uid);
+			$user = $this->userModel->getUserById($this->reply->uid);
 			$this->reply->user = $user->toArray();
 			$topic = Topic::find($this->reply->pid);
 			$topic->increment('replies');
@@ -71,7 +70,7 @@ class ReplyController extends BaseController {
 	 * @return Response
 	 */
 	public function getDelete($id) {
-		$reply = Reply::find($id);
+		$reply = $this->reply->getReplyOne($id);
 		// return View::make('topic/delete', compact('topic'));
 	}
 
@@ -83,7 +82,7 @@ class ReplyController extends BaseController {
 		 */
 	public function postDelete($id) {
 		Reply::destroy($id);
-		$reply = Reply::find($id);
+		$reply = $this->reply->getReplyOne($id);
 		if(empty($reply)) {
 			return Redirect::to('topic');
 		}

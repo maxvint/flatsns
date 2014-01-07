@@ -14,12 +14,12 @@ class HomeController extends BaseController {
 	|	Route::get('/', 'HomeController@showWelcome');
 	|
 	*/
-	
+
 	/**
 	 * undocumented function
 	 *
 	 * @return void
-	 * @author 
+	 * @author
 	 **/
 	public function getIndex() {
 		if (Auth::check()) {
@@ -29,5 +29,5 @@ class HomeController extends BaseController {
 		}
 	}
 
-	
+
 }

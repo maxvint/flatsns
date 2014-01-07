@@ -3,18 +3,23 @@
 class UserController extends BaseController {
 
 	protected $user;
+	protected $topicModel;
 
 	public function __construct(User $user)
 	{
-		// parent::__construct();
 		$this->user = $user;
+		$this->topicModel = new Topic;
 	}
 
 	public function getIndex()
 	{
-		if (Auth::check())
+		if(Auth::check())
 		{
-			return View::make('user.index');
+			// get posted topic
+			$topics = $this->topicModel->getTopicList(10);
+
+
+			return View::make('user.index', compact('topics'));
 		}
 		else
 		{

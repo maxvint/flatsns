@@ -44,6 +44,10 @@ a:active,
 a:hover {
   outline: 0;
 }
+a:hover {
+  -webkit-transition: color 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out;
+}
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
@@ -1836,6 +1840,8 @@ textarea.input-lg {
 .btn:focus {
   color: #333333;
   text-decoration: none;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 .btn:active,
 .btn.active {

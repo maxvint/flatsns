@@ -4,11 +4,26 @@ html {
 }
 body {
 	padding-top: 50px;
-	min-height: 1200px;
+	height: 100%;
 	font-family: 'Microsoft YaHei UI', 'Microsoft YaHei', SimSun, 'Segoe UI', Tahoma, Helvetica, Sans-Serif;
 }
-footer {
-	padding: 30px 0;
+html, body {
+	height: 100%;
+}
+#wrap {
+	min-height: 100%;
+  height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto -100px;
+  /* Pad bottom by footer height */
+  padding: 0 0 100px;
+}
+#footer {
+	height: 100px;
+  background-color: #f5f5f5;
+  padding: 20px 0;
+	background: #f5f5f5;
+	color: #aaa;
 }
 .container {
 	margin: 0 auto;
@@ -16,7 +31,15 @@ footer {
 }
 .main {
 	padding-top: 40px;
+	height: 100%;
+	min-height: 780px;
 }
+.top {
+	margin-bottom: 40px;
+	background: #f1f1f1;
+}
+
+
 .nav-post {
 	display: inline-block;
 	margin: 6px 0 0 40px;
@@ -50,6 +73,14 @@ footer {
 .navbar-right li .userinfo {
 	padding: 12px 14px;
 }
+
+#footer .page-links a {
+	color: #aaa;
+}
+#footer .copyright {
+	color: #ccc;
+}
+
 /*返回信息提示*/
 .prompt {
 	padding: 50px 100px 50px 50px;
@@ -151,7 +182,6 @@ footer {
 	opacity: 0.5;
 	fliter: alpha(opacity=50);
 	transition: opacity .2s linear;
-	-moz-transition: opacity .2s linear;
 	-webkit-transition: opacity .2s linear;
 }
 .share-item:hover {
@@ -455,6 +485,12 @@ footer {
 	margin: 20px auto;
 	border-top: 1px dashed #eee;
 }
+.topic-view .reply-form {
+	padding-bottom: 40px;
+}
+
+
+
 
 .topic-item .title .badge {
 	vertical-align: top;
@@ -562,3 +598,108 @@ footer {
 .avatar-crop .upload-tip p {
 	margin-bottom: 0;
 }
+
+
+/*user-info*/
+.top .bar {
+	height: 80px;
+	background: #666;
+}
+.user-info {
+	margin-top: -65px;
+}
+.user-info .avatar {
+	float: left;
+	margin-right: 20px;
+	width: 180px;
+	height: 180px;
+}
+.user-info .name,
+.user-info .profile {
+	margin-left: 200px;
+}
+.user-info .name h2 {
+	color: #fff;
+}
+.user-info .profile {
+	margin-top: 35px;
+}
+.user-info .profile p {
+	margin-bottom: 5px;
+	color: #999;
+}
+
+
+/*topic-line*/
+.topic-list {
+	/*float: left;*/
+	display: inline-block;
+	width: 100%;
+	margin-bottom: 30px;
+}
+.topic-line {
+	float: left;
+	padding-top: 5px;
+	width: 100%;
+	background: url(../img/spine-bg.png) 120px repeat-y;
+}
+.topic-line .item {
+	float: left;
+	margin: 0;
+	width: 100%;
+	height: 50px;
+}
+.topic-line .item h4 {
+	float: left;
+	padding-left: 40px;
+	line-height: 30px;
+	background: url(../img/spine-dot.png) 10px 4px no-repeat;
+}
+.topic-line .item .time {
+	position: relative;
+	float: left;
+	margin: 5px 0;
+	padding-left: 10px;
+	width: 100px;
+	height: 40px;
+	line-height: 40px;
+	background: #eee;
+	color: #999;
+	border-radius: 3px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

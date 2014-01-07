@@ -42,6 +42,10 @@
 			<a class="btn btn-default" data-edit="justifyright" title="居右 (Ctrl/Cmd+R)"><i class="glyphicon glyphicon-align-right"></i></a>
 		</div>
 
+		<!-- <div class="btn-group">
+			<a class="btn btn-default" data-edit="justifyright" title="分割线 (Ctrl/Cmd+R)"><i class="glyphicon glyphicon-align-right"></i></a>
+		</div> -->
+
 		<div class="btn-group">
 			<a class="btn btn-default dropdown-toggle" data-toggle="dropdown" title="超链接"><i class="glyphicon glyphicon-link"></i></a>
 			<div class="dropdown-menu input-append">

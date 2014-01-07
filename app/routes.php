@@ -42,6 +42,8 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('user/setting', 'UserController@getSetting');
 	Route::get('user/avatar', 'UserController@getAvatar');
 	Route::get('user/message', 'UserController@getMessage');
+	Route::get('user/index', 'UserController@getIndex');
+	Route::get('user/{uid}', 'UserController@getIndex');
 
 	Route::controller('reply', 'ReplyController');
 	// Route::post('reply/create', 'ReplyController@postCreate');
