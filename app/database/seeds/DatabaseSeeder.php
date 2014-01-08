@@ -11,12 +11,19 @@ class DatabaseSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 
+<<<<<<< HEAD
 		$this->call('ItemTableSeeder');
+=======
+		$this->call('GoodTableSeeder');
+>>>>>>> a8102a6a0aaba109521e4721c02b44c435f0862e
 	}
 
 }
 
+<<<<<<< HEAD
 /*
+=======
+>>>>>>> a8102a6a0aaba109521e4721c02b44c435f0862e
 class GoodTableSeeder extends Seeder {
 
 		public function run()
@@ -31,5 +38,9 @@ class GoodTableSeeder extends Seeder {
 				]);
 		}
 
+<<<<<<< HEAD
 }
 */
+=======
+}
+>>>>>>> a8102a6a0aaba109521e4721c02b44c435f0862e
