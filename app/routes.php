@@ -11,42 +11,22 @@
 |
 */
 
-// Home Route
-Route::get('/', 'HomeController@getIndex');
 
-// User Route
-Route::get('user', 'UserController@getIndex');
-Route::get('user/login', 'UserController@getLogin');
-Route::post('user/login', 'UserController@postLogin');
-Route::get('user/logout', 'UserController@getLogout');
-Route::get('user/register', 'UserController@getRegister');
-Route::post('user/register', 'UserController@postRegister');
-Route::get('user/forgotten', 'UserController@getForgotten');
-Route::post('user/forgotten', 'UserController@postForgotten');
+Route::group(array('before' => 'guest'), function()
+{
+	Route::get('/', 'HomeController@getPassport');
+	Route::controller('auth', 'AuthController');
+});
 
 
 Route::group(array('before' => 'auth'), function()
 {
 
 	Route::get('/', 'HomeController@getIndex');
-
-	// Topic Route
-
-	// Route::get('topic/index', 'TopicController@getIndex');
-	// Route::get('topic/show/{tid}', 'TopicController@getShow');
-	// Route::get('topic/create', 'TopicController@getCreate');
-	// Route::post('topic/create', 'TopicController@postCreate');
-
+	Route::controller('store', 'StoreController');
 	Route::controller('topic', 'TopicController');
-
-	Route::get('user/setting', 'UserController@getSetting');
-	Route::get('user/avatar', 'UserController@getAvatar');
-	Route::get('user/message', 'UserController@getMessage');
-	Route::get('user/index', 'UserController@getIndex');
-	Route::get('user/{uid}', 'UserController@getIndex');
-
+	Route::controller('user', 'UserController');
 	Route::controller('reply', 'ReplyController');
-	// Route::post('reply/create', 'ReplyController@postCreate');
 
 
 });

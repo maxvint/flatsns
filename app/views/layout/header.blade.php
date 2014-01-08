@@ -12,24 +12,26 @@
 		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
 				<li{{ (Request::is('/') ? ' class="active"' : '') }}>{{ HTML::link('/', '首页') }}</li>
-				<li{{ (Request::is('topic', 'topic/*') ? ' class="active"' : '') }}>{{ HTML::link('topic', '话题') }}</li>
-				<li{{ (Request::is('user', 'user/*') ? ' class="active"' : '') }}>{{ HTML::link('user', '用户') }}</li>
+				<li{{ (Request::is('store', 'store/*') ? ' class="active"' : '') }}>{{ HTML::link('store', '商店') }}</li>
+				<li{{ (Request::is('topic', 'topic/*') ? ' class="active"' : '') }}>{{ HTML::link('topic', '社区') }}</li>
 			</ul>
+			@if(Auth::check())
 			<form class="navbar-form navbar-left hidden-sm" role="search">
 				<div class="form-group">
 					<input type="text" name="q" class="form-control nav-search" placeholder="输入关键字回车">
 				</div>
 			</form>
+			@endif
 			<ul class="nav navbar-nav navbar-right">
 				@if(Auth::check())
 				<li>
-					<a href="{{ URL::to('user/'.$user->id) }}" class="userinfo"><img src="{{ asset('img/avatar.jpg') }}" class="img-circle" width="24" height="24" alt=""> {{ $user->username }}</a>
+					<a href="{{ URL::to('user') }}" class="userinfo"><img src="{{ asset('img/avatar.jpg') }}" class="img-circle" width="24" height="24" alt=""> {{ $user->username }}</a>
 				</li>
 				<li><a href="{{ URL::to('user/setting') }}"><span class="glyphicon glyphicon-cog"></span> 设置</a></li>
-				<li><a href="{{ URL::to('user/logout') }}"><span class="glyphicon glyphicon-log-out"></span> 退出</a></li>
+				<li><a href="{{ URL::to('auth/logout') }}"><span class="glyphicon glyphicon-log-out"></span> 退出</a></li>
 				@else
-				<li><a href="{{ URL::to('user/login') }}">登录</a></li>
-				<li><a href="{{ URL::to('user/register') }}">注册</a></li>
+				<li><a href="{{ URL::to('auth/login') }}">登录</a></li>
+				<li><a href="{{ URL::to('auth/register') }}">注册</a></li>
 				@endif
 			</ul>
 		</div>

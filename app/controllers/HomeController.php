@@ -21,12 +21,14 @@ class HomeController extends BaseController {
 	 * @return void
 	 * @author
 	 **/
-	public function getIndex() {
-		if (Auth::check()) {
-			return View::make('home.index');
-		} else {
-			return View::make('home.passport');
-		}
+	public function getIndex()
+	{
+		return View::make('home.index');
+	}
+
+	public function getPassport()
+	{
+		return View::make('home.passport');
 	}
 
 
