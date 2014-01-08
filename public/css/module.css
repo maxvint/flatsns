@@ -718,15 +718,12 @@ html, body {
 	line-height: 30px;
 	text-align: center;
 }
-<<<<<<< HEAD
 .goods-list .item .info h5 {
 	margin: 0;
 	height: 30px;
 	line-height: 30px;
 	overflow: hidden;
 }
-=======
->>>>>>> a8102a6a0aaba109521e4721c02b44c435f0862e
 .goods-list .item .info h5 a {
 	font-size: 14px;
 	color: #aaa;
