@@ -80,12 +80,12 @@
 
   // Set gradients for backgrounds
   &.left {
-    #gradient > .horizontal(@start-color: rgba(0,0,0,.5); @end-color: rgba(0,0,0,.0001));
+    #gradient > .horizontal(@start-color: rgba(0,0,0,.1); @end-color: rgba(0,0,0,.0001));
   }
   &.right {
     left: auto;
     right: 0;
-    #gradient > .horizontal(@start-color: rgba(0,0,0,.0001); @end-color: rgba(0,0,0,.5));
+    #gradient > .horizontal(@start-color: rgba(0,0,0,.0001); @end-color: rgba(0,0,0,.1));
   }
 
   // Hover/focus state
@@ -108,11 +108,11 @@
   }
   .icon-prev,
   .glyphicon-chevron-left {
-    left: 50%;
+    left: 25%;
   }
   .icon-next,
   .glyphicon-chevron-right {
-    right: 50%;
+    right: 25%;
   }
   .icon-prev,
   .icon-next {

@@ -17,6 +17,9 @@ class CreateItemsTable extends Migration {
 			$table->increments('id');
 			$table->string('title');
 			$table->text('content');
+			$table->integer('price')->unsigned();
+			$table->smallInteger('views')->default(0);
+			$table->smallInteger('replies')->default(0);
 			$table->integer('created_at');
 			$table->integer('updated_at');
 		});

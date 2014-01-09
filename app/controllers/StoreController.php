@@ -2,10 +2,13 @@
 
 class StoreController extends BaseController {
 
+	private $store;
+	private $item;
 
 	public function __construct(Store $store, Item $item)
 	{
-
+		$this->store = $store;
+		$this->item = $item;
 	}
 
 	/**
@@ -15,7 +18,7 @@ class StoreController extends BaseController {
 	 */
 	public function getIndex()
 	{
-		$items = Item::all();
+		$items = $this->item->getItemList(16);
 		return View::make('store.index', compact('items'));
 	}
 

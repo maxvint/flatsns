@@ -10,11 +10,6 @@
 <div class="container main">
 	<div class="row">
 		<div class="col-xs-12 col-sm-12 col-md-12">
-			<!-- <ol class="breadcrumb hidden-xs">
-				<li><a href="{{ URL::to('/') }}">首页</a></li>
-				<li><a href="{{ URL::to('topic') }}">话题</a></li>
-				<li class="active">{{ $topic->title }}</li>
-			</ol> -->
 			<div class="row">
 				<div class="col-xs-12 col-sm-8 col-md-8 topic-view">
 					<div class="avatar"><a href="{{ URL('user/'.$topic->uid) }}"><img src="{{ asset('img/avatar.jpg') }}" class="img-circle" width="60" height="60" alt=""></a></div>
@@ -26,6 +21,11 @@
 							<span class="glyphicon glyphicon-eye-open"></span>{{ $topic->views }}
 							<span class="glyphicon glyphicon-comment"></span>{{ $topic->replies }}
 						</div>
+					</div>
+					<div class="action" id="topic-view-action">
+						<a href="javascript:;" data-toggle="tooltip" title="好文章，顶一个"><i class="glyphicon glyphicon-thumbs-up"></i><span class="num">25</span></a>
+						<a href="javascript:;" data-toggle="tooltip" title="无节操，毁三观"><i class="glyphicon glyphicon-thumbs-down"></i></a>
+						<a href="javascript:;" data-toggle="tooltip" title="收藏"><i class="glyphicon glyphicon-star-empty"></i></a>
 					</div>
 					<article>
 						{{ $topic->content }}

@@ -2,7 +2,8 @@
 
 class Item extends Eloquent {
 
-
+	protected $table = 'items';
+	protected $fillable = array('title', 'content');
 
 	/**
 	 * undocumented function
@@ -23,8 +24,21 @@ class Item extends Eloquent {
 
 	public function getDateFormat()
 	{
-  	return 'U';
-  }
+		return 'U';
+	}
+
+	/**
+	 * undocumented function
+	 *
+	 * @return void
+	 * @author
+	 **/
+	public function getItemList($perPage = 10)
+	{
+		$result = $this->orderBy('created_at', 'desc')
+									 ->paginate($perPage);
+		return $result;
+	}
 
 
 }
