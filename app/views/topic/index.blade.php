@@ -3,6 +3,7 @@
 @section('content')
 <script language="javascript">
 	seajs.use('app/main', function(main) {
+		main.init();
 		main.load('topic');
 	});
 </script>

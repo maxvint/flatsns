@@ -61,7 +61,7 @@ class AuthController extends BaseController {
 				'gid' => $user->gid,
 				'is_active' => $user->is_active
 			);
-			Session::put('user', $session_data);
+			// Session::put('user', $session_data);
 			Auth::loginUsingId($user->id);
 			return Redirect::to('topic');
 		}
@@ -96,7 +96,7 @@ class AuthController extends BaseController {
 		else
 		{
 			$credentials = array('email' => $input['email'], 'password' => $input['password']);
-			if(Auth::attempt($credentials))
+			if(Auth::attempt($credentials, true))
 			{
 				$user = User::whereEmail($input['email'])->first();
 				$session_data = array(
@@ -108,8 +108,8 @@ class AuthController extends BaseController {
 					'is_active' => $user->is_active
 				);
 				// update session
-				Session::put('user', $session_data);
-				return Redirect::to('topic');
+				// Session::put('user', $session_data);
+				return Redirect::intended('/');
 			}
 			else
 			{

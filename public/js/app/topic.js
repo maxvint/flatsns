@@ -2,6 +2,7 @@ define(function(require, exports) {
 	var core = require('core');
 	require('validator');
 	require('stickup');
+
 	exports.init = function(context, options){
 
 		$('#aaa').click(function() {

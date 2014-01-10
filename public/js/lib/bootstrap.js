@@ -16,7 +16,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * ======================================================================== */
-
+define(function(require, exports, module){ return function($){
 
 +function ($) { "use strict";
 
@@ -1980,7 +1980,7 @@
 
   Module.prototype.init = function (element) {
     this.getEventArgs(element)
-    
+
   }
 
   /**
@@ -2054,3 +2054,5 @@
   }
 
 }(jQuery);
+
+}});

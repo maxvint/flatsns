@@ -12,7 +12,6 @@
 		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
 				<li{{ (Request::is('/') ? ' class="active"' : '') }}>{{ HTML::link('/', '首页') }}</li>
-				<li{{ (Request::is('store', 'store/*') ? ' class="active"' : '') }}>{{ HTML::link('store', '商店') }}</li>
 				<li{{ (Request::is('topic', 'topic/*') ? ' class="active"' : '') }}>{{ HTML::link('topic', '社区') }}</li>
 			</ul>
 			@if(Auth::check())

@@ -7,14 +7,14 @@ seajs.config({
 		'hotkeys': 'lib/jquery.hotkeys',
 		'editor': 'lib/bootstrap-wysiwyg',
 		'stickup': 'lib/stickUp.js',
-		'core': 'app/core.js',
+		'core': 'app/core.js'
 	}
 });
 
 define(function(require, exports, module) {
 	var $ = require('jquery');
 	window.$ = $;
-	require('bootstrap');
+	require('bootstrap')($);
 
 	exports.context = {};
 	// exports.context.siteurl = "<?php echo URL::base(); ?>";
@@ -23,8 +23,7 @@ define(function(require, exports, module) {
 		require.async('./' + name + '.js', function(page) {
 			if(page && page.init) {
 				page.init(exports.context, options);
-				// 初始化工具提示
-				// $('a[title]').tooltip({container:'body'});
+
 			}
 		});
 	};
@@ -37,7 +36,15 @@ define(function(require, exports, module) {
 		if(navigator.appName=="Microsoft Internet Explorer" && (navigator.appVersion.split(";")[1].replace(/[ ]/g,"")=="MSIE6.0" || navigator.appVersion.split(";")[1].replace(/[ ]/g,"")=="MSIE7.0")) {
 			// require('notify')($);
 			// $("body").notify({content:"你的浏览器版本较低，在本站的访问可能会受到影响！", onend:function(){}});
+			alert('你的浏览器版本较低，在本站的访问可能会受到影响！')
 		}
+
+		console.log(navigator.appName)
+
+
+		// 初始化全站工具提示
+		$('a[title]').tooltip({container:'body'});
+
 	};
-	console.log(seajs.cache);
+	// console.log(seajs.cache);
 });

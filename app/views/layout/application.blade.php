@@ -9,10 +9,11 @@
 	<link type="image/x-icon" href="/img/favicon.ico" rel="shortcut icon">
 	<link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
 	<link href="{{ asset('css/module.css') }}" rel="stylesheet">
-	<script>
-	var SITE_URL = "{{ URL::to('/') }}";
-	</script>
 	<script src="{{ asset('js/sea.js') }}"></script>
+	<!--[if lt IE 9]>
+    <script src="{{ asset('js/lib/html5shiv.js') }}"></script>
+    <script src="{{ asset('js/lib/respond.min.js') }}"></script>
+  <![endif]-->
 </head>
 <body>
 	@include('layout.wrap')

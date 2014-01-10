@@ -20,13 +20,10 @@ class BaseController extends Controller {
 		}
 		if(Auth::check())
 		{
-			$user = Session::get('user');
-			if($user) {
-				$this->user = DB::table('users')->find($user['uid']);
-				$this->user->create = Carbon::createFromTimeStamp(strtotime($this->user->created_at))->diffForHumans();
-				$this->user->update = Carbon::createFromTimeStamp(strtotime($this->user->updated_at))->diffForHumans();
-				View::share('user', $this->user);
-			}
+			$this->user = Auth::user();
+			$this->user->create = Carbon::createFromTimeStamp(strtotime($this->user->created_at))->diffForHumans();
+			$this->user->update = Carbon::createFromTimeStamp(strtotime($this->user->updated_at))->diffForHumans();
+			View::share('user', $this->user);
 		}
 	}
 
