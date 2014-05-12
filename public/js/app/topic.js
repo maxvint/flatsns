@@ -1,7 +1,6 @@
 define(function(require, exports) {
 	var core = require('core');
 	require('validator');
-	require('stickup');
 
 	exports.init = function(context, options){
 
@@ -9,10 +8,6 @@ define(function(require, exports) {
 			var args = getArgs(this);
 		}).mouseover(function() {
 			var args = getArgs(this);
-		});
-
-		$('#topic-view-action').stickUp({
-			marginTop: '0'
 		});
 
 		$('.create').bootstrapValidator({

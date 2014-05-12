@@ -1,25 +1,17 @@
 define(function(require, exports) {
 	require('bootstrap');
 	require('hotkeys');
-	require('stickup');
+	// require('stickup');
 	require('editor');
 
 	exports.init = function(context, options){
 
-		$('.btn-toolbar').stickUp({
-			marginTop: 'auto'
-		});
+		// $('.btn-toolbar').stickUp({
+		// 	marginTop: 'auto'
+		// });
 
 		$(function(){
 			function initToolbarBootstrapBindings() {
-				// var fonts = ['Serif', 'Sans', 'Arial', 'Arial Black', 'Courier',
-				//       'Courier New', 'Comic Sans MS', 'Helvetica', 'Impact', 'Lucida Grande', 'Lucida Sans', 'Tahoma', 'Times',
-				//       'Times New Roman', 'Verdana'],
-				//       fontTarget = $('[title=Font]').siblings('.dropdown-menu');
-				// $.each(fonts, function (idx, fontName) {
-				//     fontTarget.append($('<li><a data-edit="fontName ' + fontName +'" style="font-family:\''+ fontName +'\'">'+fontName + '</a></li>'));
-				// });
-
 				$('.dropdown-menu input').click(function() {return false;})
 					.change(function () {$(this).parent('.dropdown-menu').siblings('.dropdown-toggle').dropdown('toggle');})
 					.keydown('esc', function () {this.value='';$(this).change();});

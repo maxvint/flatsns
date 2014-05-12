@@ -23,11 +23,11 @@
 							<span class="glyphicon glyphicon-comment"></span>{{ $topic->replies }}
 						</div>
 					</div>
-					<div class="action" id="topic-view-action">
+					<!-- <div class="action" id="topic-view-action">
 						<a href="javascript:;" data-toggle="tooltip" title="好文章，顶一个"><i class="glyphicon glyphicon-thumbs-up"></i><span class="num">25</span></a>
 						<a href="javascript:;" data-toggle="tooltip" title="无节操，毁三观"><i class="glyphicon glyphicon-thumbs-down"></i></a>
 						<a href="javascript:;" data-toggle="tooltip" title="收藏"><i class="glyphicon glyphicon-star-empty"></i></a>
-					</div>
+					</div> -->
 					<article>
 						{{ $topic->content }}
 					</article>

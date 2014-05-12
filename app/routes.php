@@ -19,7 +19,7 @@ Route::group(array('before' => 'guest'), function()
 });
 
 
-Route::group(array('before' => 'auth'), function()
+Route::group(array('after' => 'auth'), function()
 {
 
 	Route::get('/', 'HomeController@getIndex');

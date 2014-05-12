@@ -29,9 +29,6 @@ define(function(require, exports, module) {
 	};
 
 	exports.init = function(){
-		// 加载小组二级菜单
-		$("#nav_group").mouseover(function(){$(".subnav_group").show();}).mouseout(function(){$(".subnav_group").hide();});
-
 		// ie7以下版本警示
 		if(navigator.appName=="Microsoft Internet Explorer" && (navigator.appVersion.split(";")[1].replace(/[ ]/g,"")=="MSIE6.0" || navigator.appVersion.split(";")[1].replace(/[ ]/g,"")=="MSIE7.0")) {
 			// require('notify')($);
@@ -39,7 +36,7 @@ define(function(require, exports, module) {
 			alert('你的浏览器版本较低，在本站的访问可能会受到影响！')
 		}
 
-		console.log(navigator.appName)
+		// console.log(navigator.appName)
 
 
 		// 初始化全站工具提示

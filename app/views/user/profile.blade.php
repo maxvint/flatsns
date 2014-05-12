@@ -14,7 +14,7 @@
 			<div class="avatar">
 				<a href=""><img src="{{ asset('img/avatar-1.jpg') }}" class="img-circle" width="160" height="160"></a>
 			</div>
-			<div class="name"><h2>{{ $user->username }}</h2></div>
+			<div class="name"><h2>张慧</h2></div>
 			<div class="profile">
 				<span class="pull-right"></span>
 				<p>{{ $user->update }}</p>

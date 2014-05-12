@@ -13,6 +13,7 @@
 			<ul class="nav navbar-nav">
 				<li{{ (Request::is('/') ? ' class="active"' : '') }}>{{ HTML::link('/', '首页') }}</li>
 				<li{{ (Request::is('topic', 'topic/*') ? ' class="active"' : '') }}>{{ HTML::link('topic', '社区') }}</li>
+				<li{{ (Request::is('store', 'store/*') ? ' class="active"' : '') }}>{{ HTML::link('store', '商城') }}</li>
 			</ul>
 			@if(Auth::check())
 			<form class="navbar-form navbar-left hidden-sm" role="search">
